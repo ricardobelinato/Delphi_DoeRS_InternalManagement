@@ -4,11 +4,12 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Data.DB, Vcl.Grids,
+  Vcl.DBGrids, Vcl.ExtCtrls;
 
 type
-  TForm5 = class(TForm)
-    Label1: TLabel;
+  TCidades = class(TForm)
+    DBGrid1: TDBGrid;
   private
     { Private declarations }
   public
@@ -16,7 +17,7 @@ type
   end;
 
 var
-  Form5: TForm5;
+  Cidades: TCidades;
 
 implementation
 

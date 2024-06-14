@@ -131,11 +131,11 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Unit_usuarios.pas">
-            <Form>Form4</Form>
+            <Form>Usuários</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Unit_cidades.pas">
-            <Form>Form5</Form>
+            <Form>Cidades</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Unit_estados.pas">

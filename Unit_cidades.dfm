@@ -1,7 +1,7 @@
-object Form5: TForm5
+object Cidades: TCidades
   Left = 0
   Top = 0
-  Caption = 'Form5'
+  Caption = 'Cidades'
   ClientHeight = 441
   ClientWidth = 624
   Color = clBtnFace
@@ -11,11 +11,16 @@ object Form5: TForm5
   Font.Name = 'Segoe UI'
   Font.Style = []
   TextHeight = 15
-  object Label1: TLabel
-    Left = 8
-    Top = 8
-    Width = 70
-    Height = 15
-    Caption = 'tela - cidades'
+  object DBGrid1: TDBGrid
+    Left = 0
+    Top = 40
+    Width = 633
+    Height = 354
+    TabOrder = 0
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -12
+    TitleFont.Name = 'Segoe UI'
+    TitleFont.Style = []
   end
 end

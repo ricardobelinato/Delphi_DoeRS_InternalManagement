@@ -1,7 +1,7 @@
 object Form6: TForm6
   Left = 0
   Top = 0
-  Caption = 'Form6'
+  Caption = 'Estados'
   ClientHeight = 441
   ClientWidth = 624
   Color = clBtnFace
@@ -11,11 +11,16 @@ object Form6: TForm6
   Font.Name = 'Segoe UI'
   Font.Style = []
   TextHeight = 15
-  object Label1: TLabel
-    Left = 8
-    Top = 8
-    Width = 70
-    Height = 15
-    Caption = 'tela - estados'
+  object DBGrid1: TDBGrid
+    Left = 0
+    Top = 39
+    Width = 625
+    Height = 355
+    TabOrder = 0
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -12
+    TitleFont.Name = 'Segoe UI'
+    TitleFont.Style = []
   end
 end

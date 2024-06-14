@@ -20,7 +20,6 @@ type
     Instituies2: TMenuItem;
     Itens3: TMenuItem;
     iposdeItens1: TMenuItem;
-    Label2: TLabel;
     FDConnection1: TFDConnection;
     FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink;
     procedure Usurios1Click(Sender: TObject);
@@ -47,7 +46,7 @@ uses Unit1, Unit_usuarios, Unit_cidades, Unit_estados, Unit_instituicoes, Unit_i
 
 procedure TForm3.Cidades1Click(Sender: TObject);
 begin
-  Form5.Show; //form cidades
+  Cidades.Show; //form cidades
 end;
 
 procedure TForm3.Estados1Click(Sender: TObject);
@@ -113,7 +112,7 @@ end;
 
 procedure TForm3.Usurios1Click(Sender: TObject);
 begin
-  Form4.Show; //form usuários
+  Usuários.Show; //form usuários
 end;
 
 end.

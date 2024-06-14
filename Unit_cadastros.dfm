@@ -11,27 +11,21 @@ object Form3: TForm3
   Font.Name = 'Segoe UI'
   Font.Style = []
   Menu = MainMenu1
+  WindowState = wsMaximized
   OnCreate = FormCreate
   TextHeight = 15
   object Label1: TLabel
-    Left = 16
-    Top = 56
-    Width = 135
+    Left = 8
+    Top = 8
+    Width = 191
     Height = 28
-    Caption = 'Seja bem vindo'
+    Caption = 'Cadastre uma Doa'#231#227'o'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -20
     Font.Name = 'Segoe UI'
     Font.Style = []
     ParentFont = False
-  end
-  object Label2: TLabel
-    Left = 513
-    Top = 67
-    Width = 88
-    Height = 15
-    Caption = 'tela de cadastros'
   end
   object MainMenu1: TMainMenu
     Left = 24
