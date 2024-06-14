@@ -1,13 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
-  <Transactions>
-    <Transaction>2024/06/12 14:43:04.101,=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2024/06/12 16:53:51.394,C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
-    <Transaction>2024/06/13 14:44:07.626,=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
-    <Transaction>2024/06/13 15:12:31.118,C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit2.pas=</Transaction>
-    <Transaction>2024/06/13 16:19:21.477,=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
-    <Transaction>2024/06/13 16:19:55.332,=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
-    <Transaction>2024/06/13 16:20:13.825,=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
-    <Transaction>2024/06/13 18:30:25.225,=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit4.pas</Transaction>
+	<Transactions>
+    <Transaction>2024/06/12 14:43:04.000.101,=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/06/12 16:53:51.000.394,C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2024/06/13 14:44:07.000.626,=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2024/06/13 15:12:31.000.118,C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit2.pas=</Transaction>
+    <Transaction>2024/06/13 16:19:21.000.477,=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
+    <Transaction>2024/06/13 16:19:55.000.332,=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
+    <Transaction>2024/06/13 16:20:13.000.825,=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
+    <Transaction>2024/06/13 18:30:25.000.225,=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit4.pas</Transaction>
+    <Transaction>2024/06/13 21:21:33.000.741,C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit4.dfm=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit_Usuarios.dfm</Transaction>
+    <Transaction>2024/06/13 21:21:33.000.741,C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit4.pas=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit_Usuarios.pas</Transaction>
+    <Transaction>2024/06/13 21:22:27.000.228,=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit5.pas</Transaction>
+    <Transaction>2024/06/13 21:22:50.000.757,C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit5.pas=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit_cidades.pas</Transaction>
+    <Transaction>2024/06/13 21:22:50.000.758,C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit5.dfm=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit_cidades.dfm</Transaction>
+    <Transaction>2024/06/13 21:23:32.000.180,C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit_Usuarios.pas=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit_u.pas</Transaction>
+    <Transaction>2024/06/13 21:23:32.000.180,C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit_Usuarios.dfm=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit_u.dfm</Transaction>
+    <Transaction>2024/06/13 21:23:39.000.415,C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit_u.dfm=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit_usuarios.dfm</Transaction>
+    <Transaction>2024/06/13 21:23:39.000.415,C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit_u.pas=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit_usuarios.pas</Transaction>
+    <Transaction>2024/06/13 21:25:18.000.561,=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit6.pas</Transaction>
+    <Transaction>2024/06/13 21:25:28.000.858,C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit6.dfm=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit_estados.dfm</Transaction>
+    <Transaction>2024/06/13 21:25:28.000.858,C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit6.pas=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit_estados.pas</Transaction>
+    <Transaction>2024/06/13 21:25:35.000.258,=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit7.pas</Transaction>
+    <Transaction>2024/06/13 21:25:45.000.529,C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit7.pas=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit_instituicoes.pas</Transaction>
+    <Transaction>2024/06/13 21:25:45.000.529,C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit7.dfm=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit_instituicoes.dfm</Transaction>
+    <Transaction>2024/06/13 21:25:54.000.025,=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit8.pas</Transaction>
+    <Transaction>2024/06/13 21:25:59.000.759,C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit8.dfm=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit_itens.dfm</Transaction>
+    <Transaction>2024/06/13 21:25:59.000.759,C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit8.pas=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit_itens.pas</Transaction>
+    <Transaction>2024/06/13 21:26:31.658,=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit9.pas</Transaction>
+    <Transaction>2024/06/13 21:26:41.818,C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit_tipos_de_itens.pas=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit9.pas</Transaction>
+    <Transaction>2024/06/13 21:26:41.818,C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit_tipos_de_itens.dfm=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit9.dfm</Transaction>
+    <Transaction>2024/06/13 21:30:11.562,C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit_cadastros.pas=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
+    <Transaction>2024/06/13 21:30:11.562,C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit_cadastros.dfm=C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit3.dfm</Transaction>
   </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="Unit1.pas"/>
+    <File Path="Unit1.dfm"/>
+    <File Path="Unit_cadastros.pas"/>
+    <File Path="Unit_cadastros.dfm"/>
+    <File Path="Unit_cidades.pas"/>
+    <File Path="Unit_cidades.dfm"/>
+    <File Path="Unit_usuarios.pas"/>
+    <File Path="Unit_usuarios.dfm"/>
+    <File Path="Unit_estados.pas"/>
+    <File Path="Unit_estados.dfm"/>
+    <File Path="Unit_instituicoes.pas"/>
+    <File Path="Unit_instituicoes.dfm"/>
+    <File Path="Unit_itens.pas"/>
+    <File Path="Unit_itens.dfm"/>
+    <File Path="Unit_tipos_de_itens.pas"/>
+    <File Path="Unit_tipos_de_itens.dfm"/>
+  </ProjectSortOrder>
 </BorlandProject>

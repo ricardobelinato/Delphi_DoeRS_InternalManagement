@@ -28,12 +28,13 @@ type
 
 var
   Form1: TForm1;
+  NomeUsuarioLogado: String;
 
 implementation
 
 {$R *.dfm}
 
-uses Unit3;
+uses Unit_cadastros;
 
 procedure TForm1.Button1Click(Sender: TObject);
   var
