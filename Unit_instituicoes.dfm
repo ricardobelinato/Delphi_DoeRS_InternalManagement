@@ -2,7 +2,7 @@ object Form7: TForm7
   Left = 0
   Top = 0
   Caption = 'Institui'#231#245'es'
-  ClientHeight = 441
+  ClientHeight = 446
   ClientWidth = 624
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -15,8 +15,8 @@ object Form7: TForm7
     Left = 0
     Top = 40
     Width = 625
-    Height = 361
-    DataSource = DataSource_Instituicoes
+    Height = 369
+    DataSource = DataModule3.DataSource_Instituicoes
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -48,23 +48,33 @@ object Form7: TForm7
   end
   object Panel2: TPanel
     Left = 0
-    Top = 400
-    Width = 624
+    Top = 407
+    Width = 625
     Height = 41
     TabOrder = 2
-  end
-  object FDQuery_Instituicoes: TFDQuery
-    Active = True
-    ChangeAlertName = 'FDQuery_Instituicoes'
-    Connection = Form1.FDConnection1
-    SQL.Strings = (
-      'SELECT * FROM instituicao;')
-    Left = 48
-    Top = 144
-  end
-  object DataSource_Instituicoes: TDataSource
-    DataSet = FDQuery_Instituicoes
-    Left = 176
-    Top = 144
+    object Adicionar: TButton
+      Left = 366
+      Top = 8
+      Width = 75
+      Height = 25
+      Caption = 'Adicionar'
+      TabOrder = 0
+    end
+    object Editar: TButton
+      Left = 447
+      Top = 8
+      Width = 75
+      Height = 25
+      Caption = 'Editar'
+      TabOrder = 1
+    end
+    object Excluir: TButton
+      Left = 528
+      Top = 8
+      Width = 75
+      Height = 25
+      Caption = 'Excluir'
+      TabOrder = 2
+    end
   end
 end

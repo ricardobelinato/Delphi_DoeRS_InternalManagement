@@ -16,8 +16,6 @@ type
     Panel1: TPanel;
     Panel2: TPanel;
     Label1: TLabel;
-    FDQuery_Itens: TFDQuery;
-    DataSource_Itens: TDataSource;
     Button1: TButton;
     Button2: TButton;
     Button3: TButton;
@@ -33,6 +31,6 @@ var
 implementation
 
 {$R *.dfm}
-uses Unit1;
+uses Unit_data_module;
 
 end.

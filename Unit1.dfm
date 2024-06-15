@@ -103,6 +103,7 @@ object Form1: TForm1
       'User_Name=root'
       'Server=127.0.0.1'
       'DriverID=MySQL')
+    Connected = True
     Left = 32
     Top = 344
   end

@@ -16,8 +16,9 @@ type
     Panel1: TPanel;
     Label1: TLabel;
     Panel2: TPanel;
-    FDQuery_Instituicoes: TFDQuery;
-    DataSource_Instituicoes: TDataSource;
+    Adicionar: TButton;
+    Editar: TButton;
+    Excluir: TButton;
   private
     { Private declarations }
   public
@@ -30,6 +31,6 @@ var
 implementation
 
 {$R *.dfm}
-uses Unit1;
+uses Unit_data_module;
 
 end.

@@ -9,7 +9,8 @@ uses
   Unit_estados in 'Unit_estados.pas' {Estados},
   Unit_instituicoes in 'Unit_instituicoes.pas' {Form7},
   Unit_itens in 'Unit_itens.pas' {Itens},
-  Unit_tipos_de_itens in 'Unit_tipos_de_itens.pas' {Tipoitem};
+  Unit_tipos_de_itens in 'Unit_tipos_de_itens.pas' {Tipoitem},
+  Unit_data_module in 'Unit_data_module.pas' {DataModule3: TDataModule};
 
 {$R *.res}
 
@@ -24,5 +25,6 @@ begin
   Application.CreateForm(TForm7, Form7);
   Application.CreateForm(TItens, Itens);
   Application.CreateForm(TTipoitem, Tipoitem);
+  Application.CreateForm(TDataModule3, DataModule3);
   Application.Run;
 end.

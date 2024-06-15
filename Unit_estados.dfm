@@ -16,7 +16,7 @@ object Estados: TEstados
     Top = 39
     Width = 625
     Height = 362
-    DataSource = DataSource_Estados
+    DataSource = DataModule3.DataSource_Estados
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -76,18 +76,5 @@ object Estados: TEstados
       Caption = 'Excluir'
       TabOrder = 2
     end
-  end
-  object FDQuery_Estados: TFDQuery
-    Active = True
-    Connection = Form1.FDConnection1
-    SQL.Strings = (
-      'SELECT * FROM estado;')
-    Left = 40
-    Top = 128
-  end
-  object DataSource_Estados: TDataSource
-    DataSet = FDQuery_Estados
-    Left = 152
-    Top = 128
   end
 end

@@ -38,7 +38,7 @@ object Tipoitem: TTipoitem
     Top = 40
     Width = 625
     Height = 361
-    DataSource = DataSource_tipos_de_itens
+    DataSource = DataModule3.DataSource_tipos_de_itens
     TabOrder = 1
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -76,18 +76,5 @@ object Tipoitem: TTipoitem
       Caption = 'Excluir'
       TabOrder = 2
     end
-  end
-  object FDQuery_tipos_de_itens: TFDQuery
-    Active = True
-    Connection = Form1.FDConnection1
-    SQL.Strings = (
-      'SELECT * FROM tipoitem;')
-    Left = 64
-    Top = 152
-  end
-  object DataSource_tipos_de_itens: TDataSource
-    DataSet = FDQuery_tipos_de_itens
-    Left = 208
-    Top = 152
   end
 end

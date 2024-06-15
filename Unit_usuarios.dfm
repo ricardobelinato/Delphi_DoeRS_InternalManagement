@@ -16,7 +16,7 @@
     Top = 40
     Width = 625
     Height = 354
-    DataSource = DataSource_Usuarios
+    DataSource = DataModule3.DataSource_Usuarios
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -76,18 +76,5 @@
       Caption = 'Excluir'
       TabOrder = 2
     end
-  end
-  object DataSource_Usuarios: TDataSource
-    DataSet = FDQuery_Usuarios
-    Left = 152
-    Top = 144
-  end
-  object FDQuery_Usuarios: TFDQuery
-    Active = True
-    Connection = Form1.FDConnection1
-    SQL.Strings = (
-      'SELECT * FROM usuario')
-    Left = 40
-    Top = 144
   end
 end

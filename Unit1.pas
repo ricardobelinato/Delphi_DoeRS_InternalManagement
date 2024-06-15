@@ -40,7 +40,7 @@ implementation
 
 {$R *.dfm}
 
-uses Unit_cadastros;
+uses Unit_cadastros, Unit_data_module;
 
 
 

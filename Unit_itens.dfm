@@ -16,7 +16,7 @@ object Itens: TItens
     Top = 40
     Width = 625
     Height = 369
-    DataSource = DataSource_Itens
+    DataSource = DataModule3.DataSource_Itens
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -76,18 +76,5 @@ object Itens: TItens
       Caption = 'Excluir'
       TabOrder = 2
     end
-  end
-  object FDQuery_Itens: TFDQuery
-    Active = True
-    Connection = Form1.FDConnection1
-    SQL.Strings = (
-      'SELECT * FROM item;')
-    Left = 32
-    Top = 128
-  end
-  object DataSource_Itens: TDataSource
-    DataSet = FDQuery_Itens
-    Left = 128
-    Top = 128
   end
 end

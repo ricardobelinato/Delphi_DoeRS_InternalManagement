@@ -16,7 +16,7 @@ object Cidades: TCidades
     Top = 40
     Width = 633
     Height = 361
-    DataSource = DataSource_Cidades
+    DataSource = DataModule3.DataSource_Cidades
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -76,18 +76,5 @@ object Cidades: TCidades
       Caption = 'Excluir'
       TabOrder = 2
     end
-  end
-  object FDQuery_Cidades: TFDQuery
-    Active = True
-    Connection = Form1.FDConnection1
-    SQL.Strings = (
-      'SELECT * FROM cidade;')
-    Left = 40
-    Top = 128
-  end
-  object DataSource_Cidades: TDataSource
-    DataSet = FDQuery_Cidades
-    Left = 152
-    Top = 128
   end
 end
