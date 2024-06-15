@@ -6,10 +6,10 @@ uses
   Unit_cadastros in 'Unit_cadastros.pas' {Form3},
   Unit_usuarios in 'Unit_usuarios.pas' {Usuários},
   Unit_cidades in 'Unit_cidades.pas' {Cidades},
-  Unit_estados in 'Unit_estados.pas' {Form6},
+  Unit_estados in 'Unit_estados.pas' {Estados},
   Unit_instituicoes in 'Unit_instituicoes.pas' {Form7},
-  Unit_itens in 'Unit_itens.pas' {Form8},
-  Unit_tipos_de_itens in 'Unit_tipos_de_itens.pas' {Form9};
+  Unit_itens in 'Unit_itens.pas' {Itens},
+  Unit_tipos_de_itens in 'Unit_tipos_de_itens.pas' {Tipoitem};
 
 {$R *.res}
 
@@ -20,9 +20,9 @@ begin
   Application.CreateForm(TForm3, Form3);
   Application.CreateForm(TUsuários, Usuários);
   Application.CreateForm(TCidades, Cidades);
-  Application.CreateForm(TForm6, Form6);
+  Application.CreateForm(TEstados, Estados);
   Application.CreateForm(TForm7, Form7);
-  Application.CreateForm(TForm8, Form8);
-  Application.CreateForm(TForm9, Form9);
+  Application.CreateForm(TItens, Itens);
+  Application.CreateForm(TTipoitem, Tipoitem);
   Application.Run;
 end.

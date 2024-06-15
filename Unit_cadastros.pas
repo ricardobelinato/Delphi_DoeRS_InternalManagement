@@ -8,11 +8,10 @@ uses
   Vcl.DBGrids, Vcl.Menus, FireDAC.Stan.Intf, FireDAC.Stan.Option,
   FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.MySQL,
-  FireDAC.Phys.MySQLDef, FireDAC.VCLUI.Wait, FireDAC.Comp.Client;
+  FireDAC.Phys.MySQLDef, FireDAC.VCLUI.Wait, FireDAC.Comp.Client, Vcl.ExtCtrls;
 
 type
   TForm3 = class(TForm)
-    Label1: TLabel;
     MainMenu1: TMainMenu;
     Usurios1: TMenuItem;
     Cidades1: TMenuItem;
@@ -20,8 +19,10 @@ type
     Instituies2: TMenuItem;
     Itens3: TMenuItem;
     iposdeItens1: TMenuItem;
-    FDConnection1: TFDConnection;
-    FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink;
+    Panel1: TPanel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Panel2: TPanel;
     procedure Usurios1Click(Sender: TObject);
     procedure Cidades1Click(Sender: TObject);
     procedure Estados1Click(Sender: TObject);
@@ -46,12 +47,12 @@ uses Unit1, Unit_usuarios, Unit_cidades, Unit_estados, Unit_instituicoes, Unit_i
 
 procedure TForm3.Cidades1Click(Sender: TObject);
 begin
-  Cidades.Show; //form cidades
+  Cidades.Show;
 end;
 
 procedure TForm3.Estados1Click(Sender: TObject);
 begin
-  Form6.Show; //form estados
+  Estados.Show;
 end;
 
 //procedure TForm3.FormCreate(Sender: TObject);
@@ -97,22 +98,22 @@ end;
 
 procedure TForm3.Instituies2Click(Sender: TObject);
 begin
-  Form7.Show; //form instituições
+  Form7.Show;
 end;
 
 procedure TForm3.iposdeItens1Click(Sender: TObject);
 begin
-  Form9.Show; //form Tipos de Itens
+  Tipoitem.Show;
 end;
 
 procedure TForm3.Itens3Click(Sender: TObject);
 begin
-  Form8.Show; //form Itens
+  Itens.Show;
 end;
 
 procedure TForm3.Usurios1Click(Sender: TObject);
 begin
-  Usuários.Show; //form usuários
+  Usuários.Show;
 end;
 
 end.

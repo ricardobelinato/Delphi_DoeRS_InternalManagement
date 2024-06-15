@@ -11,25 +11,55 @@ object Form3: TForm3
   Font.Name = 'Segoe UI'
   Font.Style = []
   Menu = MainMenu1
-  WindowState = wsMaximized
   OnCreate = FormCreate
   TextHeight = 15
-  object Label1: TLabel
-    Left = 8
-    Top = 8
-    Width = 191
-    Height = 28
-    Caption = 'Cadastre uma Doa'#231#227'o'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -20
-    Font.Name = 'Segoe UI'
-    Font.Style = []
-    ParentFont = False
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 624
+    Height = 73
+    Align = alTop
+    Color = clHotLight
+    ParentBackground = False
+    TabOrder = 0
+    ExplicitWidth = 625
+    object Label1: TLabel
+      Left = 160
+      Top = 11
+      Width = 282
+      Height = 32
+      Caption = 'Seja bem vindo de volta!'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clCream
+      Font.Height = -24
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label2: TLabel
+      Left = 128
+      Top = 40
+      Width = 357
+      Height = 15
+      Caption = 'Cadastre uma doa'#231#227'o / item preenchendo todos os campos abaixo:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clCream
+      Font.Height = -12
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 71
+    Width = 625
+    Height = 370
+    TabOrder = 1
   end
   object MainMenu1: TMainMenu
-    Left = 24
-    Top = 384
+    Left = 568
+    Top = 8
     object Usurios1: TMenuItem
       Caption = 'Usu'#225'rios'
       OnClick = Usurios1Click
@@ -54,21 +84,5 @@ object Form3: TForm3
       Caption = 'Tipos de Itens'
       OnClick = iposdeItens1Click
     end
-  end
-  object FDConnection1: TFDConnection
-    Params.Strings = (
-      'Database=delphi'
-      'User_Name=root'
-      'Server=127.0.0.1'
-      'DriverID=MySQL')
-    Left = 112
-    Top = 384
-  end
-  object FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink
-    VendorLib = 
-      'C:\Users\pcrub\OneDrive\'#193'rea de Trabalho\delphi\projeto\libmysql' +
-      '.dll'
-    Left = 232
-    Top = 384
   end
 end

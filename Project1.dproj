@@ -139,7 +139,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Unit_estados.pas">
-            <Form>Form6</Form>
+            <Form>Estados</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Unit_instituicoes.pas">
@@ -147,11 +147,11 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Unit_itens.pas">
-            <Form>Form8</Form>
+            <Form>Itens</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Unit_tipos_de_itens.pas">
-            <Form>Form9</Form>
+            <Form>Tipoitem</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">

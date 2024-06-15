@@ -1,9 +1,9 @@
-object Form8: TForm8
+object Itens: TItens
   Left = 0
   Top = 0
   Caption = 'Itens'
-  ClientHeight = 441
-  ClientWidth = 624
+  ClientHeight = 446
+  ClientWidth = 622
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,12 +15,79 @@ object Form8: TForm8
     Left = 0
     Top = 40
     Width = 625
-    Height = 354
+    Height = 369
+    DataSource = DataSource_Itens
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -12
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = []
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 625
+    Height = 41
+    Color = clHotLight
+    ParentBackground = False
+    TabOrder = 1
+    object Label1: TLabel
+      Left = 8
+      Top = 6
+      Width = 46
+      Height = 28
+      Caption = 'Itens'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clCream
+      Font.Height = -20
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 407
+    Width = 625
+    Height = 41
+    TabOrder = 2
+    object Button1: TButton
+      Left = 367
+      Top = 8
+      Width = 75
+      Height = 25
+      Caption = 'Adicionar'
+      TabOrder = 0
+    end
+    object Button2: TButton
+      Left = 448
+      Top = 8
+      Width = 75
+      Height = 25
+      Caption = 'Editar'
+      TabOrder = 1
+    end
+    object Button3: TButton
+      Left = 529
+      Top = 8
+      Width = 75
+      Height = 25
+      Caption = 'Excluir'
+      TabOrder = 2
+    end
+  end
+  object FDQuery_Itens: TFDQuery
+    Active = True
+    Connection = Form1.FDConnection1
+    SQL.Strings = (
+      'SELECT * FROM item;')
+    Left = 32
+    Top = 128
+  end
+  object DataSource_Itens: TDataSource
+    DataSet = FDQuery_Itens
+    Left = 128
+    Top = 128
   end
 end

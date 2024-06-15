@@ -76,10 +76,6 @@ uses Unit_cadastros;
 //  end;
 //end;
 
-
-
-
-
 procedure TForm1.SpeedButton1Click(Sender: TObject);
 var
   Query: TFDQuery;
@@ -110,12 +106,6 @@ Query := TFDQuery.Create(nil);
     Query.Free;
   end;
 end;
-
-
-
-
-
-
 
 procedure TForm1.SpeedButton1MouseEnter(Sender: TObject);
 begin

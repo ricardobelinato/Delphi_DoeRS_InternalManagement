@@ -1,4 +1,4 @@
-object Form9: TForm9
+object Tipoitem: TTipoitem
   Left = 0
   Top = 0
   Caption = 'Tipos de Itens'
@@ -7,26 +7,87 @@ object Form9: TForm9
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -23
+  Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
-  TextHeight = 31
+  TextHeight = 15
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 632
+    Height = 41
+    Color = clHotLight
+    ParentBackground = False
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 8
+      Top = 6
+      Width = 132
+      Height = 28
+      Caption = 'Tipos de Itens'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clCream
+      Font.Height = -20
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+  end
   object DBGrid1: TDBGrid
     Left = 0
     Top = 40
     Width = 625
-    Height = 354
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -12
-    Font.Name = 'Segoe UI'
-    Font.Style = []
-    ParentFont = False
-    TabOrder = 0
+    Height = 361
+    DataSource = DataSource_tipos_de_itens
+    TabOrder = 1
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
-    TitleFont.Height = -23
+    TitleFont.Height = -12
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = []
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 400
+    Width = 625
+    Height = 41
+    TabOrder = 2
+    object Button1: TButton
+      Left = 374
+      Top = 7
+      Width = 75
+      Height = 25
+      Caption = 'Adicionar'
+      TabOrder = 0
+    end
+    object Button2: TButton
+      Left = 455
+      Top = 7
+      Width = 75
+      Height = 25
+      Caption = 'Editar'
+      TabOrder = 1
+    end
+    object Button3: TButton
+      Left = 536
+      Top = 7
+      Width = 75
+      Height = 25
+      Caption = 'Excluir'
+      TabOrder = 2
+    end
+  end
+  object FDQuery_tipos_de_itens: TFDQuery
+    Active = True
+    Connection = Form1.FDConnection1
+    SQL.Strings = (
+      'SELECT * FROM tipoitem;')
+    Left = 64
+    Top = 152
+  end
+  object DataSource_tipos_de_itens: TDataSource
+    DataSet = FDQuery_tipos_de_itens
+    Left = 208
+    Top = 152
   end
 end
