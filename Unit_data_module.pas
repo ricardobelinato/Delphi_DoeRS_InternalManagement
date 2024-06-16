@@ -25,6 +25,7 @@ type
     DataSource_Itens: TDataSource;
     DataSource_tipos_de_itens: TDataSource;
     FDQuery_tipos_de_itens: TFDQuery;
+    FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink;
   private
     { Private declarations }
   public

@@ -1,8 +1,9 @@
 ﻿object Usuários: TUsuários
   Left = 0
   Top = 0
+  BorderStyle = bsSingle
   Caption = 'Usu'#225'rios'
-  ClientHeight = 435
+  ClientHeight = 440
   ClientWidth = 622
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -49,7 +50,7 @@
   object Panel2: TPanel
     Left = 0
     Top = 392
-    Width = 624
+    Width = 625
     Height = 49
     TabOrder = 2
     object Button1: TButton

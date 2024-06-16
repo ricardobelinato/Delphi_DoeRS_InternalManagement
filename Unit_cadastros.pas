@@ -23,6 +23,27 @@ type
     Label1: TLabel;
     Label2: TLabel;
     Panel2: TPanel;
+    Label3: TLabel;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    CheckBox1: TCheckBox;
+    CheckBox2: TCheckBox;
+    ComboBox1: TComboBox;
+    Edit3: TEdit;
+    Edit4: TEdit;
+    Label4: TLabel;
+    Edit5: TEdit;
+    Edit6: TEdit;
+    Edit7: TEdit;
+    Label5: TLabel;
+    Edit8: TEdit;
+    ComboBox2: TComboBox;
+    Edit9: TEdit;
+    ComboBox3: TComboBox;
+    Edit10: TEdit;
+    Edit11: TEdit;
+    Edit12: TEdit;
+    Button1: TButton;
     procedure Usurios1Click(Sender: TObject);
     procedure Cidades1Click(Sender: TObject);
     procedure Estados1Click(Sender: TObject);
@@ -43,7 +64,7 @@ var
 implementation
 
 {$R *.dfm}
-uses Unit1, Unit_usuarios, Unit_cidades, Unit_estados, Unit_instituicoes, Unit_itens, Unit_tipos_de_itens;
+uses Unit_login, Unit_usuarios, Unit_cidades, Unit_estados, Unit_instituicoes, Unit_itens, Unit_tipos_de_itens;
 
 procedure TForm3.Cidades1Click(Sender: TObject);
 begin
