@@ -1,4 +1,4 @@
-object Form1: TForm1
+object Form_Login: TForm_Login
   Left = 0
   Top = 0
   Caption = 'Login'
@@ -39,7 +39,7 @@ object Form1: TForm1
   end
   object Label3: TLabel
     Left = 64
-    Top = 139
+    Top = 131
     Width = 33
     Height = 15
     Caption = 'Nome'

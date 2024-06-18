@@ -13,7 +13,7 @@ uses
   Vcl.ExtCtrls;
 
 type
-  TForm1 = class(TForm)
+  TForm_Login = class(TForm)
     TEditName: TEdit;
     TEditCPF: TEdit;
     Label1: TLabel;
@@ -27,14 +27,16 @@ type
     procedure SpeedButton1MouseEnter(Sender: TObject);
     procedure SpeedButton1MouseLeave(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
+//    procedure TEditCPFExit(Sender: TObject);
   private
     { Private declarations }
+//    procedure AplicarMascaraCPF(edt: TEdit);
   public
     { Public declarations }
   end;
 
 var
-  Form1: TForm1;
+  Form_Login: TForm_Login;
   NomeUsuarioLogado: String;
 //  DataModule1: TDataModule1;
 
@@ -42,7 +44,7 @@ implementation
 
 {$R *.dfm}
 
-uses Unit_cadastros, Unit_data_module;
+uses Unit_cadastros, Unit_data_module, Unit_mascaras;
 
 
 
@@ -78,7 +80,7 @@ uses Unit_cadastros, Unit_data_module;
 //  end;
 //end;
 
-procedure TForm1.SpeedButton1Click(Sender: TObject);
+procedure TForm_Login.SpeedButton1Click(Sender: TObject);
 var
   Query: TFDQuery;
   NomeCompleto, CPF: string;
@@ -110,7 +112,7 @@ Query := TFDQuery.Create(nil);
 
     if Query.Fields[0].AsInteger > 0 then
     begin
-      Form1.Hide;
+      Form_login.Hide;
       Form3.Show
     end
     else
@@ -122,14 +124,24 @@ Query := TFDQuery.Create(nil);
   end;
 end;
 
-procedure TForm1.SpeedButton1MouseEnter(Sender: TObject);
+procedure TForm_Login.SpeedButton1MouseEnter(Sender: TObject);
 begin
   Panel1.Color := clMenuHighlight;
 end;
 
-procedure TForm1.SpeedButton1MouseLeave(Sender: TObject);
+procedure TForm_Login.SpeedButton1MouseLeave(Sender: TObject);
 begin
   Panel1.Color := clHotLight;
 end;
+
+//procedure TForm1.AplicarMascaraCPF(edt: TEdit);
+//begin
+//  Formatar(edt, TFormato.CPF);
+//end;
+//
+//procedure TForm1.TEditCPFExit(Sender: TObject);
+//begin
+//  AplicarMascaraCPF(TEditCPF);
+//end;
 
 end.

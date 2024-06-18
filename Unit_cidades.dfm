@@ -3,7 +3,7 @@ object Cidades: TCidades
   Top = 0
   Caption = 'Cidades'
   ClientHeight = 440
-  ClientWidth = 630
+  ClientWidth = 629
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText

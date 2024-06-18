@@ -2,8 +2,8 @@ object Form3: TForm3
   Left = 0
   Top = 0
   Caption = 'Cadastro'
-  ClientHeight = 439
-  ClientWidth = 624
+  ClientHeight = 544
+  ClientWidth = 948
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,22 +11,25 @@ object Form3: TForm3
   Font.Name = 'Segoe UI'
   Font.Style = []
   Menu = MainMenu1
+  WindowState = wsMaximized
   OnCreate = FormCreate
   TextHeight = 15
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 624
-    Height = 73
+    Width = 948
+    Height = 81
     Align = alTop
     Color = clHotLight
     ParentBackground = False
     TabOrder = 0
     object Label1: TLabel
-      Left = 160
-      Top = 11
-      Width = 282
-      Height = 32
+      Left = 1
+      Top = 1
+      Width = 946
+      Height = 79
+      Align = alClient
+      Alignment = taCenter
       Caption = 'Seja bem vindo de volta!'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clCream
@@ -34,26 +37,17 @@ object Form3: TForm3
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentFont = False
-    end
-    object Label2: TLabel
-      Left = 128
-      Top = 40
-      Width = 357
-      Height = 15
-      Caption = 'Cadastre uma doa'#231#227'o / item preenchendo todos os campos abaixo:'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clCream
-      Font.Height = -12
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      ParentFont = False
+      Layout = tlCenter
+      ExplicitWidth = 282
+      ExplicitHeight = 32
     end
   end
   object Panel2: TPanel
     Left = 0
-    Top = 71
-    Width = 625
-    Height = 370
+    Top = 81
+    Width = 948
+    Height = 463
+    Align = alClient
     TabOrder = 1
     object Label3: TLabel
       Left = 16
@@ -75,6 +69,25 @@ object Form3: TForm3
       Width = 84
       Height = 15
       Caption = 'Sobre a doa'#231#227'o:'
+    end
+    object Label6: TLabel
+      Left = 1
+      Top = 1
+      Width = 946
+      Height = 15
+      Align = alTop
+      Alignment = taCenter
+      Caption = 'Cadastre uma doa'#231#227'o / item preenchendo todos os campos abaixo:'
+      Color = clBtnFace
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -12
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+      ExplicitWidth = 357
     end
     object Edit1: TEdit
       Left = 16
@@ -222,8 +235,8 @@ object Form3: TForm3
     end
   end
   object MainMenu1: TMainMenu
-    Left = 552
-    Top = 8
+    Left = 888
+    Top = 16
     object Usurios1: TMenuItem
       Caption = 'Usu'#225'rios'
       OnClick = Usurios1Click

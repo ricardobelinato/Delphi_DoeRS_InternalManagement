@@ -20,6 +20,7 @@ type
     Button1: TButton;
     Button2: TButton;
     Button3: TButton;
+    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -32,6 +33,11 @@ var
 implementation
 
 {$R *.dfm}
-uses Unit_data_module;
+uses Unit_data_module, Usuario_adicionar;
+
+procedure TUsuários.Button1Click(Sender: TObject);
+begin
+  Form_adicionar_usuario.Show;
+end;
 
 end.

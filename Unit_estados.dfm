@@ -3,7 +3,7 @@ object Estados: TEstados
   Top = 0
   Caption = 'Estados'
   ClientHeight = 438
-  ClientWidth = 621
+  ClientWidth = 620
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText

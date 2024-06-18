@@ -123,7 +123,7 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="Unit_login.pas">
-            <Form>Form1</Form>
+            <Form>Form_Login</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Unit_cadastros.pas">
@@ -158,6 +158,15 @@
             <Form>DataModule3</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Unit_mascaras.pas"/>
+        <DCCReference Include="Usuario_adicionar.pas">
+            <Form>Form_adicionar_usuario</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Usuario_editar.pas">
+            <Form>Form_editar_usuario</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>

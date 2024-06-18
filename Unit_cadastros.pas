@@ -20,8 +20,6 @@ type
     Itens3: TMenuItem;
     iposdeItens1: TMenuItem;
     Panel1: TPanel;
-    Label1: TLabel;
-    Label2: TLabel;
     Panel2: TPanel;
     Label3: TLabel;
     Edit1: TEdit;
@@ -44,6 +42,8 @@ type
     Edit11: TEdit;
     Edit12: TEdit;
     Button1: TButton;
+    Label1: TLabel;
+    Label6: TLabel;
     procedure Usurios1Click(Sender: TObject);
     procedure Cidades1Click(Sender: TObject);
     procedure Estados1Click(Sender: TObject);

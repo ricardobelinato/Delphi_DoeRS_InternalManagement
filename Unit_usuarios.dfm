@@ -4,7 +4,7 @@
   BorderStyle = bsSingle
   Caption = 'Usu'#225'rios'
   ClientHeight = 440
-  ClientWidth = 622
+  ClientWidth = 624
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -60,6 +60,7 @@
       Height = 25
       Caption = 'Adicionar'
       TabOrder = 0
+      OnClick = Button1Click
     end
     object Button2: TButton
       Left = 448
