@@ -59,12 +59,13 @@ type
 
 var
   Form3: TForm3;
-  ShowMenu: Boolean;
+//  ShowMenu: Boolean;
+  ShowMenu: String;
 
 implementation
 
 {$R *.dfm}
-uses Unit_login, Unit_usuarios, Unit_cidades, Unit_estados, Unit_instituicoes, Unit_itens, Unit_tipos_de_itens;
+uses Unit_login, Unit_usuarios, Unit_cidades, Unit_estados, Unit_instituicoes, Unit_itens, Unit_tipos_de_itens, Unit_data_module;
 
 procedure TForm3.Cidades1Click(Sender: TObject);
 begin
@@ -108,13 +109,44 @@ end;
 //end;
 
 procedure TForm3.FormCreate(Sender: TObject);
+var
+  Query: TFDQuery;
+  indicador_administrador: Boolean;
 begin
-  ShowMenu := True;
+  if not Unit_data_module.DataModule3.FD_Connection.Connected then
+    Unit_data_module.DataModule3.FD_Connection.Connected := True;
+  Query := TFDQuery.Create(nil);
+  try
+    Query.Connection := Unit_data_module.DataModule3.FD_Connection;
+    Query.SQL.Text := 'SELECT indicador_administrador FROM usuario WHERE login = :Login';
+    Query.Params.ParamByName('Login').AsString := NomeUsuarioLogado;
 
-  if ShowMenu then
-    Menu := MainMenu1
-  else
-    Menu := nil;
+    Query.Open;
+
+    if not Query.IsEmpty then
+    begin
+      indicador_administrador := Query.FieldByName('indicador_administrador').AsBoolean;
+    end
+    else
+    begin
+      indicador_administrador := False;
+    end;
+
+    if indicador_administrador then
+      Self.Menu := MainMenu1
+    else
+      Self.Menu := nil;
+
+  except
+    on E: Exception do
+    begin
+      ShowMessage('Erro ao acessar o banco de dados: ' + E.Message);
+      Self.Menu := nil;
+    end;
+  end;
+
+  Query.Free;
+
 end;
 
 procedure TForm3.Instituies2Click(Sender: TObject);

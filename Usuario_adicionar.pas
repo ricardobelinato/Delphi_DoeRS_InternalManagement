@@ -23,7 +23,6 @@ type
     CheckboxAdm: TCheckBox;
     CheckboxAtivo: TCheckBox;
     Button1: TButton;
-    FD_Connection: TFDConnection;
     procedure Button1Click(Sender: TObject);
     procedure CheckboxAdmClick(Sender: TObject);
     procedure CheckboxAtivoClick(Sender: TObject);
@@ -63,7 +62,6 @@ begin
   nomeUsuario := EditNome.Text;
   CPFUsuario := EditCPF.Text;
 
-  // Montar a query de inserção
   SQLInsert :=
     'INSERT INTO usuario (login, nome_completo, cpf, indicador_administrador, indicador_usuario_ativo) ' +
     'VALUES (:login, :nome, :cpf, :adm, :ativo)';
@@ -71,30 +69,27 @@ begin
   // Criar e configurar a query
   Query := TFDQuery.Create(nil);
   try
-    Query.Connection := FD_Connection;
+    Query.Connection := Unit_data_module.DataModule3.FD_Connection;
     Query.SQL.Text := SQLInsert;
 
-    // Passar os parâmetros para a query
     Query.ParamByName('nome').AsString := nomeUsuario;
     Query.ParamByName('cpf').AsString := CPFUsuario;
     Query.ParamByName('login').AsString := loginUsuario;
-    Query.ParamByName('adm').AsBoolean := UsuarioAdm; // Se for TINYINT, usar AsInteger
-    Query.ParamByName('ativo').AsBoolean := UsuarioAtivo; // Se for TINYINT, usar AsInteger
+    Query.ParamByName('adm').AsBoolean := UsuarioAdm;
+    Query.ParamByName('ativo').AsBoolean := UsuarioAtivo;
 
-    // Executar a query de inserção
     Query.ExecSQL;
 
-    // Exemplo de mensagem de sucesso
     ShowMessage('Usuário adicionado com sucesso!');
 
-    // Limpar os campos após a inserção (opcional)
-    EditNome.Text := '';
-    EditCPF.Text := '';
-    EditLogin.Text := '';
-    CheckboxAdm.Checked := False;
-    CheckboxAtivo.Checked := False;
+    // Limpar os campos após a inserção
+//    EditNome.Text := '';
+//    EditCPF.Text := '';
+//    EditLogin.Text := '';
+//    CheckboxAdm.Checked := False;
+//    CheckboxAtivo.Checked := False;
 
-//    FDQuery_Usuarios.Close;
+//    Unit_data_module.FDQuery_Usuarios.Close;
 //    FDQuery_Usuarios.Open;
 
   except

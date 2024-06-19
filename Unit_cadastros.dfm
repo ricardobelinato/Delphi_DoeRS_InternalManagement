@@ -23,6 +23,7 @@ object Form3: TForm3
     Color = clHotLight
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 946
     object Label1: TLabel
       Left = 1
       Top = 1
@@ -49,6 +50,8 @@ object Form3: TForm3
     Height = 463
     Align = alClient
     TabOrder = 1
+    ExplicitWidth = 946
+    ExplicitHeight = 455
     object Label3: TLabel
       Left = 16
       Top = 16

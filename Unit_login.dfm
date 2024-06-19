@@ -12,11 +12,11 @@ object Form_Login: TForm_Login
   Font.Style = []
   TextHeight = 15
   object Label1: TLabel
-    Left = 104
+    Left = 128
     Top = 96
-    Width = 215
+    Width = 152
     Height = 17
-    Caption = 'Entre com seu nome completo e CPF'
+    Caption = 'Entre com seu login e CPF'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -13
@@ -40,9 +40,9 @@ object Form_Login: TForm_Login
   object Label3: TLabel
     Left = 64
     Top = 131
-    Width = 33
+    Width = 30
     Height = 15
-    Caption = 'Nome'
+    Caption = 'Login'
   end
   object Label4: TLabel
     Left = 64
@@ -51,7 +51,7 @@ object Form_Login: TForm_Login
     Height = 15
     Caption = 'CPF'
   end
-  object TEditName: TEdit
+  object TEditLogin: TEdit
     Left = 64
     Top = 152
     Width = 289
@@ -67,7 +67,7 @@ object Form_Login: TForm_Login
   end
   object TEditCPF: TEdit
     Left = 64
-    Top = 205
+    Top = 210
     Width = 289
     Height = 31
     Font.Charset = DEFAULT_CHARSET
@@ -111,21 +111,5 @@ object Form_Login: TForm_Login
       ExplicitLeft = 40
       ExplicitWidth = 217
     end
-  end
-  object FD_Connection: TFDConnection
-    Params.Strings = (
-      'Database=delphi'
-      'User_Name=root'
-      'Server=127.0.0.1'
-      'DriverID=MySQL')
-    Left = 64
-    Top = 336
-  end
-  object FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink
-    VendorLib = 
-      'C:\Users\pcrub\OneDrive\'#193'rea de Trabalho\delphi\projeto\libmysql' +
-      '.dll'
-    Left = 184
-    Top = 336
   end
 end

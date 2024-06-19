@@ -93,8 +93,8 @@ object DataModule3: TDataModule3
   end
   object FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink
     VendorLib = 
-      'C:\Users\pcrub\OneDrive\'#193'rea de Trabalho\delphi\projeto\libmysql' +
-      '.dll'
+      'C:\Users\pcrub\OneDrive\Documentos\Embarcadero\Studio\Projects\l' +
+      'ibmysql.dll'
     Left = 296
     Top = 32
   end

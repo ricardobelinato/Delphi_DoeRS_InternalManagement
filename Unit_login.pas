@@ -14,23 +14,20 @@ uses
 
 type
   TForm_Login = class(TForm)
-    TEditName: TEdit;
+    TEditLogin: TEdit;
     TEditCPF: TEdit;
     Label1: TLabel;
     Label2: TLabel;
     Panel1: TPanel;
     SpeedButton1: TSpeedButton;
-    FD_Connection: TFDConnection;
-    FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink;
     Label3: TLabel;
     Label4: TLabel;
     procedure SpeedButton1MouseEnter(Sender: TObject);
     procedure SpeedButton1MouseLeave(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
-//    procedure TEditCPFExit(Sender: TObject);
   private
     { Private declarations }
-//    procedure AplicarMascaraCPF(edt: TEdit);
+    function ValidarCPF(const CPF: string): Boolean;
   public
     { Public declarations }
   end;
@@ -38,7 +35,6 @@ type
 var
   Form_Login: TForm_Login;
   NomeUsuarioLogado: String;
-//  DataModule1: TDataModule1;
 
 implementation
 
@@ -46,49 +42,15 @@ implementation
 
 uses Unit_cadastros, Unit_data_module, Unit_mascaras;
 
-
-
-
-//procedure TForm1.Button1Click(Sender: TObject);
-//  var
-//    Query: TFDQuery;
-//    NomeCompleto, CPF: string;
-//  begin
-//    NomeCompleto := Edit1.Text;
-//    CPF := Edit2.Text;
-//
-//  Query := TFDQuery.Create(nil);
-//
-//  try
-//    Query.Connection := FDConnection1;
-//    Query.SQL.Text := 'SELECT COUNT(*) FROM usuario WHERE nome_completo = :NomeCompleto AND cpf = :CPF';
-//    Query.Params.ParamByName('NomeCompleto').AsString := NomeCompleto;
-//    Query.Params.ParamByName('CPF').AsString := CPF;
-//    Query.Open;
-//
-//    if Query.Fields[0].AsInteger > 0 then
-//    begin
-//      Form1.Hide;
-//      Form3.Show
-//    end
-//    else
-//    begin
-//      ShowMessage('Nome ou CPF incorretos.');
-//    end;
-//  finally
-//    Query.Free;
-//  end;
-//end;
-
 procedure TForm_Login.SpeedButton1Click(Sender: TObject);
 var
   Query: TFDQuery;
-  NomeCompleto, CPF: string;
+  LOGIN, CPF: string;
 begin
 
-  if TEditName.Text=('') then
+  if TEditLogin.Text=('') then
   begin
-    ShowMessage('Ops! Parece que você esqueceu de preencher o campo nome.');
+    ShowMessage('Ops! Parece que você esqueceu de preencher o campo login.');
     Exit;
   end;
 
@@ -98,15 +60,21 @@ begin
     Exit;
   end;
 
-  NomeCompleto := TEditName.Text;
+//  if not ValidarCPF(CPF) then
+//  begin
+//    ShowMessage('CPF inválido. Por favor, insira um CPF válido.');
+//    Exit;
+//  end;
+
+  LOGIN := TEditLogin.Text;
   CPF := TEditCPF.Text;
 
 Query := TFDQuery.Create(nil);
 
   try
-    Query.Connection := FD_Connection;
-    Query.SQL.Text := 'SELECT COUNT(*) FROM usuario WHERE nome_completo = :NomeCompleto AND cpf = :CPF';
-    Query.Params.ParamByName('NomeCompleto').AsString := NomeCompleto;
+    Query.Connection := Unit_data_module.DataModule3.FD_Connection;
+    Query.SQL.Text := 'SELECT COUNT(*) FROM usuario WHERE login = :LOGIN AND cpf = :CPF';
+    Query.Params.ParamByName('LOGIN').AsString := LOGIN;
     Query.Params.ParamByName('CPF').AsString := CPF;
     Query.Open;
 
@@ -117,7 +85,7 @@ Query := TFDQuery.Create(nil);
     end
     else
     begin
-      ShowMessage('Houve um erro nos campos nome e/ou CPF. Por favor, verifique novamente.');
+      ShowMessage('Houve um erro nos campos login e/ou CPF. Por favor, verifique novamente.');
     end;
   finally
     Query.Free;
@@ -134,14 +102,30 @@ begin
   Panel1.Color := clHotLight;
 end;
 
-//procedure TForm1.AplicarMascaraCPF(edt: TEdit);
-//begin
-//  Formatar(edt, TFormato.CPF);
-//end;
-//
-//procedure TForm1.TEditCPFExit(Sender: TObject);
-//begin
-//  AplicarMascaraCPF(TEditCPF);
-//end;
+function TForm_Login.ValidarCPF(const CPF: string): Boolean;
+var
+  I, J, Digito1, Digito2, Soma: Integer;
+  s: string;
+begin
+  s := '';
+  for I := 1 to Length(CPF) do
+    if CPF[I] in ['0'..'9'] then
+      s := s + CPF[I];
+  if Length(s) <> 11 then
+    Exit(False);
+  Soma := 0;
+  for I := 1 to 9 do
+    Soma := Soma + StrToInt(s[I]) * (11 - I);
+  Digito1 := (Soma * 10) mod 11;
+  if Digito1 = 10 then
+    Digito1 := 0;
+  Soma := 0;
+  for I := 1 to 10 do
+    Soma := Soma + StrToInt(s[I]) * (12 - I);
+  Digito2 := (Soma * 10) mod 11;
+  if Digito2 = 10 then
+    Digito2 := 0;
+  Result := (Digito1 = StrToInt(s[10])) and (Digito2 = StrToInt(s[11]));
+end;
 
 end.

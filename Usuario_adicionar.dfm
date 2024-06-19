@@ -13,7 +13,7 @@ object Form_adicionar_usuario: TForm_adicionar_usuario
   TextHeight = 15
   object Panel1: TPanel
     Left = -8
-    Top = 120
+    Top = 127
     Width = 377
     Height = 41
     TabOrder = 0
@@ -94,14 +94,5 @@ object Form_adicionar_usuario: TForm_adicionar_usuario
       TabOrder = 4
       OnClick = CheckboxAtivoClick
     end
-  end
-  object FD_Connection: TFDConnection
-    Params.Strings = (
-      'Database=delphi'
-      'User_Name=root'
-      'Server=127.0.0.1'
-      'DriverID=MySQL')
-    Left = 32
-    Top = 107
   end
 end
