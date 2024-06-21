@@ -1,4 +1,4 @@
-object Form7: TForm7
+object Form_instituicao: TForm_instituicao
   Left = 0
   Top = 0
   Caption = 'Institui'#231#245'es'

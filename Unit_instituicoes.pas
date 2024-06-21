@@ -11,7 +11,7 @@ uses
   FireDAC.Comp.Client;
 
 type
-  TForm7 = class(TForm)
+  TForm_instituicao = class(TForm)
     DBGrid1: TDBGrid;
     Panel1: TPanel;
     Label1: TLabel;
@@ -26,7 +26,7 @@ type
   end;
 
 var
-  Form7: TForm7;
+  Form_instituicao: TForm_instituicao;
 
 implementation
 

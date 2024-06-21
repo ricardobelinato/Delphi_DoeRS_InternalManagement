@@ -1,4 +1,4 @@
-object Form3: TForm3
+object Form_cadastro: TForm_cadastro
   Left = 0
   Top = 0
   Caption = 'Cadastro'
@@ -50,191 +50,174 @@ object Form3: TForm3
     Height = 463
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 946
-    ExplicitHeight = 455
-    object Label3: TLabel
+    ExplicitTop = 80
+    ExplicitWidth = 956
+    ExplicitHeight = 465
+    object Label6: TLabel
       Left = 16
       Top = 16
-      Width = 208
-      Height = 15
-      Caption = 'Preencha alguns dados sobre o doador:'
-    end
-    object Label4: TLabel
-      Left = 16
-      Top = 128
-      Width = 199
-      Height = 15
-      Caption = 'Preencha alguns dados da institui'#231#227'o:'
-    end
-    object Label5: TLabel
-      Left = 16
-      Top = 208
-      Width = 84
-      Height = 15
-      Caption = 'Sobre a doa'#231#227'o:'
-    end
-    object Label6: TLabel
-      Left = 1
-      Top = 1
-      Width = 946
-      Height = 15
-      Align = alTop
+      Width = 517
+      Height = 23
       Alignment = taCenter
       Caption = 'Cadastre uma doa'#231#227'o / item preenchendo todos os campos abaixo:'
       Color = clBtnFace
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlack
-      Font.Height = -12
+      Font.Height = -17
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentColor = False
       ParentFont = False
       Layout = tlCenter
-      ExplicitWidth = 357
     end
-    object Edit1: TEdit
+    object Label2: TLabel
       Left = 16
-      Top = 37
-      Width = 121
-      Height = 23
-      TabOrder = 0
-      TextHint = 'Nome Completo'
+      Top = 56
+      Width = 107
+      Height = 15
+      Caption = 'Nome da institui'#231#227'o'
     end
-    object Edit2: TEdit
-      Left = 143
-      Top = 37
-      Width = 121
-      Height = 23
-      TabOrder = 1
-      TextHint = 'CPF'
+    object Label3: TLabel
+      Left = 169
+      Top = 56
+      Width = 27
+      Height = 15
+      Caption = 'CNPJ'
     end
-    object CheckBox1: TCheckBox
-      Left = 270
-      Top = 40
-      Width = 97
-      Height = 17
-      Caption = 'Administrador'
-      TabOrder = 2
+    object Label4: TLabel
+      Left = 320
+      Top = 56
+      Width = 65
+      Height = 15
+      Caption = 'Respons'#225'vel'
     end
-    object CheckBox2: TCheckBox
-      Left = 397
-      Top = 40
-      Width = 97
-      Height = 17
-      Caption = 'Usu'#225'rio ativo'
-      TabOrder = 3
-    end
-    object ComboBox1: TComboBox
+    object Label7: TLabel
       Left = 16
-      Top = 72
-      Width = 121
-      Height = 23
-      TabOrder = 4
-      TextHint = 'Estado'
+      Top = 120
+      Width = 24
+      Height = 15
+      Caption = 'Item'
     end
-    object Edit3: TEdit
-      Left = 143
-      Top = 72
-      Width = 121
-      Height = 23
-      TabOrder = 5
-      TextHint = 'Nome da Cidade'
+    object Label5: TLabel
+      Left = 169
+      Top = 120
+      Width = 51
+      Height = 15
+      Caption = 'Descri'#231#227'o'
     end
-    object Edit4: TEdit
-      Left = 270
-      Top = 72
-      Width = 121
-      Height = 23
-      TabOrder = 6
-      TextHint = 'Popula'#231#227'o'
+    object Label8: TLabel
+      Left = 320
+      Top = 120
+      Width = 44
+      Height = 15
+      Caption = 'Unidade'
+    end
+    object Label9: TLabel
+      Left = 472
+      Top = 120
+      Width = 87
+      Height = 15
+      Caption = 'Data de validade'
+    end
+    object Label10: TLabel
+      Left = 16
+      Top = 170
+      Width = 62
+      Height = 15
+      Caption = 'Quantidade'
+    end
+    object Label11: TLabel
+      Left = 169
+      Top = 170
+      Width = 25
+      Height = 15
+      Caption = 'Peso'
+    end
+    object Label12: TLabel
+      Left = 320
+      Top = 170
+      Width = 26
+      Height = 15
+      Caption = 'Valor'
     end
     object Edit5: TEdit
       Left = 16
-      Top = 149
-      Width = 121
+      Top = 77
+      Width = 137
       Height = 23
-      TabOrder = 7
-      TextHint = 'Nome da Instiui'#231#227'o'
+      TabOrder = 0
     end
     object Edit6: TEdit
-      Left = 143
-      Top = 149
-      Width = 121
+      Left = 169
+      Top = 77
+      Width = 137
       Height = 23
-      TabOrder = 8
-      TextHint = 'CNPJ'
+      TabOrder = 1
     end
     object Edit7: TEdit
-      Left = 270
-      Top = 149
-      Width = 121
+      Left = 320
+      Top = 77
+      Width = 137
       Height = 23
-      TabOrder = 9
-      TextHint = 'Respons'#225'vel'
+      TabOrder = 2
     end
     object Edit8: TEdit
       Left = 16
-      Top = 229
-      Width = 121
+      Top = 141
+      Width = 137
       Height = 23
-      TabOrder = 10
-      TextHint = 'Item'
+      TabOrder = 3
     end
     object ComboBox2: TComboBox
-      Left = 270
-      Top = 229
-      Width = 121
+      Left = 320
+      Top = 141
+      Width = 137
       Height = 23
-      TabOrder = 11
+      TabOrder = 4
       TextHint = 'Unidade'
     end
     object Edit9: TEdit
-      Left = 397
-      Top = 229
-      Width = 121
+      Left = 472
+      Top = 141
+      Width = 137
       Height = 23
-      TabOrder = 12
-      TextHint = 'Data de Validade'
+      TabOrder = 5
     end
     object ComboBox3: TComboBox
-      Left = 143
-      Top = 229
-      Width = 121
+      Left = 169
+      Top = 141
+      Width = 137
       Height = 23
-      TabOrder = 13
-      TextHint = 'Descri'#231#227'o'
+      TabOrder = 6
     end
     object Edit10: TEdit
       Left = 16
-      Top = 258
-      Width = 121
+      Top = 191
+      Width = 137
       Height = 23
-      TabOrder = 14
-      TextHint = 'Quantidade'
+      TabOrder = 7
     end
     object Edit11: TEdit
-      Left = 143
-      Top = 258
-      Width = 121
+      Left = 169
+      Top = 191
+      Width = 137
       Height = 23
-      TabOrder = 15
-      TextHint = 'Peso'
+      TabOrder = 8
     end
     object Edit12: TEdit
-      Left = 270
-      Top = 258
-      Width = 121
+      Left = 320
+      Top = 191
+      Width = 137
       Height = 23
-      TabOrder = 16
-      TextHint = 'Valor'
+      TabOrder = 9
     end
     object Button1: TButton
       Left = 16
-      Top = 304
+      Top = 238
       Width = 121
       Height = 33
       Caption = 'Enviar'
-      TabOrder = 17
+      TabOrder = 10
     end
   end
   object MainMenu1: TMainMenu

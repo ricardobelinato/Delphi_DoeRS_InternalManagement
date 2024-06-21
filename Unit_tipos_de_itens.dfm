@@ -1,4 +1,4 @@
-object Tipoitem: TTipoitem
+object Form_tipoitem: TForm_tipoitem
   Left = 0
   Top = 0
   Caption = 'Tipos de Itens'

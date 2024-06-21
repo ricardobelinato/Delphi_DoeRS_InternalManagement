@@ -11,7 +11,7 @@ uses
   FireDAC.Comp.Client;
 
 type
-  TItens = class(TForm)
+  TForm_item = class(TForm)
     DBGrid1: TDBGrid;
     Panel1: TPanel;
     Panel2: TPanel;
@@ -26,7 +26,7 @@ type
   end;
 
 var
-  Itens: TItens;
+  Form_item: TForm_item;
 
 implementation
 

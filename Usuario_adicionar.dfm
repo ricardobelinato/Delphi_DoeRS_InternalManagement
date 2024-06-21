@@ -26,6 +26,13 @@ object Form_adicionar_usuario: TForm_adicionar_usuario
       TabOrder = 0
       OnClick = Button1Click
     end
+    object DBEdit1: TDBEdit
+      Left = 16
+      Top = 0
+      Width = 121
+      Height = 23
+      TabOrder = 1
+    end
   end
   object Panel2: TPanel
     Left = -8

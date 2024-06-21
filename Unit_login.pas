@@ -10,7 +10,7 @@ uses
   FireDAC.Phys.MySQLDef, FireDAC.VCLUI.Wait, Data.DB, FireDAC.Comp.Client,
   FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt,
   FireDAC.Comp.DataSet, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Buttons,
-  Vcl.ExtCtrls;
+  Vcl.ExtCtrls, Vcl.Mask;
 
 type
   TForm_Login = class(TForm)
@@ -25,9 +25,9 @@ type
     procedure SpeedButton1MouseEnter(Sender: TObject);
     procedure SpeedButton1MouseLeave(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
+    procedure TEditCPFKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
-    function ValidarCPF(const CPF: string): Boolean;
   public
     { Public declarations }
   end;
@@ -41,6 +41,21 @@ implementation
 {$R *.dfm}
 
 uses Unit_cadastros, Unit_data_module, Unit_mascaras;
+
+function RemoverFormatacaoCPF(const CPF: string): string;
+var
+  I: Integer;
+  OnlyNumbers: string;
+begin
+  OnlyNumbers := '';
+  for I := 1 to Length(CPF) do
+  begin
+    if CPF[I] in ['0'..'9'] then
+      OnlyNumbers := OnlyNumbers + CPF[I];
+  end;
+  Result := OnlyNumbers;
+end;
+
 
 procedure TForm_Login.SpeedButton1Click(Sender: TObject);
 var
@@ -60,14 +75,8 @@ begin
     Exit;
   end;
 
-//  if not ValidarCPF(CPF) then
-//  begin
-//    ShowMessage('CPF inválido. Por favor, insira um CPF válido.');
-//    Exit;
-//  end;
-
   LOGIN := TEditLogin.Text;
-  CPF := TEditCPF.Text;
+  CPF := RemoverFormatacaoCPF(TEditCPF.Text);
 
 Query := TFDQuery.Create(nil);
 
@@ -81,7 +90,7 @@ Query := TFDQuery.Create(nil);
     if Query.Fields[0].AsInteger > 0 then
     begin
       Form_login.Hide;
-      Form3.Show
+      Form_cadastro.Show
     end
     else
     begin
@@ -102,30 +111,28 @@ begin
   Panel1.Color := clHotLight;
 end;
 
-function TForm_Login.ValidarCPF(const CPF: string): Boolean;
+procedure TForm_Login.TEditCPFKeyPress(Sender: TObject; var Key: Char);
 var
-  I, J, Digito1, Digito2, Soma: Integer;
-  s: string;
+  LEditText: string;
+  LLength: Integer;
 begin
-  s := '';
-  for I := 1 to Length(CPF) do
-    if CPF[I] in ['0'..'9'] then
-      s := s + CPF[I];
-  if Length(s) <> 11 then
-    Exit(False);
-  Soma := 0;
-  for I := 1 to 9 do
-    Soma := Soma + StrToInt(s[I]) * (11 - I);
-  Digito1 := (Soma * 10) mod 11;
-  if Digito1 = 10 then
-    Digito1 := 0;
-  Soma := 0;
-  for I := 1 to 10 do
-    Soma := Soma + StrToInt(s[I]) * (12 - I);
-  Digito2 := (Soma * 10) mod 11;
-  if Digito2 = 10 then
-    Digito2 := 0;
-  Result := (Digito1 = StrToInt(s[10])) and (Digito2 = StrToInt(s[11]));
+  if not (Key in ['0'..'9', #8]) then
+  begin
+    Key := #0;
+    Exit;
+  end;
+
+  LEditText := TEdit(Sender).Text;
+  LLength := Length(LEditText);
+
+  if (Key <> #8) then
+  begin
+    case LLength of
+      3, 7: TEdit(Sender).Text := LEditText + '.';
+      11: TEdit(Sender).Text := LEditText + '-';
+    end;
+    TEdit(Sender).SelStart := Length(TEdit(Sender).Text) + 1;
+  end;
 end;
 
 end.

@@ -11,7 +11,7 @@ uses
   FireDAC.Phys.MySQLDef, FireDAC.VCLUI.Wait, FireDAC.Comp.Client, Vcl.ExtCtrls;
 
 type
-  TForm3 = class(TForm)
+  TForm_cadastro = class(TForm)
     MainMenu1: TMainMenu;
     Usurios1: TMenuItem;
     Cidades1: TMenuItem;
@@ -21,19 +21,9 @@ type
     iposdeItens1: TMenuItem;
     Panel1: TPanel;
     Panel2: TPanel;
-    Label3: TLabel;
-    Edit1: TEdit;
-    Edit2: TEdit;
-    CheckBox1: TCheckBox;
-    CheckBox2: TCheckBox;
-    ComboBox1: TComboBox;
-    Edit3: TEdit;
-    Edit4: TEdit;
-    Label4: TLabel;
     Edit5: TEdit;
     Edit6: TEdit;
     Edit7: TEdit;
-    Label5: TLabel;
     Edit8: TEdit;
     ComboBox2: TComboBox;
     Edit9: TEdit;
@@ -44,6 +34,16 @@ type
     Button1: TButton;
     Label1: TLabel;
     Label6: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label7: TLabel;
+    Label5: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
     procedure Usurios1Click(Sender: TObject);
     procedure Cidades1Click(Sender: TObject);
     procedure Estados1Click(Sender: TObject);
@@ -58,23 +58,23 @@ type
   end;
 
 var
-  Form3: TForm3;
+  Form_cadastro: TForm_cadastro;
 //  ShowMenu: Boolean;
   ShowMenu: String;
 
 implementation
 
 {$R *.dfm}
-uses Unit_login, Unit_usuarios, Unit_cidades, Unit_estados, Unit_instituicoes, Unit_itens, Unit_tipos_de_itens, Unit_data_module;
+uses Unit_login, Unit_usuario, Unit_cidade, Unit_estado, Unit_instituicoes, Unit_itens, Unit_tipos_de_itens, Unit_data_module;
 
-procedure TForm3.Cidades1Click(Sender: TObject);
+procedure TForm_cadastro.Cidades1Click(Sender: TObject);
 begin
-  Cidades.Show;
+  Form_cidade.Show;
 end;
 
-procedure TForm3.Estados1Click(Sender: TObject);
+procedure TForm_cadastro.Estados1Click(Sender: TObject);
 begin
-  Estados.Show;
+  Form_estado.Show;
 end;
 
 //procedure TForm3.FormCreate(Sender: TObject);
@@ -108,7 +108,7 @@ end;
 //    Self.Menu := nil;
 //end;
 
-procedure TForm3.FormCreate(Sender: TObject);
+procedure TForm_cadastro.FormCreate(Sender: TObject);
 var
   Query: TFDQuery;
   indicador_administrador: Boolean;
@@ -129,7 +129,7 @@ begin
     end
     else
     begin
-      indicador_administrador := False;
+      indicador_administrador := True;
     end;
 
     if indicador_administrador then
@@ -149,24 +149,24 @@ begin
 
 end;
 
-procedure TForm3.Instituies2Click(Sender: TObject);
+procedure TForm_cadastro.Instituies2Click(Sender: TObject);
 begin
-  Form7.Show;
+  Form_instituicao.Show;
 end;
 
-procedure TForm3.iposdeItens1Click(Sender: TObject);
+procedure TForm_cadastro.iposdeItens1Click(Sender: TObject);
 begin
-  Tipoitem.Show;
+  Form_tipoitem.Show;
 end;
 
-procedure TForm3.Itens3Click(Sender: TObject);
+procedure TForm_cadastro.Itens3Click(Sender: TObject);
 begin
-  Itens.Show;
+  Form_item.Show;
 end;
 
-procedure TForm3.Usurios1Click(Sender: TObject);
+procedure TForm_cadastro.Usurios1Click(Sender: TObject);
 begin
-  Usuários.Show;
+  Form_usuarios.Show;
 end;
 
 end.

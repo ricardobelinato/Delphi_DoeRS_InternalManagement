@@ -1,7 +1,7 @@
-object Itens: TItens
+object Form_item: TForm_item
   Left = 0
   Top = 0
-  Caption = 'Itens'
+  Caption = 'Form_item'
   ClientHeight = 446
   ClientWidth = 622
   Color = clBtnFace

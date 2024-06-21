@@ -1,15 +1,17 @@
 object Form_Login: TForm_Login
   Left = 0
   Top = 0
+  BorderStyle = bsDialog
   Caption = 'Login'
   ClientHeight = 417
-  ClientWidth = 424
+  ClientWidth = 417
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  Position = poScreenCenter
   TextHeight = 15
   object Label1: TLabel
     Left = 128
@@ -76,9 +78,11 @@ object Form_Login: TForm_Login
     Font.Name = 'Segoe UI'
     Font.Style = []
     ImeName = 'Portuguese (Brazilian ABNT)'
+    MaxLength = 14
     NumbersOnly = True
     ParentFont = False
     TabOrder = 1
+    OnKeyPress = TEditCPFKeyPress
   end
   object Panel1: TPanel
     Left = 64

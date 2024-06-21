@@ -11,7 +11,7 @@ uses
   FireDAC.Comp.Client;
 
 type
-  TTipoitem = class(TForm)
+  TForm_tipoitem = class(TForm)
     Panel1: TPanel;
     DBGrid1: TDBGrid;
     Panel2: TPanel;
@@ -26,7 +26,7 @@ type
   end;
 
 var
-  Tipoitem: TTipoitem;
+  Form_tipoitem: TForm_tipoitem;
 
 implementation
 
