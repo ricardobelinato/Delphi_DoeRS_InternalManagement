@@ -128,7 +128,7 @@
             <Form>Form_Login</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Unit_cadastros.pas">
+        <DCCReference Include="Unit_cadastro.pas">
             <Form>Form_cadastro</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -148,11 +148,11 @@
             <Form>Form_instituicao</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Unit_itens.pas">
+        <DCCReference Include="Unit_item.pas">
             <Form>Form_item</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Unit_tipos_de_itens.pas">
+        <DCCReference Include="Unit_tipo_item.pas">
             <Form>Form_tipoitem</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -161,13 +161,28 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="Unit_mascaras.pas"/>
-        <DCCReference Include="Usuario_adicionar.pas">
-            <Form>Form_adicionar_usuario</Form>
+        <DCCReference Include="Unit_manipular_usuario.pas">
+            <Form>Form_manipular_usuario</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Usuario_editar.pas">
-            <Form>Form_editar_usuario</Form>
+        <DCCReference Include="Unit_manipular_cidade.pas">
+            <Form>Form1</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Unit_manipular_estado.pas">
+            <Form>Form2</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Unit_manipular_instituicoes.pas">
+            <Form>Form3</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Unit_manipular_item.pas">
+            <Form>Form4</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Unit_manipular_tipo_item.pas">
+            <Form>Form5</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">

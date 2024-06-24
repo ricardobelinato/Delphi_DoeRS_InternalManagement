@@ -40,7 +40,7 @@ implementation
 
 {$R *.dfm}
 
-uses Unit_cadastros, Unit_data_module, Unit_mascaras;
+uses Unit_cadastro, Unit_data_module, Unit_mascaras;
 
 function RemoverFormatacaoCPF(const CPF: string): string;
 var

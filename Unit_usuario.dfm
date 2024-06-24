@@ -11,8 +11,9 @@ object Form_usuarios: TForm_usuarios
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  Position = poScreenCenter
   TextHeight = 15
-  object DBGrid1: TDBGrid
+  object DBGrid_usuario: TDBGrid
     Left = 0
     Top = 40
     Width = 625
@@ -53,30 +54,35 @@ object Form_usuarios: TForm_usuarios
     Width = 625
     Height = 49
     TabOrder = 2
-    object Button1: TButton
+    object btnAdicionar: TButton
       Left = 367
       Top = 8
       Width = 75
       Height = 25
       Caption = 'Adicionar'
+      DisabledImageName = 'btnAdicionar'
       TabOrder = 0
-      OnClick = Button1Click
+      OnClick = btnAdicionarClick
     end
-    object Button2: TButton
+    object btnEditar: TButton
       Left = 448
       Top = 8
       Width = 75
       Height = 25
       Caption = 'Editar'
+      DisabledImageName = 'btnEditar'
       TabOrder = 1
+      OnClick = btnEditarClick
     end
-    object Button3: TButton
+    object btnExcluir: TButton
       Left = 529
       Top = 8
       Width = 75
       Height = 25
       Caption = 'Excluir'
+      DisabledImageName = 'btnExcluir'
       TabOrder = 2
+      OnClick = btnExcluirClick
     end
   end
 end

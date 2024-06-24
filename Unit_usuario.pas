@@ -13,14 +13,16 @@ uses
 
 type
   TForm_usuarios = class(TForm)
-    DBGrid1: TDBGrid;
+    DBGrid_usuario: TDBGrid;
     Panel1: TPanel;
     Panel2: TPanel;
     Label1: TLabel;
-    Button1: TButton;
-    Button2: TButton;
-    Button3: TButton;
-    procedure Button1Click(Sender: TObject);
+    btnAdicionar: TButton;
+    btnEditar: TButton;
+    btnExcluir: TButton;
+    procedure btnAdicionarClick(Sender: TObject);
+    procedure btnEditarClick(Sender: TObject);
+    procedure btnExcluirClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -33,11 +35,71 @@ var
 implementation
 
 {$R *.dfm}
-uses Unit_data_module, Usuario_adicionar;
+uses Unit_data_module, Unit_manipular_usuario;
 
-procedure TForm_usuarios.Button1Click(Sender: TObject);
+procedure TForm_usuarios.btnAdicionarClick(Sender: TObject);
 begin
-  Form_adicionar_usuario.Show;
+//  Unit_manipular_usuario.Form_manipular_usuario.EditNome.DataSource := nil;
+//  Unit_manipular_usuario.Form_manipular_usuario.EditCPF.DataSource := nil;
+//  Unit_manipular_usuario.Form_manipular_usuario.EditLogin.DataSource := nil;
+//  Unit_manipular_usuario.Form_manipular_usuario.CheckboxAdm.DataSource := nil;
+//  Unit_manipular_usuario.Form_manipular_usuario.CheckboxAtivo.DataSource := nil;
+
+  Unit_manipular_usuario.Form_manipular_usuario.EditNome.Text := '';
+  Unit_manipular_usuario.Form_manipular_usuario.EditCPF.Text := '';
+  Unit_manipular_usuario.Form_manipular_usuario.EditLogin.Text := '';
+  Unit_manipular_usuario.Form_manipular_usuario.CheckboxAdm.Checked := False;
+  Unit_manipular_usuario.Form_manipular_usuario.CheckboxAtivo.Checked := False;
+
+  Unit_manipular_usuario.Form_manipular_usuario.Tag := 0;
+
+  Form_manipular_usuario.ShowModal;
+end;
+
+procedure TForm_usuarios.btnEditarClick(Sender: TObject);
+begin
+  with Unit_data_module.DataModule3.FDQuery_Usuarios do
+  begin
+    Unit_manipular_usuario.Form_manipular_usuario.EditNome.Text := FieldByName('nome_completo').AsString;
+    Unit_manipular_usuario.Form_manipular_usuario.EditCPF.Text := FieldByName('cpf').AsString;
+    Unit_manipular_usuario.Form_manipular_usuario.EditLogin.Text := FieldByName('login').AsString;
+    Unit_manipular_usuario.Form_manipular_usuario.CheckboxAdm.Checked := FieldByName('indicador_administrador').AsBoolean;
+    Unit_manipular_usuario.Form_manipular_usuario.CheckboxAtivo.Checked := FieldByName('indicador_usuario_ativo').AsBoolean;
+
+    Unit_manipular_usuario.Form_manipular_usuario.Tag := FieldByName('codigo_usuario').AsInteger;
+  end;
+
+  Form_manipular_usuario.ShowModal;
+end;
+
+procedure TForm_usuarios.btnExcluirClick(Sender: TObject);
+var
+  Query: TFDQuery;
+  UsuarioID: Integer;
+begin
+  UsuarioID := Unit_data_module.DataModule3.FDQuery_Usuarios.FieldByName('codigo_usuario').AsInteger;
+
+  if MessageDlg('Você tem certeza que deseja excluir este usuário?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+  begin
+    Query := TFDQuery.Create(nil);
+    try
+      Query.Connection := Unit_data_module.DataModule3.FD_Connection;
+      Query.SQL.Text := 'DELETE FROM usuario WHERE codigo_usuario = :codigo_usuario';
+      Query.ParamByName('codigo_usuario').AsInteger := UsuarioID;
+
+      Query.ExecSQL;
+
+      Unit_data_module.DataModule3.FDQuery_Usuarios.Close;
+      Unit_data_module.DataModule3.FDQuery_Usuarios.Open;
+
+      ShowMessage('Usuário deletado com sucesso!');
+    except
+      on E: Exception do
+        ShowMessage('Erro ao deletar usuário: ' + E.Message);
+    end;
+
+    Query.Free;
+  end;
 end;
 
 end.
