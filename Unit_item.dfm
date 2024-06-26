@@ -1,6 +1,7 @@
 object Form_item: TForm_item
   Left = 0
   Top = 0
+  BorderStyle = bsDialog
   Caption = 'Form_item'
   ClientHeight = 446
   ClientWidth = 622
@@ -10,6 +11,7 @@ object Form_item: TForm_item
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  Position = poScreenCenter
   TextHeight = 15
   object DBGrid1: TDBGrid
     Left = 0

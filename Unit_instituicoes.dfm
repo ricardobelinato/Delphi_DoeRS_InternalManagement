@@ -1,6 +1,7 @@
 object Form_instituicao: TForm_instituicao
   Left = 0
   Top = 0
+  BorderStyle = bsDialog
   Caption = 'Institui'#231#245'es'
   ClientHeight = 446
   ClientWidth = 624
@@ -10,6 +11,7 @@ object Form_instituicao: TForm_instituicao
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  Position = poScreenCenter
   TextHeight = 15
   object DBGrid1: TDBGrid
     Left = 0

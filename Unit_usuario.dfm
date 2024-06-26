@@ -1,10 +1,10 @@
 object Form_usuarios: TForm_usuarios
   Left = 0
   Top = 0
-  BorderStyle = bsSingle
+  BorderStyle = bsDialog
   Caption = 'Form_usuario'
   ClientHeight = 440
-  ClientWidth = 624
+  ClientWidth = 623
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText

@@ -1,6 +1,7 @@
 object Form_estado: TForm_estado
   Left = 0
   Top = 0
+  BorderStyle = bsDialog
   Caption = 'Form_estado'
   ClientHeight = 438
   ClientWidth = 620
@@ -10,6 +11,7 @@ object Form_estado: TForm_estado
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  Position = poScreenCenter
   TextHeight = 15
   object DBGrid1: TDBGrid
     Left = 0

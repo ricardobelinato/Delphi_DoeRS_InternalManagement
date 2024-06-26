@@ -1,6 +1,7 @@
 object Form_cidade: TForm_cidade
   Left = 0
   Top = 0
+  BorderStyle = bsDialog
   Caption = 'Form_cidade'
   ClientHeight = 440
   ClientWidth = 629
@@ -10,6 +11,7 @@ object Form_cidade: TForm_cidade
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  Position = poScreenCenter
   TextHeight = 15
   object DBGrid1: TDBGrid
     Left = 0
@@ -59,6 +61,7 @@ object Form_cidade: TForm_cidade
       Height = 25
       Caption = 'Adicionar'
       TabOrder = 0
+      OnClick = Button1Click
     end
     object Button2: TButton
       Left = 455
@@ -67,6 +70,7 @@ object Form_cidade: TForm_cidade
       Height = 25
       Caption = 'Editar'
       TabOrder = 1
+      OnClick = Button2Click
     end
     object Button3: TButton
       Left = 536
@@ -75,6 +79,7 @@ object Form_cidade: TForm_cidade
       Height = 25
       Caption = 'Excluir'
       TabOrder = 2
+      OnClick = Button3Click
     end
   end
 end

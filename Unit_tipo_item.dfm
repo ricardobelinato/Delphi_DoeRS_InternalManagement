@@ -1,6 +1,7 @@
 object Form_tipoitem: TForm_tipoitem
   Left = 0
   Top = 0
+  BorderStyle = bsDialog
   Caption = 'Tipos de Itens'
   ClientHeight = 441
   ClientWidth = 624
@@ -10,6 +11,7 @@ object Form_tipoitem: TForm_tipoitem
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  Position = poScreenCenter
   TextHeight = 15
   object Panel1: TPanel
     Left = 0

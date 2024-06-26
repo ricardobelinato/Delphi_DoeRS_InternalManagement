@@ -12,7 +12,7 @@ uses
   Unit_tipo_item in 'Unit_tipo_item.pas' {Form_tipoitem},
   Unit_data_module in 'Unit_data_module.pas' {DataModule3: TDataModule},
   Unit_manipular_usuario in 'Unit_manipular_usuario.pas' {Form_manipular_usuario},
-  Unit_manipular_cidade in 'Unit_manipular_cidade.pas' {Form1},
+  Unit_manipular_cidade in 'Unit_manipular_cidade.pas' {Form_manipular_cidade},
   Unit_manipular_estado in 'Unit_manipular_estado.pas' {Form2},
   Unit_manipular_instituicoes in 'Unit_manipular_instituicoes.pas' {Form3},
   Unit_manipular_item in 'Unit_manipular_item.pas' {Form4},
@@ -33,7 +33,7 @@ begin
   Application.CreateForm(TForm_item, Form_item);
   Application.CreateForm(TForm_tipoitem, Form_tipoitem);
   Application.CreateForm(TForm_manipular_usuario, Form_manipular_usuario);
-  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TForm_manipular_cidade, Form_manipular_cidade);
   Application.CreateForm(TForm2, Form2);
   Application.CreateForm(TForm3, Form3);
   Application.CreateForm(TForm4, Form4);

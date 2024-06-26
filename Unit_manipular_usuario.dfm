@@ -1,9 +1,10 @@
 object Form_manipular_usuario: TForm_manipular_usuario
   Left = 0
   Top = 0
+  BorderStyle = bsDialog
   Caption = 'Cadastro de Usu'#225'rio'
-  ClientHeight = 167
-  ClientWidth = 368
+  ClientHeight = 189
+  ClientWidth = 363
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,18 +12,17 @@ object Form_manipular_usuario: TForm_manipular_usuario
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poScreenCenter
-  OnClose = FormClose
   OnShow = FormShow
   TextHeight = 15
   object Panel1: TPanel
     Left = -8
-    Top = 127
+    Top = 146
     Width = 377
-    Height = 41
+    Height = 54
     TabOrder = 0
     object btnSalvar: TButton
       Left = 264
-      Top = 7
+      Top = 13
       Width = 105
       Height = 25
       Caption = 'Salvar'
@@ -35,7 +35,7 @@ object Form_manipular_usuario: TForm_manipular_usuario
     Left = -8
     Top = 0
     Width = 377
-    Height = 121
+    Height = 153
     TabOrder = 1
     object Label1: TLabel
       Left = 16
@@ -58,52 +58,60 @@ object Form_manipular_usuario: TForm_manipular_usuario
       Height = 15
       Caption = 'CPF'
     end
-    object EditNome: TDBEdit
+    object Label_codigo_usuario: TLabel
+      Left = 16
+      Top = 120
+      Width = 81
+      Height = 15
+      Caption = 'C'#243'digo usu'#225'rio'
+    end
+    object Edit_nome_usuario: TEdit
       Left = 16
       Top = 31
       Width = 169
       Height = 23
-      DataField = 'nome_completo'
-      DataSource = DataModule3.DataSource_Usuarios
+      ImeName = 'Edit_nome_usuario'
       TabOrder = 0
     end
-    object EditCPF: TDBEdit
+    object Edit_login: TEdit
+      Left = 16
+      Top = 80
+      Width = 169
+      Height = 23
+      TabOrder = 1
+    end
+    object Edit_cpf: TEdit
       Left = 205
       Top = 31
       Width = 164
       Height = 23
-      DataField = 'cpf'
-      DataSource = DataModule3.DataSource_Usuarios
-      TabOrder = 1
-    end
-    object EditLogin: TDBEdit
-      Left = 16
-      Top = 81
-      Width = 169
-      Height = 23
-      DataField = 'login'
-      DataSource = DataModule3.DataSource_Usuarios
+      MaxLength = 11
+      NumbersOnly = True
       TabOrder = 2
     end
-    object CheckboxAdm: TDBCheckBox
+    object Checkbox_adm: TCheckBox
       Left = 205
       Top = 83
       Width = 97
       Height = 17
       Caption = 'Administrador'
-      DataField = 'indicador_administrador'
-      DataSource = DataModule3.DataSource_Usuarios
       TabOrder = 3
     end
-    object CheckboxAtivo: TDBCheckBox
-      Left = 320
+    object Checkbox_ativo: TCheckBox
+      Left = 308
       Top = 83
       Width = 97
       Height = 17
       Caption = 'Ativo'
-      DataField = 'indicador_usuario_ativo'
-      DataSource = DataModule3.DataSource_Usuarios
       TabOrder = 4
+    end
+    object Edit_codigo_usuario: TEdit
+      Left = 103
+      Top = 117
+      Width = 82
+      Height = 23
+      ImeName = 'Edit_codigo_usuario'
+      TabOrder = 5
     end
   end
 end

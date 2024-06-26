@@ -166,7 +166,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Unit_manipular_cidade.pas">
-            <Form>Form1</Form>
+            <Form>Form_manipular_cidade</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Unit_manipular_estado.pas">

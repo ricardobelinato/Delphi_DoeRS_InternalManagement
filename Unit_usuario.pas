@@ -9,7 +9,7 @@ uses
   FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.MySQL,
   FireDAC.Phys.MySQLDef, FireDAC.VCLUI.Wait, FireDAC.Stan.Param, FireDAC.DatS,
-  FireDAC.DApt.Intf, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client;
+  FireDAC.DApt.Intf, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client, System.UITypes;
 
 type
   TForm_usuarios = class(TForm)
@@ -39,36 +39,13 @@ uses Unit_data_module, Unit_manipular_usuario;
 
 procedure TForm_usuarios.btnAdicionarClick(Sender: TObject);
 begin
-//  Unit_manipular_usuario.Form_manipular_usuario.EditNome.DataSource := nil;
-//  Unit_manipular_usuario.Form_manipular_usuario.EditCPF.DataSource := nil;
-//  Unit_manipular_usuario.Form_manipular_usuario.EditLogin.DataSource := nil;
-//  Unit_manipular_usuario.Form_manipular_usuario.CheckboxAdm.DataSource := nil;
-//  Unit_manipular_usuario.Form_manipular_usuario.CheckboxAtivo.DataSource := nil;
-
-  Unit_manipular_usuario.Form_manipular_usuario.EditNome.Text := '';
-  Unit_manipular_usuario.Form_manipular_usuario.EditCPF.Text := '';
-  Unit_manipular_usuario.Form_manipular_usuario.EditLogin.Text := '';
-  Unit_manipular_usuario.Form_manipular_usuario.CheckboxAdm.Checked := False;
-  Unit_manipular_usuario.Form_manipular_usuario.CheckboxAtivo.Checked := False;
-
-  Unit_manipular_usuario.Form_manipular_usuario.Tag := 0;
-
+  Form_manipular_usuario.Tag := 0; // Modo de inserção
   Form_manipular_usuario.ShowModal;
 end;
 
 procedure TForm_usuarios.btnEditarClick(Sender: TObject);
 begin
-  with Unit_data_module.DataModule3.FDQuery_Usuarios do
-  begin
-    Unit_manipular_usuario.Form_manipular_usuario.EditNome.Text := FieldByName('nome_completo').AsString;
-    Unit_manipular_usuario.Form_manipular_usuario.EditCPF.Text := FieldByName('cpf').AsString;
-    Unit_manipular_usuario.Form_manipular_usuario.EditLogin.Text := FieldByName('login').AsString;
-    Unit_manipular_usuario.Form_manipular_usuario.CheckboxAdm.Checked := FieldByName('indicador_administrador').AsBoolean;
-    Unit_manipular_usuario.Form_manipular_usuario.CheckboxAtivo.Checked := FieldByName('indicador_usuario_ativo').AsBoolean;
-
-    Unit_manipular_usuario.Form_manipular_usuario.Tag := FieldByName('codigo_usuario').AsInteger;
-  end;
-
+  Form_manipular_usuario.Tag := 1; // Modo de edição
   Form_manipular_usuario.ShowModal;
 end;
 
@@ -103,3 +80,4 @@ begin
 end;
 
 end.
+

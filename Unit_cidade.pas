@@ -19,6 +19,9 @@ type
     Button1: TButton;
     Button2: TButton;
     Button3: TButton;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -31,6 +34,48 @@ var
 implementation
 
 {$R *.dfm}
-uses Unit_data_module;
+uses Unit_data_module, Unit_manipular_cidade;
+
+procedure TForm_cidade.Button1Click(Sender: TObject);
+begin
+  Form_manipular_cidade.Tag := 0; // Modo de inserção
+  Form_manipular_cidade.ShowModal;
+end;
+
+procedure TForm_cidade.Button2Click(Sender: TObject);
+begin
+  Form_manipular_cidade.Tag := 1; // Modo de edição
+  Form_manipular_cidade.ShowModal;
+end;
+
+procedure TForm_cidade.Button3Click(Sender: TObject);
+var
+  Query: TFDQuery;
+  CidadeID: Integer;
+begin
+  CidadeID := Unit_data_module.DataModule3.FDQuery_Cidades.FieldByName('codigo_cidade').AsInteger;
+
+  if MessageDlg('Você tem certeza que deseja excluir esta cidade?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+  begin
+    Query := TFDQuery.Create(nil);
+    try
+      Query.Connection := Unit_data_module.DataModule3.FD_Connection;
+      Query.SQL.Text := 'DELETE FROM cidade WHERE codigo_cidade = :codigo_cidade';
+      Query.ParamByName('codigo_cidade').AsInteger := CidadeID;
+
+      Query.ExecSQL;
+
+      Unit_data_module.DataModule3.FDQuery_Cidades.Close;
+      Unit_data_module.DataModule3.FDQuery_Cidades.Open;
+
+      ShowMessage('Cidade deletada com sucesso!');
+    except
+      on E: Exception do
+        ShowMessage('Erro ao deletar cidade: ' + E.Message);
+    end;
+
+    Query.Free;
+  end;
+end;
 
 end.
