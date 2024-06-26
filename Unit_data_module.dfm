@@ -98,4 +98,40 @@ object DataModule3: TDataModule3
     Left = 296
     Top = 32
   end
+  object FDQuery_Cadastro: TFDQuery
+    Active = True
+    Connection = FD_Connection
+    SQL.Strings = (
+      'SELECT '
+      '    it.codigo_item,'
+      '    it.descricao_item,'
+      '    it.data_validade,'
+      '    it.unidade,'
+      '    e.codigo_estado,'
+      '    e.nome_estado,'
+      '    e.sigla,'
+      '    c.codigo_cidade,'
+      '    c.nome_cidade,'
+      '    c.populacao,'
+      '    i.codigo_instituicao,'
+      '    i.nome_instituicao,'
+      '    i.cnpj,'
+      '    i.responsavel'
+      'FROM '
+      '    Estado e'
+      'JOIN '
+      '    Cidade c ON e.codigo_estado = c.codigo_estado'
+      'JOIN '
+      '    Instituicao i ON c.codigo_cidade = i.codigo_cidade'
+      'JOIN '
+      '    Item it'
+      'order by sigla;')
+    Left = 640
+    Top = 24
+  end
+  object DataSource_Cadastro: TDataSource
+    DataSet = FDQuery_Cadastro
+    Left = 808
+    Top = 24
+  end
 end

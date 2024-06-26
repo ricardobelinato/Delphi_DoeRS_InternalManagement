@@ -2,7 +2,7 @@ object Form_estado: TForm_estado
   Left = 0
   Top = 0
   BorderStyle = bsDialog
-  Caption = 'Form_estado'
+  Caption = 'Estados'
   ClientHeight = 438
   ClientWidth = 620
   Color = clBtnFace
@@ -54,29 +54,32 @@ object Form_estado: TForm_estado
     Width = 625
     Height = 41
     TabOrder = 2
-    object Button1: TButton
+    object Btn_adicionar: TButton
       Left = 366
       Top = 7
       Width = 75
       Height = 25
       Caption = 'Adicionar'
       TabOrder = 0
+      OnClick = Btn_adicionarClick
     end
-    object Button2: TButton
+    object Btn_editar: TButton
       Left = 447
       Top = 7
       Width = 75
       Height = 25
       Caption = 'Editar'
       TabOrder = 1
+      OnClick = Btn_editarClick
     end
-    object Button3: TButton
+    object Btn_excluir: TButton
       Left = 528
       Top = 7
       Width = 75
       Height = 25
       Caption = 'Excluir'
       TabOrder = 2
+      OnClick = Btn_excluirClick
     end
   end
 end

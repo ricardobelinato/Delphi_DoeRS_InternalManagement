@@ -2,7 +2,7 @@ object Form_item: TForm_item
   Left = 0
   Top = 0
   BorderStyle = bsDialog
-  Caption = 'Form_item'
+  Caption = 'Item'
   ClientHeight = 446
   ClientWidth = 622
   Color = clBtnFace

@@ -81,6 +81,13 @@ end;
 
 procedure TForm_manipular_usuario.btnSalvarClick(Sender: TObject);
 begin
+
+  if (Edit_nome_usuario.Text='') or (Edit_cpf.Text='') or (Edit_login.Text='') then
+  begin
+    ShowMessage('Ops! Parece que você esqueceu de preencher algum(s) campo(s) obrigatório(s).');
+    Exit;
+  end;
+
   if Tag = 0 then
     InsertUser
   else

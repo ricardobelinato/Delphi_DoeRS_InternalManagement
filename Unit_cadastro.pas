@@ -8,7 +8,8 @@ uses
   Vcl.DBGrids, Vcl.Menus, FireDAC.Stan.Intf, FireDAC.Stan.Option,
   FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.MySQL,
-  FireDAC.Phys.MySQLDef, FireDAC.VCLUI.Wait, FireDAC.Comp.Client, Vcl.ExtCtrls, FireDAC.Stan.Param;
+  FireDAC.Phys.MySQLDef, FireDAC.VCLUI.Wait, FireDAC.Comp.Client, Vcl.ExtCtrls, FireDAC.Stan.Param,
+  Vcl.Samples.Spin, Vcl.Mask;
 
 type
   TForm_cadastro = class(TForm)
@@ -20,30 +21,51 @@ type
     Itens3: TMenuItem;
     iposdeItens1: TMenuItem;
     Panel1: TPanel;
-    Panel2: TPanel;
-    Edit5: TEdit;
-    Edit6: TEdit;
-    Edit7: TEdit;
-    Edit8: TEdit;
-    ComboBox2: TComboBox;
-    Edit9: TEdit;
-    ComboBox3: TComboBox;
-    Edit10: TEdit;
-    Edit11: TEdit;
-    Edit12: TEdit;
-    Button1: TButton;
     Label1: TLabel;
-    Label6: TLabel;
+    Panel2: TPanel;
+    Panel3: TPanel;
+    Panel4: TPanel;
+    Panel5: TPanel;
+    Panel6: TPanel;
+    Panel7: TPanel;
+    Panel8: TPanel;
+    Panel9: TPanel;
+    Panel10: TPanel;
+    DBGrid1: TDBGrid;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
-    Label7: TLabel;
+    Edit_nome_cidade: TEdit;
+    Edit_populacao: TEdit;
+    Edit_nome_estado: TEdit;
+    Edit_nome_instituicao: TEdit;
+    Edit_responsavel: TEdit;
+    Edit_descricao_item: TEdit;
+    Edit1: TEdit;
+    Edit_peso: TEdit;
+    Edit_valor: TEdit;
+    Button1: TButton;
     Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
     Label8: TLabel;
     Label9: TLabel;
     Label10: TLabel;
+    ComboBox_unidade: TComboBox;
+    SpinEdit1: TSpinEdit;
+    ComboBox_sigla_estado: TComboBox;
     Label11: TLabel;
     Label12: TLabel;
+    Label13: TLabel;
+    Label14: TLabel;
+    Label15: TLabel;
+    Label16: TLabel;
+    MaskEdit_data_validade: TMaskEdit;
+    Label17: TLabel;
+    Label18: TLabel;
+    MaskEdit_data_doacao: TMaskEdit;
+    Label19: TLabel;
+    MaskEdit_cnpj: TMaskEdit;
     procedure Usurios1Click(Sender: TObject);
     procedure Cidades1Click(Sender: TObject);
     procedure Estados1Click(Sender: TObject);

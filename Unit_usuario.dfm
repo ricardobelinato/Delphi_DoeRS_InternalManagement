@@ -2,7 +2,7 @@ object Form_usuarios: TForm_usuarios
   Left = 0
   Top = 0
   BorderStyle = bsDialog
-  Caption = 'Form_usuario'
+  Caption = 'Usu'#225'rios'
   ClientHeight = 440
   ClientWidth = 623
   Color = clBtnFace

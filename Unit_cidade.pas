@@ -16,12 +16,12 @@ type
     Panel1: TPanel;
     Panel2: TPanel;
     Label1: TLabel;
-    Button1: TButton;
-    Button2: TButton;
-    Button3: TButton;
-    procedure Button1Click(Sender: TObject);
-    procedure Button2Click(Sender: TObject);
-    procedure Button3Click(Sender: TObject);
+    Btn_adicionar: TButton;
+    Btn_editar: TButton;
+    Btn_excluir: TButton;
+    procedure Btn_adicionarClick(Sender: TObject);
+    procedure Btn_editarClick(Sender: TObject);
+    procedure Btn_excluirClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -36,19 +36,19 @@ implementation
 {$R *.dfm}
 uses Unit_data_module, Unit_manipular_cidade;
 
-procedure TForm_cidade.Button1Click(Sender: TObject);
+procedure TForm_cidade.Btn_adicionarClick(Sender: TObject);
 begin
   Form_manipular_cidade.Tag := 0; // Modo de inserção
   Form_manipular_cidade.ShowModal;
 end;
 
-procedure TForm_cidade.Button2Click(Sender: TObject);
+procedure TForm_cidade.Btn_editarClick(Sender: TObject);
 begin
   Form_manipular_cidade.Tag := 1; // Modo de edição
   Form_manipular_cidade.ShowModal;
 end;
 
-procedure TForm_cidade.Button3Click(Sender: TObject);
+procedure TForm_cidade.Btn_excluirClick(Sender: TObject);
 var
   Query: TFDQuery;
   CidadeID: Integer;

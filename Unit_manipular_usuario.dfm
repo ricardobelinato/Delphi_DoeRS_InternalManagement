@@ -40,23 +40,23 @@ object Form_manipular_usuario: TForm_manipular_usuario
     object Label1: TLabel
       Left = 16
       Top = 60
-      Width = 30
+      Width = 38
       Height = 15
-      Caption = 'Login'
+      Caption = 'Login *'
     end
     object Label2: TLabel
       Left = 16
       Top = 10
-      Width = 33
+      Width = 41
       Height = 15
-      Caption = 'Nome'
+      Caption = 'Nome *'
     end
     object Label3: TLabel
       Left = 205
       Top = 10
-      Width = 21
+      Width = 29
       Height = 15
-      Caption = 'CPF'
+      Caption = 'CPF *'
     end
     object Label_codigo_usuario: TLabel
       Left = 16

@@ -20,14 +20,14 @@ object Form_manipular_cidade: TForm_manipular_cidade
     Width = 367
     Height = 57
     TabOrder = 0
-    object Button1: TButton
+    object Btn_salvar: TButton
       Left = 248
       Top = 16
       Width = 105
       Height = 25
       Caption = 'Salvar'
       TabOrder = 0
-      OnClick = Button1Click
+      OnClick = Btn_salvarClick
     end
   end
   object Panel2: TPanel
@@ -39,16 +39,16 @@ object Form_manipular_cidade: TForm_manipular_cidade
     object Label1: TLabel
       Left = 16
       Top = 17
-      Width = 87
+      Width = 95
       Height = 15
-      Caption = 'Nome da cidade'
+      Caption = 'Nome da cidade *'
     end
     object Label2: TLabel
       Left = 192
       Top = 17
-      Width = 56
+      Width = 64
       Height = 15
-      Caption = 'Popula'#231#227'o'
+      Caption = 'Popula'#231#227'o *'
     end
     object Label_codigo_cidade: TLabel
       Left = 16
@@ -83,6 +83,7 @@ object Form_manipular_cidade: TForm_manipular_cidade
       Top = 38
       Width = 161
       Height = 23
+      ImeName = 'Portuguese (Brazilian ABNT)'
       TabOrder = 1
     end
     object Edit_codigo_cidade: TEdit

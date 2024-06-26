@@ -2,7 +2,7 @@ object Form_cidade: TForm_cidade
   Left = 0
   Top = 0
   BorderStyle = bsDialog
-  Caption = 'Form_cidade'
+  Caption = 'Cidades'
   ClientHeight = 440
   ClientWidth = 629
   Color = clBtnFace
@@ -54,32 +54,32 @@ object Form_cidade: TForm_cidade
     Width = 633
     Height = 41
     TabOrder = 2
-    object Button1: TButton
+    object Btn_adicionar: TButton
       Left = 374
       Top = 7
       Width = 75
       Height = 25
       Caption = 'Adicionar'
       TabOrder = 0
-      OnClick = Button1Click
+      OnClick = Btn_adicionarClick
     end
-    object Button2: TButton
+    object Btn_editar: TButton
       Left = 455
       Top = 7
       Width = 75
       Height = 25
       Caption = 'Editar'
       TabOrder = 1
-      OnClick = Button2Click
+      OnClick = Btn_editarClick
     end
-    object Button3: TButton
+    object Btn_excluir: TButton
       Left = 536
       Top = 7
       Width = 75
       Height = 25
       Caption = 'Excluir'
       TabOrder = 2
-      OnClick = Button3Click
+      OnClick = Btn_excluirClick
     end
   end
 end

@@ -10,7 +10,7 @@ type
   TForm_manipular_cidade = class(TForm)
     Panel1: TPanel;
     Panel2: TPanel;
-    Button1: TButton;
+    Btn_salvar: TButton;
     Label1: TLabel;
     Edit_nome_cidade: TEdit;
     Edit_populacao: TEdit;
@@ -22,7 +22,7 @@ type
     Edit_codigo_estado: TEdit;
     Edit_codigo_usuario: TEdit;
     procedure FormShow(Sender: TObject);
-    procedure Button1Click(Sender: TObject);
+    procedure Btn_salvarClick(Sender: TObject);
   private
     { Private declarations }
     procedure InsertCidade;
@@ -39,8 +39,15 @@ implementation
 {$R *.dfm}
 uses Unit_data_module, Unit_cidade;
 
-procedure TForm_manipular_cidade.Button1Click(Sender: TObject);
+procedure TForm_manipular_cidade.Btn_salvarClick(Sender: TObject);
 begin
+
+  if (Edit_nome_cidade.Text='') or (Edit_populacao.Text='') then
+  begin
+    ShowMessage('Ops! Parece que você esqueceu de preencher algum(s) campo(s) obrigatório(s).');
+    Exit;
+  end;
+
   if Tag = 0 then
     InsertCidade
   else
