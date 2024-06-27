@@ -21,7 +21,7 @@ object Form_manipular_estado: TForm_manipular_estado
     Height = 41
     TabOrder = 0
     object Btn_salvar: TButton
-      Left = 256
+      Left = 248
       Top = 11
       Width = 105
       Height = 25

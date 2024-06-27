@@ -91,20 +91,19 @@ end;
 
 procedure TForm_manipular_estado.FormShow(Sender: TObject);
 begin
+  Edit_codigo_estado.ReadOnly := True;
+  Edit_codigo_usuario.ReadOnly := True;
+
+  Edit_codigo_estado.Enabled := False;
+  Edit_codigo_usuario.Enabled := False;
   if Tag = 0 then
   begin
     // Modo de inserção
     Edit_codigo_estado.Visible := False;
     Edit_codigo_usuario.Visible := False;
 
-    Edit_codigo_estado.ReadOnly := True;
-    Edit_codigo_usuario.ReadOnly := True;
-
     Label_codigo_estado.Visible := False;
     Label_codigo_usuario.Visible := False;
-
-    Edit_codigo_estado.Enabled := False;
-    Edit_codigo_usuario.Enabled := False;
 
     ComboBox_sigla_estado.Text := '';
     Edit_estado.Text := '';
@@ -117,14 +116,8 @@ begin
       Edit_codigo_estado.Visible := True;
       Edit_codigo_usuario.Visible := True;
 
-      Edit_codigo_estado.ReadOnly := True;
-      Edit_codigo_usuario.ReadOnly := True;
-
       Label_codigo_estado.Visible := True;
       Label_codigo_usuario.Visible := True;
-
-      Edit_codigo_estado.Enabled := False;
-      Edit_codigo_usuario.Enabled := False;
 
       ComboBox_sigla_estado.Text := FieldByName('sigla').AsString;
       Edit_estado.Text := FieldByName('nome_estado').AsString;

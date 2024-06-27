@@ -46,11 +46,12 @@ uses Unit_data_module;
 
 procedure TForm_manipular_usuario.FormShow(Sender: TObject);
 begin
+  Edit_codigo_usuario.ReadOnly := True;
+  Edit_codigo_usuario.Enabled := False;
   if Tag = 0 then
   begin
     // Modo de inserção
     Edit_codigo_usuario.Visible := False;
-    Edit_codigo_usuario.ReadOnly := True;
     Label_codigo_usuario.Visible := False;
 
     Edit_nome_usuario.Text := '';
@@ -65,8 +66,6 @@ begin
     with Unit_data_module.DataModule3.FDQuery_Usuarios do
     begin
       Edit_codigo_usuario.Visible := True;
-      Edit_codigo_usuario.ReadOnly := True;
-      Edit_codigo_usuario.Enabled := False;
       Label_codigo_usuario.Visible := True;
 
       Edit_codigo_usuario.Text := FieldByName('codigo_usuario').AsString;

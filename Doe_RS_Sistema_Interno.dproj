@@ -170,7 +170,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Unit_manipular_estado.pas">
-            <Form>Form2</Form>
+            <Form>Form_manipular_estado</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Unit_manipular_instituicoes.pas">

@@ -54,29 +54,32 @@ object Form_item: TForm_item
     Width = 625
     Height = 41
     TabOrder = 2
-    object Button1: TButton
+    object Btn_adicionar: TButton
       Left = 367
       Top = 8
       Width = 75
       Height = 25
       Caption = 'Adicionar'
       TabOrder = 0
+      OnClick = Btn_adicionarClick
     end
-    object Button2: TButton
+    object Btn_editar: TButton
       Left = 448
       Top = 8
       Width = 75
       Height = 25
       Caption = 'Editar'
       TabOrder = 1
+      OnClick = Btn_editarClick
     end
-    object Button3: TButton
+    object Btn_excluir: TButton
       Left = 529
       Top = 8
       Width = 75
       Height = 25
       Caption = 'Excluir'
       TabOrder = 2
+      OnClick = Btn_excluirClick
     end
   end
 end

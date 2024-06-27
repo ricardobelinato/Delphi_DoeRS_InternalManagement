@@ -56,6 +56,13 @@ end;
 
 procedure TForm_manipular_cidade.FormShow(Sender: TObject);
 begin
+  Edit_codigo_cidade.ReadOnly := True;
+  Edit_codigo_estado.ReadOnly := True;
+  Edit_codigo_usuario.ReadOnly := True;
+
+  Edit_codigo_cidade.Enabled := False;
+  Edit_codigo_estado.Enabled := False;
+  Edit_codigo_usuario.Enabled := False;
   if Tag = 0 then
   begin
     // Modo de inserção
@@ -63,17 +70,9 @@ begin
     Edit_codigo_estado.Visible := False;
     Edit_codigo_usuario.Visible := False;
 
-    Edit_codigo_cidade.ReadOnly := True;
-    Edit_codigo_estado.ReadOnly := True;
-    Edit_codigo_usuario.ReadOnly := True;
-
     Label_codigo_cidade.Visible := False;
     Label_codigo_estado.Visible := False;
     Label_codigo_usuario.Visible := False;
-
-    Edit_codigo_cidade.Enabled := False;
-    Edit_codigo_estado.Enabled := False;
-    Edit_codigo_usuario.Enabled := False;
 
     Edit_nome_cidade.Text := '';
     Edit_populacao.Text := '';
@@ -87,17 +86,9 @@ begin
       Edit_codigo_estado.Visible := True;
       Edit_codigo_usuario.Visible := True;
 
-      Edit_codigo_cidade.ReadOnly := True;
-      Edit_codigo_estado.ReadOnly := True;
-      Edit_codigo_usuario.ReadOnly := True;
-
       Label_codigo_cidade.Visible := True;
       Label_codigo_estado.Visible := True;
       Label_codigo_usuario.Visible := True;
-
-      Edit_codigo_cidade.Enabled := False;
-      Edit_codigo_estado.Enabled := False;
-      Edit_codigo_usuario.Enabled := False;
 
       Edit_nome_cidade.Text := FieldByName('nome_cidade').AsString;
       Edit_populacao.Text := FieldByName('populacao').AsString;
