@@ -13,7 +13,7 @@ object Form_cadastro: TForm_cadastro
   Font.Style = []
   Menu = MainMenu1
   WindowState = wsMaximized
-  OnCreate = FormCreate
+  OnActivate = FormActivate
   TextHeight = 15
   object Panel1: TPanel
     Left = 0

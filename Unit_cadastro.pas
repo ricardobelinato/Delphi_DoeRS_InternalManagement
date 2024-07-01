@@ -68,10 +68,9 @@ type
     procedure Instituies2Click(Sender: TObject);
     procedure Itens3Click(Sender: TObject);
     procedure iposdeItens1Click(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
   private
     { Private declarations }
-    IndicadorAdministrador: Boolean;
   public
     { Public declarations }
   end;
@@ -84,6 +83,15 @@ implementation
 {$R *.dfm}
 uses Unit_login, Unit_usuario, Unit_cidade, Unit_estado, Unit_instituicoes, Unit_item, Unit_tipo_item, Unit_data_module, Unit_functions;
 
+procedure TForm_cadastro.FormActivate(Sender: TObject);
+begin
+//  ShowMessage('cod adm: ' + BoolToStr(IndicadorAdministrador, True));
+  if IndicadorAdministrador then
+    Menu := MainMenu1
+  else
+    Menu := nil;
+end;
+
 procedure TForm_cadastro.Cidades1Click(Sender: TObject);
 begin
   Form_cidade.Show;
@@ -92,16 +100,6 @@ end;
 procedure TForm_cadastro.Estados1Click(Sender: TObject);
 begin
   Form_estado.Show;
-end;
-
-procedure TForm_cadastro.FormCreate(Sender: TObject);
-begin
-  IndicadorAdministrador := GetIndicadorAdministrador;
-
-  if GetIndicadorAdministrador then
-    Menu := MainMenu1
-  else
-    Menu := nil;
 end;
 
 procedure TForm_cadastro.Instituies2Click(Sender: TObject);

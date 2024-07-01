@@ -9,15 +9,12 @@ Vcl.Forms, Unit_data_module, Unit_cadastro;
 procedure HandleEditCPFKeyPress(Sender: TObject; var Key: Char);
 function RemoverFormatacaoCPF(const CPF: string): string;
 function ValidarCamposLogin(Form: TForm; LoginEdit, CPFEEdit: TEdit): Boolean;
-function GetIndicadorAdministrador: Boolean;
 
 var
-  indicadorAdministrador: Boolean;
+  CodigoUsuario: Integer;
+  IndicadorAdministrador: Boolean;
 
 implementation
-
-//var
-//  indicadorAdministrador: Boolean;
 
 {Unit_login}
 //Procedure para formatar o campo CPF no form login, de forma que o "text" do campo esteja vazio e seja preenchido de pontos e traço a medida que se escreve o CPF
@@ -63,6 +60,7 @@ begin
 end;
 
 //Procedure para validar campos do login, se estão vazios ou incorretos e permitir login caso devidamente validados
+//Procedure to validate login fields, whether they are empty or incorrect and allow login if properly validated
 function ValidarCamposLogin(Form: TForm; LoginEdit, CPFEEdit: TEdit): Boolean;
 var
   Query: TFDQuery;
@@ -96,32 +94,31 @@ begin
 
     if not Query.IsEmpty then
     begin
-      indicadorAdministrador := Query.FieldByName('indicador_administrador').AsBoolean;
+
+      CodigoUsuario := Query.FieldByName('codigo_usuario').AsInteger;
+      IndicadorAdministrador := Query.FieldByName('indicador_administrador').AsBoolean;
       indicadorAtivo := Query.FieldByName('indicador_usuario_ativo').AsBoolean;
 
       if indicadorAtivo then
       begin
         Form.Hide;
         Form_cadastro.Show;
-        Result := indicadorAdministrador
+        Result := True;
       end
       else
       begin
         ShowMessage('O usuário não está ativo. Por favor, entre em contato com o suporte.');
+        Result := False;
       end;
     end
     else
     begin
       ShowMessage('Houve um erro nos campos login e/ou CPF. Por favor, verifique novamente.');
+      Result := False;
     end;
   finally
     Query.Free;
   end;
-end;
-
-function GetIndicadorAdministrador: Boolean;
-begin
-  Result := indicadorAdministrador;
 end;
 
 end.
