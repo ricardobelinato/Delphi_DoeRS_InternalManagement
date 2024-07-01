@@ -12,8 +12,9 @@ object Form_Login: TForm_Login
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poScreenCenter
+  OnCreate = FormCreate
   TextHeight = 15
-  object Label1: TLabel
+  object lblSubtitulo: TLabel
     Left = 128
     Top = 96
     Width = 152
@@ -26,7 +27,7 @@ object Form_Login: TForm_Login
     Font.Style = []
     ParentFont = False
   end
-  object Label2: TLabel
+  object lblTitulo: TLabel
     Left = 168
     Top = 53
     Width = 72
@@ -39,21 +40,21 @@ object Form_Login: TForm_Login
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label3: TLabel
+  object lblLogin: TLabel
     Left = 64
     Top = 131
     Width = 30
     Height = 15
     Caption = 'Login'
   end
-  object Label4: TLabel
+  object lblCpf: TLabel
     Left = 64
     Top = 189
     Width = 21
     Height = 15
     Caption = 'CPF'
   end
-  object TEditLogin: TEdit
+  object edtLogin: TEdit
     Left = 64
     Top = 152
     Width = 289
@@ -63,11 +64,10 @@ object Form_Login: TForm_Login
     Font.Height = -17
     Font.Name = 'Segoe UI'
     Font.Style = []
-    ImeName = 'Portuguese (Brazilian ABNT)'
     ParentFont = False
     TabOrder = 0
   end
-  object TEditCPF: TEdit
+  object edtCpf: TEdit
     Left = 64
     Top = 210
     Width = 289
@@ -77,14 +77,12 @@ object Form_Login: TForm_Login
     Font.Height = -17
     Font.Name = 'Segoe UI'
     Font.Style = []
-    ImeName = 'Portuguese (Brazilian ABNT)'
     MaxLength = 14
     NumbersOnly = True
     ParentFont = False
     TabOrder = 1
-    OnKeyPress = TEditCPFKeyPress
   end
-  object Panel1: TPanel
+  object pnlBotao: TPanel
     Left = 64
     Top = 272
     Width = 289
@@ -93,7 +91,7 @@ object Form_Login: TForm_Login
     Color = clHotLight
     ParentBackground = False
     TabOrder = 2
-    object SpeedButton1: TSpeedButton
+    object sbtnEntrar: TSpeedButton
       Left = 0
       Top = 0
       Width = 289
@@ -109,9 +107,7 @@ object Form_Login: TForm_Login
       Font.Style = [fsBold]
       ParentFont = False
       StyleElements = [seClient]
-      OnClick = SpeedButton1Click
-      OnMouseEnter = SpeedButton1MouseEnter
-      OnMouseLeave = SpeedButton1MouseLeave
+      OnClick = sbtnEntrarClick
       ExplicitLeft = 40
       ExplicitWidth = 217
     end

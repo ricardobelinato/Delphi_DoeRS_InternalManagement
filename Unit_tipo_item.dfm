@@ -3,7 +3,7 @@ object Form_tipoitem: TForm_tipoitem
   Top = 0
   BorderStyle = bsDialog
   Caption = 'Tipos de Itens'
-  ClientHeight = 441
+  ClientHeight = 437
   ClientWidth = 624
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -54,29 +54,32 @@ object Form_tipoitem: TForm_tipoitem
     Width = 625
     Height = 41
     TabOrder = 2
-    object Button1: TButton
+    object Btn_adicionar: TButton
       Left = 374
       Top = 7
       Width = 75
       Height = 25
       Caption = 'Adicionar'
       TabOrder = 0
+      OnClick = Btn_adicionarClick
     end
-    object Button2: TButton
+    object Btn_editar: TButton
       Left = 455
       Top = 7
       Width = 75
       Height = 25
       Caption = 'Editar'
       TabOrder = 1
+      OnClick = Btn_editarClick
     end
-    object Button3: TButton
+    object Btn_excluir: TButton
       Left = 536
       Top = 7
       Width = 75
       Height = 25
       Caption = 'Excluir'
       TabOrder = 2
+      OnClick = Btn_excluirClick
     end
   end
 end

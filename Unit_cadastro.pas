@@ -5,11 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Data.DB, Vcl.Grids,
-  Vcl.DBGrids, Vcl.Menus, FireDAC.Stan.Intf, FireDAC.Stan.Option,
-  FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
-  FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.MySQL,
-  FireDAC.Phys.MySQLDef, FireDAC.VCLUI.Wait, FireDAC.Comp.Client, Vcl.ExtCtrls, FireDAC.Stan.Param,
-  Vcl.Samples.Spin, Vcl.Mask;
+  Vcl.DBGrids, Vcl.Menus, Vcl.ExtCtrls, Vcl.Samples.Spin, Vcl.Mask;
 
 type
   TForm_cadastro = class(TForm)
@@ -75,19 +71,18 @@ type
     procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
+    IndicadorAdministrador: Boolean;
   public
     { Public declarations }
   end;
 
 var
   Form_cadastro: TForm_cadastro;
-//  ShowMenu: Boolean;
-  ShowMenu: String;
 
 implementation
 
 {$R *.dfm}
-uses Unit_login, Unit_usuario, Unit_cidade, Unit_estado, Unit_instituicoes, Unit_item, Unit_tipo_item, Unit_data_module;
+uses Unit_login, Unit_usuario, Unit_cidade, Unit_estado, Unit_instituicoes, Unit_item, Unit_tipo_item, Unit_data_module, Unit_functions;
 
 procedure TForm_cadastro.Cidades1Click(Sender: TObject);
 begin
@@ -99,76 +94,14 @@ begin
   Form_estado.Show;
 end;
 
-//procedure TForm3.FormCreate(Sender: TObject);
-//var
-//  Query: TFDQuery;
-//begin
-//  Query := TFDQuery.Create(nil);
-//  try
-//    Query.Connection := FDConnection1;
-//    Query.SQL.Text := 'SELECT indicador_administrador FROM usuario WHERE login = :Login';
-//    Query.Params.ParamByName('Login').AsString := NomeUsuarioLogado;
-//
-//    Query.Open;
-//    if not Query.IsEmpty then
-//    begin
-//      ShowMenu := Query.FieldByName('indicador_administrador').AsBoolean;
-//    end
-//    else
-//    begin
-//      // Se não encontrar o usuário, ShowMenu = False
-//      ShowMenu := False;
-//    end;
-//  finally
-//    Query.Free;
-//  end;
-//
-//  // Mostra ou oculta o menu com base na permissão do usuário
-//  if ShowMenu then
-//    Self.Menu := MainMenu1
-//  else
-//    Self.Menu := nil;
-//end;
-
 procedure TForm_cadastro.FormCreate(Sender: TObject);
-var
-  Query: TFDQuery;
-  indicador_administrador: Boolean;
 begin
-  if not Unit_data_module.DataModule3.FD_Connection.Connected then
-    Unit_data_module.DataModule3.FD_Connection.Connected := True;
-  Query := TFDQuery.Create(nil);
-  try
-    Query.Connection := Unit_data_module.DataModule3.FD_Connection;
-    Query.SQL.Text := 'SELECT indicador_administrador FROM usuario WHERE login = :Login';
-    Query.Params.ParamByName('Login').AsString := NomeUsuarioLogado;
+  IndicadorAdministrador := GetIndicadorAdministrador;
 
-    Query.Open;
-
-    if not Query.IsEmpty then
-    begin
-      indicador_administrador := Query.FieldByName('indicador_administrador').AsBoolean;
-    end
-    else
-    begin
-      indicador_administrador := True;
-    end;
-
-    if indicador_administrador then
-      Self.Menu := MainMenu1
-    else
-      Self.Menu := nil;
-
-  except
-    on E: Exception do
-    begin
-      ShowMessage('Erro ao acessar o banco de dados: ' + E.Message);
-      Self.Menu := nil;
-    end;
-  end;
-
-  Query.Free;
-
+  if GetIndicadorAdministrador then
+    Menu := MainMenu1
+  else
+    Menu := nil;
 end;
 
 procedure TForm_cadastro.Instituies2Click(Sender: TObject);

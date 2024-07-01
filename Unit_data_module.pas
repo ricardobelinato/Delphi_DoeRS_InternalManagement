@@ -24,7 +24,7 @@ type
     FDQuery_Itens: TFDQuery;
     DataSource_Itens: TDataSource;
     DataSource_tipos_de_itens: TDataSource;
-    FDQuery_tipos_de_itens: TFDQuery;
+    FDQuery_Tipo_Item: TFDQuery;
     FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink;
     FDQuery_Cadastro: TFDQuery;
     DataSource_Cadastro: TDataSource;

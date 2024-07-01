@@ -52,7 +52,7 @@ object Form_cadastro: TForm_cadastro
     Height = 463
     Align = alLeft
     TabOrder = 1
-    ExplicitLeft = -6
+    ExplicitHeight = 455
     object Label5: TLabel
       Left = 107
       Top = 88
@@ -359,8 +359,8 @@ object Form_cadastro: TForm_cadastro
     Align = alClient
     Caption = 'Panel3'
     TabOrder = 2
-    ExplicitLeft = 480
-    ExplicitTop = 87
+    ExplicitWidth = 471
+    ExplicitHeight = 455
     object Panel5: TPanel
       Left = 1
       Top = 421
@@ -370,7 +370,7 @@ object Form_cadastro: TForm_cadastro
       BevelOuter = bvNone
       TabOrder = 0
       ExplicitTop = 413
-      ExplicitWidth = 474
+      ExplicitWidth = 469
     end
     object Panel7: TPanel
       Left = 372
@@ -380,7 +380,7 @@ object Form_cadastro: TForm_cadastro
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitLeft = 375
+      ExplicitLeft = 370
       ExplicitHeight = 340
     end
     object Panel9: TPanel
@@ -391,7 +391,7 @@ object Form_cadastro: TForm_cadastro
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 2
-      ExplicitWidth = 474
+      ExplicitWidth = 469
       object Label2: TLabel
         Left = 24
         Top = 43

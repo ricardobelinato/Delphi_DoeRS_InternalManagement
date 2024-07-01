@@ -14,9 +14,10 @@ uses
   Unit_manipular_usuario in 'Unit_manipular_usuario.pas' {Form_manipular_usuario},
   Unit_manipular_cidade in 'Unit_manipular_cidade.pas' {Form_manipular_cidade},
   Unit_manipular_estado in 'Unit_manipular_estado.pas' {Form_manipular_estado},
-  Unit_manipular_instituicoes in 'Unit_manipular_instituicoes.pas' {Form3},
-  Unit_manipular_item in 'Unit_manipular_item.pas' {Form4},
-  Unit_manipular_tipo_item in 'Unit_manipular_tipo_item.pas' {Form5};
+  Unit_manipular_instituicoes in 'Unit_manipular_instituicoes.pas' {Form_manipular_instituicao},
+  Unit_manipular_item in 'Unit_manipular_item.pas' {Form_manipular_item},
+  Unit_manipular_tipo_item in 'Unit_manipular_tipo_item.pas' {Form_manipular_tipo_item},
+  Unit_functions in 'Unit_functions.pas';
 
 {$R *.res}
 
@@ -35,8 +36,8 @@ begin
   Application.CreateForm(TForm_manipular_usuario, Form_manipular_usuario);
   Application.CreateForm(TForm_manipular_cidade, Form_manipular_cidade);
   Application.CreateForm(TForm_manipular_estado, Form_manipular_estado);
-  Application.CreateForm(TForm3, Form3);
-  Application.CreateForm(TForm4, Form4);
-  Application.CreateForm(TForm5, Form5);
+  Application.CreateForm(TForm_manipular_instituicao, Form_manipular_instituicao);
+  Application.CreateForm(TForm_manipular_item, Form_manipular_item);
+  Application.CreateForm(TForm_manipular_tipo_item, Form_manipular_tipo_item);
   Application.Run;
 end.

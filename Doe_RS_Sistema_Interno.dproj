@@ -174,17 +174,18 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Unit_manipular_instituicoes.pas">
-            <Form>Form3</Form>
+            <Form>Form_manipular_instituicao</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Unit_manipular_item.pas">
-            <Form>Form4</Form>
+            <Form>Form_manipular_item</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Unit_manipular_tipo_item.pas">
-            <Form>Form5</Form>
+            <Form>Form_manipular_tipo_item</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Unit_functions.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

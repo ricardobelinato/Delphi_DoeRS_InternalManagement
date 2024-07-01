@@ -79,11 +79,11 @@ object DataModule3: TDataModule3
     Top = 472
   end
   object DataSource_tipos_de_itens: TDataSource
-    DataSet = FDQuery_tipos_de_itens
+    DataSet = FDQuery_Tipo_Item
     Left = 296
     Top = 560
   end
-  object FDQuery_tipos_de_itens: TFDQuery
+  object FDQuery_Tipo_Item: TFDQuery
     Active = True
     Connection = FD_Connection
     SQL.Strings = (
