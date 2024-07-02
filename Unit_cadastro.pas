@@ -17,7 +17,7 @@ type
     Itens3: TMenuItem;
     iposdeItens1: TMenuItem;
     Panel1: TPanel;
-    Label1: TLabel;
+    lblSejaBemVindo: TLabel;
     Panel2: TPanel;
     Panel3: TPanel;
     Panel4: TPanel;
@@ -28,40 +28,40 @@ type
     Panel9: TPanel;
     Panel10: TPanel;
     DBGrid1: TDBGrid;
-    Label2: TLabel;
-    Label3: TLabel;
-    Label4: TLabel;
-    Edit_nome_cidade: TEdit;
-    Edit_populacao: TEdit;
-    Edit_nome_estado: TEdit;
-    Edit_nome_instituicao: TEdit;
-    Edit_responsavel: TEdit;
-    Edit_descricao_item: TEdit;
-    Edit1: TEdit;
-    Edit_peso: TEdit;
-    Edit_valor: TEdit;
-    Button1: TButton;
-    Label5: TLabel;
-    Label6: TLabel;
-    Label7: TLabel;
-    Label8: TLabel;
-    Label9: TLabel;
-    Label10: TLabel;
-    ComboBox_unidade: TComboBox;
-    SpinEdit1: TSpinEdit;
-    ComboBox_sigla_estado: TComboBox;
-    Label11: TLabel;
-    Label12: TLabel;
-    Label13: TLabel;
-    Label14: TLabel;
-    Label15: TLabel;
-    Label16: TLabel;
-    MaskEdit_data_validade: TMaskEdit;
-    Label17: TLabel;
-    Label18: TLabel;
-    MaskEdit_data_doacao: TMaskEdit;
-    Label19: TLabel;
-    MaskEdit_cnpj: TMaskEdit;
+    lblGrid: TLabel;
+    lblPreenchaForm1: TLabel;
+    lblPreenchaForm2: TLabel;
+    edtNomeCidade: TEdit;
+    edtPopulacao: TEdit;
+    edtNomeEstado: TEdit;
+    edtNomeInstituicao: TEdit;
+    edtResponsavel: TEdit;
+    edtDescricaoItem: TEdit;
+    edtDescricaoTipoItem: TEdit;
+    edtPeso: TEdit;
+    edtValor: TEdit;
+    btnEnviar: TButton;
+    lblItemDoado: TLabel;
+    lblQuantidade: TLabel;
+    lblValor: TLabel;
+    lblPeso: TLabel;
+    lblDescricao: TLabel;
+    lblUnidade: TLabel;
+    cmbUnidade: TComboBox;
+    spnQuantidade: TSpinEdit;
+    cmbSiglaEstado: TComboBox;
+    lblEstado: TLabel;
+    lblNomeEstado: TLabel;
+    lblNomeCidade: TLabel;
+    lblPopulacao: TLabel;
+    lblInstituicao: TLabel;
+    lblCnpj: TLabel;
+    mskDataValidade: TMaskEdit;
+    lblDataValidade: TLabel;
+    lblDataDoacao: TLabel;
+    mskDataDoacao: TMaskEdit;
+    lblResponsavel: TLabel;
+    mskCnpj: TMaskEdit;
     procedure Usurios1Click(Sender: TObject);
     procedure Cidades1Click(Sender: TObject);
     procedure Estados1Click(Sender: TObject);
@@ -69,6 +69,7 @@ type
     procedure Itens3Click(Sender: TObject);
     procedure iposdeItens1Click(Sender: TObject);
     procedure FormActivate(Sender: TObject);
+    procedure btnEnviarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -83,15 +84,24 @@ implementation
 {$R *.dfm}
 uses Unit_login, Unit_usuario, Unit_cidade, Unit_estado, Unit_instituicoes, Unit_item, Unit_tipo_item, Unit_data_module, Unit_functions;
 
+//Procedure de permissão, responsável por exibir o menu apenas para usuários com código de administrador 1/true
+//Permission procedure, responsible for displaying the menu only for users with administrator code 1/true
 procedure TForm_cadastro.FormActivate(Sender: TObject);
 begin
-//  ShowMessage('cod adm: ' + BoolToStr(IndicadorAdministrador, True));
   if IndicadorAdministrador then
     Menu := MainMenu1
   else
     Menu := nil;
 end;
 
+//Procedure do evento de clique no botão, responsável por dar o insert em todas as tabelas
+procedure TForm_cadastro.btnEnviarClick(Sender: TObject);
+begin
+  //
+end;
+
+//Todas as procedures abaixo são eventos de click no menu que direcionam o usuário para o devido form
+//All procedures below are click events on the menu that direct the user to the appropriate form
 procedure TForm_cadastro.Cidades1Click(Sender: TObject);
 begin
   Form_cidade.Show;

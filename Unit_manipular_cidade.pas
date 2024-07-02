@@ -10,23 +10,21 @@ type
   TForm_manipular_cidade = class(TForm)
     Panel1: TPanel;
     Panel2: TPanel;
-    Btn_salvar: TButton;
-    Label1: TLabel;
-    Edit_nome_cidade: TEdit;
-    Edit_populacao: TEdit;
-    Label2: TLabel;
-    Label_codigo_cidade: TLabel;
-    Edit_codigo_cidade: TEdit;
-    Label_codigo_estado: TLabel;
-    Label_codigo_usuario: TLabel;
-    Edit_codigo_estado: TEdit;
-    Edit_codigo_usuario: TEdit;
+    btnSalvar: TButton;
+    lblNomeCidade: TLabel;
+    edtNomeCidade: TEdit;
+    edtPopulacao: TEdit;
+    lblPopulacao: TLabel;
+    lblCodigoCidade: TLabel;
+    edtCodigoCidade: TEdit;
+    lblCodigoEstado: TLabel;
+    lblCodigoUsuario: TLabel;
+    edtCodigoEstado: TEdit;
+    edtCodigoUsuario: TEdit;
     procedure FormShow(Sender: TObject);
-    procedure Btn_salvarClick(Sender: TObject);
+    procedure btnSalvarClick(Sender: TObject);
   private
     { Private declarations }
-    procedure InsertCidade;
-    procedure UpdateCidade;
   public
     { Public declarations }
   end;
@@ -37,137 +35,76 @@ var
 implementation
 
 {$R *.dfm}
-uses Unit_data_module, Unit_cidade;
+uses Unit_data_module, Unit_functions;
 
-procedure TForm_manipular_cidade.Btn_salvarClick(Sender: TObject);
+//Procedure do evento de clique no botão salvar que executa um insert ou update dependendo do modo selecionado, essa procedure também valida se os campos obrigatórios não estão vazios, caso estejam é barrado de prosseguir
+//Procedure of the click event on the save button that performs an insert or update depending on the selected mode, this procedure also validates that the mandatory fields are not empty, if they are, it is blocked from proceeding
+procedure TForm_manipular_cidade.btnSalvarClick(Sender: TObject);
+var
+  CodigoCidade: Integer;
+
 begin
-
-  if (Edit_nome_cidade.Text='') or (Edit_populacao.Text='') then
+  if (edtNomeCidade.Text='') or (edtPopulacao.Text='') then
   begin
     ShowMessage('Ops! Parece que você esqueceu de preencher algum(s) campo(s) obrigatório(s).');
     Exit;
   end;
 
   if Tag = 0 then
-    InsertCidade
+    Unit_functions.InsertCidade(edtNomeCidade.Text, edtPopulacao.Text)
   else
-    UpdateCidade;
+    CodigoCidade := StrToInt(edtCodigoCidade.Text);
+    Unit_functions.UpdateCidade(CodigoCidade, edtNomeCidade.Text, edtPopulacao.Text);
 end;
 
+//Procedure que trata de labels e campos edit de acordo com o modo de inserção ou edição, mexendo com a visibilidade de componentes, deixando-os disabled, limpando campos ou dando valores a eles
+//Procedure that deals with labels and edit fields according to the insertion or editing mode, changing the visibility of components, leaving them disabled, clearing fields or giving them values
 procedure TForm_manipular_cidade.FormShow(Sender: TObject);
 begin
-  Edit_codigo_cidade.ReadOnly := True;
-  Edit_codigo_estado.ReadOnly := True;
-  Edit_codigo_usuario.ReadOnly := True;
+  edtCodigoCidade.ReadOnly := True;
+  edtCodigoEstado.ReadOnly := True;
+  edtCodigoUsuario.ReadOnly := True;
 
-  Edit_codigo_cidade.Enabled := False;
-  Edit_codigo_estado.Enabled := False;
-  Edit_codigo_usuario.Enabled := False;
+  edtCodigoCidade.Enabled := False;
+  edtCodigoEstado.Enabled := False;
+  edtCodigoUsuario.Enabled := False;
   if Tag = 0 then
   begin
-    // Modo de inserção
-    Edit_codigo_cidade.Visible := False;
-    Edit_codigo_estado.Visible := False;
-    Edit_codigo_usuario.Visible := False;
+    //Modo de inserção
+    //Insertion mode
+    edtCodigoCidade.Visible := False;
+    edtCodigoEstado.Visible := False;
+    edtCodigoUsuario.Visible := False;
 
-    Label_codigo_cidade.Visible := False;
-    Label_codigo_estado.Visible := False;
-    Label_codigo_usuario.Visible := False;
+    lblCodigoCidade.Visible := False;
+    lblCodigoEstado.Visible := False;
+    lblCodigoUsuario.Visible := False;
 
-    Edit_nome_cidade.Text := '';
-    Edit_populacao.Text := '';
+    edtNomeCidade.Text := '';
+    edtPopulacao.Text := '';
   end
   else
   begin
-    // Modo de edição
+    //Modo de edição
+    //Editing mode
     with Unit_data_module.DataModule3.FDQuery_Cidades do
     begin
-      Edit_codigo_cidade.Visible := True;
-      Edit_codigo_estado.Visible := True;
-      Edit_codigo_usuario.Visible := True;
+      edtCodigoCidade.Visible := True;
+      edtCodigoEstado.Visible := True;
+      edtCodigoUsuario.Visible := True;
 
-      Label_codigo_cidade.Visible := True;
-      Label_codigo_estado.Visible := True;
-      Label_codigo_usuario.Visible := True;
+      lblCodigoCidade.Visible := True;
+      lblCodigoEstado.Visible := True;
+      lblCodigoUsuario.Visible := True;
 
-      Edit_nome_cidade.Text := FieldByName('nome_cidade').AsString;
-      Edit_populacao.Text := FieldByName('populacao').AsString;
+      edtNomeCidade.Text := FieldByName('nome_cidade').AsString;
+      edtPopulacao.Text := FieldByName('populacao').AsString;
 
-      Edit_codigo_cidade.Text := FieldByName('codigo_cidade').AsString;
-      Edit_codigo_estado.Text := FieldByName('codigo_estado').AsString;
-      Edit_codigo_usuario.Text := FieldByName('codigo_usuario').AsString;
+      edtCodigoCidade.Text := FieldByName('codigo_cidade').AsString;
+      edtCodigoEstado.Text := FieldByName('codigo_estado').AsString;
+      edtCodigoUsuario.Text := FieldByName('codigo_usuario').AsString;
     end;
   end;
-end;
-
-procedure TForm_manipular_cidade.InsertCidade;
-var
-  SQLInsert: string;
-  Query: TFDQuery;
-begin
-  SQLInsert :=
-    'INSERT INTO cidade (nome_cidade, populacao) ' +
-    'VALUES (:nome_cidade, :populacao)';
-
-  Query := TFDQuery.Create(nil);
-  try
-    Query.Connection := Unit_data_module.DataModule3.FD_Connection;
-    Query.SQL.Text := SQLInsert;
-
-    Query.ParamByName('nome_cidade').AsString := Edit_nome_cidade.Text;
-    Query.ParamByName('populacao').AsString := Edit_populacao.Text;
-
-    Query.ExecSQL;
-
-    Unit_data_module.DataModule3.FDQuery_Cidades.Close;
-    Unit_data_module.DataModule3.FDQuery_Cidades.Open;
-    ShowMessage('Cidade adicionada com sucesso!');
-    ModalResult := mrOk;
-
-  except
-    on E: Exception do
-      ShowMessage('Erro ao adicionar cidade: ' + E.Message);
-  end;
-
-  Query.Free;
-end;
-
-procedure TForm_manipular_cidade.UpdateCidade;
-var
-  SQLUpdate: string;
-  Query: TFDQuery;
-  CodigoCidade: Integer;
-begin
-  CodigoCidade := Unit_data_module.DataModule3.FDQuery_Cidades.FieldByName('codigo_cidade').AsInteger;
-
-  SQLUpdate :=
-    'UPDATE cidade ' +
-    'SET nome_cidade = :nome_cidade, ' +
-    '    populacao = :populacao ' +
-    'WHERE codigo_cidade = :codigo_cidade';
-
-  Query := TFDQuery.Create(nil);
-  try
-    Query.Connection := Unit_data_module.DataModule3.FD_Connection;
-    Query.SQL.Text := SQLUpdate;
-
-    Query.ParamByName('nome_cidade').AsString := Edit_nome_cidade.Text;
-    Query.ParamByName('populacao').AsString := Edit_populacao.Text;
-    Query.ParamByName('codigo_cidade').AsInteger := CodigoCidade;
-
-    Query.ExecSQL;
-
-    Unit_data_module.DataModule3.FDQuery_Cidades.Close;
-    Unit_data_module.DataModule3.FDQuery_Cidades.Open;
-    ShowMessage('Cidade atualizada com sucesso!');
-    ModalResult := mrOk;
-
-  except
-    on E: Exception do
-      ShowMessage('Erro ao atualizar cidade: ' + E.Message);
-  end;
-
-  Query.Free;
 end;
 
 end.

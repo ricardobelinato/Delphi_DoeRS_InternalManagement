@@ -20,14 +20,14 @@ object Form_manipular_estado: TForm_manipular_estado
     Width = 361
     Height = 41
     TabOrder = 0
-    object Btn_salvar: TButton
+    object btnSalvar: TButton
       Left = 248
       Top = 11
       Width = 105
       Height = 25
       Caption = 'Salvar'
       TabOrder = 0
-      OnClick = Btn_salvarClick
+      OnClick = btnSalvarClick
     end
   end
   object Panel2: TPanel
@@ -36,42 +36,42 @@ object Form_manipular_estado: TForm_manipular_estado
     Width = 361
     Height = 121
     TabOrder = 1
-    object Label1: TLabel
+    object lblSiglaEstado: TLabel
       Left = 16
       Top = 16
       Width = 88
       Height = 15
       Caption = 'Sigla do Estado *'
     end
-    object Label2: TLabel
+    object lblEstado: TLabel
       Left = 168
       Top = 16
       Width = 35
       Height = 15
       Caption = 'Estado'
     end
-    object Label_codigo_estado: TLabel
+    object lblCodigoEstado: TLabel
       Left = 16
       Top = 66
       Width = 94
       Height = 15
       Caption = 'C'#243'digo do Estado'
     end
-    object Label_codigo_usuario: TLabel
+    object lblCodigoUsuario: TLabel
       Left = 168
       Top = 66
       Width = 99
       Height = 15
       Caption = 'C'#243'digo do Usu'#225'rio'
     end
-    object ComboBox_sigla_estado: TComboBox
+    object cmbSiglaEstado: TComboBox
       Left = 16
       Top = 37
       Width = 137
       Height = 23
       TabOrder = 0
       TextHint = 'Selecione o Estado'
-      OnChange = ComboBox_sigla_estadoChange
+      OnChange = cmbSiglaEstadoChange
       Items.Strings = (
         'AC'
         'AL'
@@ -101,7 +101,7 @@ object Form_manipular_estado: TForm_manipular_estado
         'SE'
         'TO')
     end
-    object Edit_estado: TEdit
+    object edtEstado: TEdit
       Left = 168
       Top = 37
       Width = 153
@@ -109,14 +109,14 @@ object Form_manipular_estado: TForm_manipular_estado
       Enabled = False
       TabOrder = 1
     end
-    object Edit_codigo_estado: TEdit
+    object edtCodigoEstado: TEdit
       Left = 16
       Top = 87
       Width = 137
       Height = 23
       TabOrder = 2
     end
-    object Edit_codigo_usuario: TEdit
+    object edtCodigoUsuario: TEdit
       Left = 168
       Top = 87
       Width = 153

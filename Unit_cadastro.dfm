@@ -26,7 +26,7 @@ object Form_cadastro: TForm_cadastro
     ParentBackground = False
     TabOrder = 0
     ExplicitWidth = 946
-    object Label1: TLabel
+    object lblSejaBemVindo: TLabel
       Left = 0
       Top = 0
       Width = 948
@@ -53,105 +53,105 @@ object Form_cadastro: TForm_cadastro
     Align = alLeft
     TabOrder = 1
     ExplicitHeight = 455
-    object Label5: TLabel
+    object lblItemDoado: TLabel
       Left = 107
       Top = 88
       Width = 61
       Height = 15
       Caption = 'Item doado'
     end
-    object Label6: TLabel
+    object lblQuantidade: TLabel
       Left = 315
       Top = 87
       Width = 62
       Height = 15
       Caption = 'Quantidade'
     end
-    object Label7: TLabel
+    object lblValor: TLabel
       Left = 223
       Top = 88
       Width = 26
       Height = 15
       Caption = 'Valor'
     end
-    object Label8: TLabel
+    object lblPeso: TLabel
       Left = 107
       Top = 146
       Width = 25
       Height = 15
       Caption = 'Peso'
     end
-    object Label9: TLabel
+    object lblDescricao: TLabel
       Left = 315
       Top = 146
       Width = 51
       Height = 15
       Caption = 'Descri'#231#227'o'
     end
-    object Label10: TLabel
+    object lblUnidade: TLabel
       Left = 223
       Top = 146
       Width = 44
       Height = 15
       Caption = 'Unidade'
     end
-    object Label11: TLabel
+    object lblEstado: TLabel
       Left = 107
       Top = 258
       Width = 35
       Height = 15
       Caption = 'Estado'
     end
-    object Label12: TLabel
+    object lblNomeEstado: TLabel
       Left = 187
       Top = 258
       Width = 88
       Height = 15
       Caption = 'Nome do Estado'
     end
-    object Label13: TLabel
+    object lblNomeCidade: TLabel
       Left = 302
       Top = 258
       Width = 37
       Height = 15
       Caption = 'Cidade'
     end
-    object Label14: TLabel
+    object lblPopulacao: TLabel
       Left = 107
       Top = 316
       Width = 56
       Height = 15
       Caption = 'Popula'#231#227'o'
     end
-    object Label15: TLabel
+    object lblInstituicao: TLabel
       Left = 200
       Top = 316
       Width = 55
       Height = 15
       Caption = 'Institui'#231#227'o'
     end
-    object Label16: TLabel
+    object lblCnpj: TLabel
       Left = 335
       Top = 316
       Width = 27
       Height = 15
       Caption = 'CNPJ'
     end
-    object Label17: TLabel
+    object lblDataValidade: TLabel
       Left = 107
       Top = 200
       Width = 87
       Height = 15
       Caption = 'Data de validade'
     end
-    object Label18: TLabel
+    object lblDataDoacao: TLabel
       Left = 223
       Top = 200
       Width = 82
       Height = 15
       Caption = 'Data de doa'#231#227'o'
     end
-    object Label19: TLabel
+    object lblResponsavel: TLabel
       Left = 315
       Top = 200
       Width = 65
@@ -186,7 +186,7 @@ object Form_cadastro: TForm_cadastro
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 2
-      object Label3: TLabel
+      object lblPreenchaForm1: TLabel
         Left = 104
         Top = 27
         Width = 170
@@ -199,7 +199,7 @@ object Form_cadastro: TForm_cadastro
         Font.Style = []
         ParentFont = False
       end
-      object Label4: TLabel
+      object lblPreenchaForm2: TLabel
         Left = 104
         Top = 43
         Width = 254
@@ -213,7 +213,7 @@ object Form_cadastro: TForm_cadastro
         ParentFont = False
       end
     end
-    object Edit_nome_cidade: TEdit
+    object edtNomeCidade: TEdit
       Left = 302
       Top = 279
       Width = 134
@@ -221,7 +221,7 @@ object Form_cadastro: TForm_cadastro
       TabOrder = 3
       TextHint = 'Nome da cidade'
     end
-    object Edit_populacao: TEdit
+    object edtPopulacao: TEdit
       Left = 107
       Top = 337
       Width = 87
@@ -229,7 +229,7 @@ object Form_cadastro: TForm_cadastro
       TabOrder = 4
       TextHint = 'Popula'#231#227'o'
     end
-    object Edit_nome_estado: TEdit
+    object edtNomeEstado: TEdit
       Left = 187
       Top = 279
       Width = 109
@@ -237,7 +237,7 @@ object Form_cadastro: TForm_cadastro
       TabOrder = 5
       TextHint = 'Nome do Estado'
     end
-    object Edit_nome_instituicao: TEdit
+    object edtNomeInstituicao: TEdit
       Left = 200
       Top = 337
       Width = 129
@@ -245,7 +245,7 @@ object Form_cadastro: TForm_cadastro
       TabOrder = 6
       TextHint = 'Nome da Institui'#231#227'o'
     end
-    object Edit_responsavel: TEdit
+    object edtResponsavel: TEdit
       Left = 315
       Top = 221
       Width = 121
@@ -253,7 +253,7 @@ object Form_cadastro: TForm_cadastro
       TabOrder = 7
       TextHint = 'Respons'#225'vel'
     end
-    object Edit_descricao_item: TEdit
+    object edtDescricaoItem: TEdit
       Left = 107
       Top = 109
       Width = 110
@@ -261,7 +261,7 @@ object Form_cadastro: TForm_cadastro
       TabOrder = 8
       TextHint = 'Descri'#231#227'o do Item (tbl item)'
     end
-    object Edit1: TEdit
+    object edtDescricaoTipoItem: TEdit
       Left = 315
       Top = 167
       Width = 142
@@ -269,7 +269,7 @@ object Form_cadastro: TForm_cadastro
       TabOrder = 9
       TextHint = 'Descri'#231#227'o do tipo do item (tbl TipoItem)'
     end
-    object Edit_peso: TEdit
+    object edtPeso: TEdit
       Left = 107
       Top = 167
       Width = 110
@@ -277,7 +277,7 @@ object Form_cadastro: TForm_cadastro
       TabOrder = 10
       TextHint = 'Peso (tbl ItemDoacao)'
     end
-    object Edit_valor: TEdit
+    object edtValor: TEdit
       Left = 223
       Top = 109
       Width = 86
@@ -286,15 +286,16 @@ object Form_cadastro: TForm_cadastro
       TabOrder = 11
       TextHint = 'Valor (tbl ItemDoacao)'
     end
-    object Button1: TButton
+    object btnEnviar: TButton
       Left = 107
       Top = 378
       Width = 110
       Height = 25
       Caption = 'Enviar'
       TabOrder = 12
+      OnClick = btnEnviarClick
     end
-    object ComboBox_unidade: TComboBox
+    object cmbUnidade: TComboBox
       Left = 223
       Top = 167
       Width = 86
@@ -302,7 +303,7 @@ object Form_cadastro: TForm_cadastro
       TabOrder = 13
       TextHint = 'Unidade (tbl Item)'
     end
-    object SpinEdit1: TSpinEdit
+    object spnQuantidade: TSpinEdit
       Left = 315
       Top = 108
       Width = 51
@@ -312,7 +313,7 @@ object Form_cadastro: TForm_cadastro
       TabOrder = 14
       Value = 0
     end
-    object ComboBox_sigla_estado: TComboBox
+    object cmbSiglaEstado: TComboBox
       Left = 107
       Top = 279
       Width = 74
@@ -320,7 +321,7 @@ object Form_cadastro: TForm_cadastro
       TabOrder = 15
       TextHint = 'Sigla do Estado'
     end
-    object MaskEdit_data_validade: TMaskEdit
+    object mskDataValidade: TMaskEdit
       Left = 107
       Top = 221
       Width = 110
@@ -330,7 +331,7 @@ object Form_cadastro: TForm_cadastro
       TabOrder = 16
       Text = '  /  /  '
     end
-    object MaskEdit_data_doacao: TMaskEdit
+    object mskDataDoacao: TMaskEdit
       Left = 223
       Top = 221
       Width = 85
@@ -340,7 +341,7 @@ object Form_cadastro: TForm_cadastro
       TabOrder = 17
       Text = '  /  /  '
     end
-    object MaskEdit_cnpj: TMaskEdit
+    object mskCnpj: TMaskEdit
       Left = 335
       Top = 337
       Width = 101
@@ -392,7 +393,7 @@ object Form_cadastro: TForm_cadastro
       BevelOuter = bvNone
       TabOrder = 2
       ExplicitWidth = 469
-      object Label2: TLabel
+      object lblGrid: TLabel
         Left = 24
         Top = 43
         Width = 69

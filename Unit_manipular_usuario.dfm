@@ -37,35 +37,35 @@ object Form_manipular_usuario: TForm_manipular_usuario
     Width = 377
     Height = 153
     TabOrder = 1
-    object Label1: TLabel
+    object lblLogin: TLabel
       Left = 16
       Top = 60
       Width = 38
       Height = 15
       Caption = 'Login *'
     end
-    object Label2: TLabel
+    object lblNome: TLabel
       Left = 16
       Top = 10
       Width = 41
       Height = 15
       Caption = 'Nome *'
     end
-    object Label3: TLabel
+    object lblCpf: TLabel
       Left = 205
       Top = 10
       Width = 29
       Height = 15
       Caption = 'CPF *'
     end
-    object Label_codigo_usuario: TLabel
+    object lblCodigoUsuario: TLabel
       Left = 16
       Top = 120
       Width = 81
       Height = 15
       Caption = 'C'#243'digo usu'#225'rio'
     end
-    object Edit_nome_usuario: TEdit
+    object edtNomeUsuario: TEdit
       Left = 16
       Top = 31
       Width = 169
@@ -73,14 +73,14 @@ object Form_manipular_usuario: TForm_manipular_usuario
       ImeName = 'Edit_nome_usuario'
       TabOrder = 0
     end
-    object Edit_login: TEdit
+    object edtLogin: TEdit
       Left = 16
       Top = 80
       Width = 169
       Height = 23
       TabOrder = 1
     end
-    object Edit_cpf: TEdit
+    object edtCpf: TEdit
       Left = 205
       Top = 31
       Width = 164
@@ -89,7 +89,7 @@ object Form_manipular_usuario: TForm_manipular_usuario
       NumbersOnly = True
       TabOrder = 2
     end
-    object Checkbox_adm: TCheckBox
+    object chkAdm: TCheckBox
       Left = 205
       Top = 83
       Width = 97
@@ -97,7 +97,7 @@ object Form_manipular_usuario: TForm_manipular_usuario
       Caption = 'Administrador'
       TabOrder = 3
     end
-    object Checkbox_ativo: TCheckBox
+    object chkAtivo: TCheckBox
       Left = 308
       Top = 83
       Width = 97
@@ -105,7 +105,7 @@ object Form_manipular_usuario: TForm_manipular_usuario
       Caption = 'Ativo'
       TabOrder = 4
     end
-    object Edit_codigo_usuario: TEdit
+    object edtCodigoUsuario: TEdit
       Left = 103
       Top = 117
       Width = 82

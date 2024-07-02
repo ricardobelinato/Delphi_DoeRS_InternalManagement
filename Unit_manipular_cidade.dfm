@@ -20,14 +20,14 @@ object Form_manipular_cidade: TForm_manipular_cidade
     Width = 367
     Height = 57
     TabOrder = 0
-    object Btn_salvar: TButton
+    object btnSalvar: TButton
       Left = 248
       Top = 16
       Width = 105
       Height = 25
       Caption = 'Salvar'
       TabOrder = 0
-      OnClick = Btn_salvarClick
+      OnClick = btnSalvarClick
     end
   end
   object Panel2: TPanel
@@ -36,49 +36,49 @@ object Form_manipular_cidade: TForm_manipular_cidade
     Width = 361
     Height = 121
     TabOrder = 1
-    object Label1: TLabel
+    object lblNomeCidade: TLabel
       Left = 16
       Top = 17
       Width = 95
       Height = 15
       Caption = 'Nome da cidade *'
     end
-    object Label2: TLabel
+    object lblPopulacao: TLabel
       Left = 192
       Top = 17
       Width = 64
       Height = 15
       Caption = 'Popula'#231#227'o *'
     end
-    object Label_codigo_cidade: TLabel
+    object lblCodigoCidade: TLabel
       Left = 16
       Top = 67
       Width = 95
       Height = 15
       Caption = 'C'#243'digo da Cidade'
     end
-    object Label_codigo_estado: TLabel
+    object lblCodigoEstado: TLabel
       Left = 127
       Top = 67
       Width = 94
       Height = 15
       Caption = 'C'#243'digo do Estado'
     end
-    object Label_codigo_usuario: TLabel
+    object lblCodigoUsuario: TLabel
       Left = 238
       Top = 67
       Width = 99
       Height = 15
       Caption = 'C'#243'digo do Usu'#225'rio'
     end
-    object Edit_nome_cidade: TEdit
+    object edtNomeCidade: TEdit
       Left = 16
       Top = 38
       Width = 161
       Height = 23
       TabOrder = 0
     end
-    object Edit_populacao: TEdit
+    object edtPopulacao: TEdit
       Left = 192
       Top = 38
       Width = 161
@@ -86,22 +86,21 @@ object Form_manipular_cidade: TForm_manipular_cidade
       ImeName = 'Portuguese (Brazilian ABNT)'
       TabOrder = 1
     end
-    object Edit_codigo_cidade: TEdit
+    object edtCodigoCidade: TEdit
       Left = 16
       Top = 88
       Width = 95
       Height = 23
       TabOrder = 2
     end
-    object Edit_codigo_estado: TEdit
+    object edtCodigoEstado: TEdit
       Left = 127
       Top = 88
       Width = 94
       Height = 23
-      ImeName = 'Edit_codigo_estado'
       TabOrder = 3
     end
-    object Edit_codigo_usuario: TEdit
+    object edtCodigoUsuario: TEdit
       Left = 238
       Top = 88
       Width = 115

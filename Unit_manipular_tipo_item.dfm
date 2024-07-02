@@ -36,42 +36,42 @@ object Form_manipular_tipo_item: TForm_manipular_tipo_item
     Width = 361
     Height = 129
     TabOrder = 1
-    object Label1: TLabel
+    object lblDescricaoTipoItem: TLabel
       Left = 24
       Top = 16
       Width = 144
       Height = 15
       Caption = 'Descri'#231#227'o do tipo do item *'
     end
-    object Label_codigo_tipo_item: TLabel
+    object lblCodigoTipoItem: TLabel
       Left = 24
       Top = 66
       Width = 124
       Height = 15
       Caption = 'C'#243'digo do tipo do item'
     end
-    object Label_codigo_usuario: TLabel
+    object lblCodigoUsuario: TLabel
       Left = 168
       Top = 66
       Width = 98
       Height = 15
       Caption = 'C'#243'digo do usu'#225'rio'
     end
-    object Edit_descricao_tipo_item: TEdit
+    object edtDescricaoTipoItem: TEdit
       Left = 24
       Top = 37
       Width = 169
       Height = 23
       TabOrder = 0
     end
-    object Edit_codigo_tipo_item: TEdit
+    object edtCodigoTipoItem: TEdit
       Left = 24
       Top = 87
       Width = 121
       Height = 23
       TabOrder = 1
     end
-    object Edit_codigo_usuario: TEdit
+    object edtCodigoUsuario: TEdit
       Left = 168
       Top = 87
       Width = 121

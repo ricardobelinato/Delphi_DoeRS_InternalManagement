@@ -11,18 +11,16 @@ type
     Panel1: TPanel;
     Panel2: TPanel;
     Btn_salvar: TButton;
-    Label1: TLabel;
-    Edit_descricao_tipo_item: TEdit;
-    Label_codigo_tipo_item: TLabel;
-    Edit_codigo_tipo_item: TEdit;
-    Label_codigo_usuario: TLabel;
-    Edit_codigo_usuario: TEdit;
+    lblDescricaoTipoItem: TLabel;
+    edtDescricaoTipoItem: TEdit;
+    lblCodigoTipoItem: TLabel;
+    edtCodigoTipoItem: TEdit;
+    lblCodigoUsuario: TLabel;
+    edtCodigoUsuario: TEdit;
     procedure Btn_salvarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
     { Private declarations }
-    procedure InsertTipoItem;
-    procedure UpdateTipoItem;
   public
     { Public declarations }
   end;
@@ -33,125 +31,66 @@ var
 implementation
 
 {$R *.dfm}
-uses Unit_data_module, Unit_tipo_item;
+uses Unit_data_module, Unit_functions;
 
+//Procedure do evento de clique no botão salvar que executa um insert ou update dependendo do modo selecionado, essa procedure também valida se os campos obrigatórios não estão vazios, caso estejam é barrado de prosseguir
+//Procedure of the click event on the save button that performs an insert or update depending on the selected mode, this procedure also validates that the mandatory fields are not empty, if they are, it is blocked from proceeding
 procedure TForm_manipular_tipo_item.Btn_salvarClick(Sender: TObject);
+var
+  CodigoTipoItem: Integer;
 begin
-
-  if (Edit_descricao_tipo_item.Text='') then
+  if (edtDescricaoTipoItem.Text='') then
   begin
     ShowMessage('Ops! Parece que você esqueceu de preencher o campo obrigatório.');
     Exit;
   end;
 
   if Tag = 0 then
-    InsertTipoItem
+    Unit_functions.InsertTipoItem(edtDescricaoTipoItem.Text)
   else
-    UpdateTipoItem;
+    CodigoTipoItem := StrToInt(edtCodigoTipoItem.Text);
+    Unit_functions.UpdateTipoItem(CodigoTipoItem, edtDescricaoTipoItem.Text);
 end;
 
+//Procedure que trata de labels e campos edit de acordo com o modo de inserção ou edição, mexendo com a visibilidade de componentes, deixando-os disabled, limpando campos ou dando valores a eles
+//Procedure that deals with labels and edit fields according to the insertion or editing mode, changing the visibility of components, leaving them disabled, clearing fields or giving them values
 procedure TForm_manipular_tipo_item.FormShow(Sender: TObject);
 begin
-  Edit_codigo_tipo_item.ReadOnly := True;
-  Edit_codigo_usuario.ReadOnly := True;
+  edtCodigoTipoItem.ReadOnly := True;
+  edtCodigoUsuario.ReadOnly := True;
 
-  Edit_codigo_tipo_item.Enabled := False;
-  Edit_codigo_usuario.Enabled := False;
+  edtCodigoTipoItem.Enabled := False;
+  edtCodigoUsuario.Enabled := False;
   if Tag = 0 then
   begin
-    // Modo de inserção
-    Edit_codigo_tipo_item.Visible := False;
-    Edit_codigo_usuario.Visible := False;
+    //Modo de inserção
+    //Insertion mode
+    edtCodigoTipoItem.Visible := False;
+    edtCodigoUsuario.Visible := False;
 
-    Label_codigo_tipo_item.Visible := False;
-    Label_codigo_usuario.Visible := False;
+    lblCodigoTipoItem.Visible := False;
+    lblCodigoUsuario.Visible := False;
 
-    Edit_descricao_tipo_item.Text := '';
+    edtDescricaoTipoItem.Text := '';
   end
   else
   begin
-    // Modo de edição
+    //Modo de edição
+    //Editing mode
     with Unit_data_module.DataModule3.FDQuery_Tipo_Item do
     begin
-      Edit_codigo_tipo_item.Visible := True;
-      Edit_codigo_usuario.Visible := True;
+      edtCodigoTipoItem.Visible := True;
+      edtCodigoUsuario.Visible := True;
 
-      Label_codigo_tipo_item.Visible := True;
-      Label_codigo_usuario.Visible := True;
+      lblCodigoTipoItem.Visible := True;
+      lblCodigoUsuario.Visible := True;
 
-      Edit_descricao_tipo_item.Text := FieldByName('descricao_tipo_item').AsString;
+      edtDescricaoTipoItem.Text := FieldByName('descricao_tipo_item').AsString;
 
-      Edit_codigo_tipo_item.Text := FieldByName('codigo_tipo_item').AsString;
-      Edit_codigo_usuario.Text := FieldByName('codigo_usuario').AsString;
+      edtCodigoTipoItem.Text := FieldByName('codigo_tipo_item').AsString;
+      edtCodigoUsuario.Text := FieldByName('codigo_usuario').AsString;
     end;
   end;
-end;
-
-procedure TForm_manipular_tipo_item.InsertTipoItem;
-var
-  SQLInsert: string;
-  Query: TFDQuery;
-begin
-  SQLInsert :=
-    'INSERT INTO tipoitem (descricao_tipo_item) ' +
-    'VALUES (:descricao_tipo_item)';
-
-  Query := TFDQuery.Create(nil);
-  try
-    Query.Connection := Unit_data_module.DataModule3.FD_Connection;
-    Query.SQL.Text := SQLInsert;
-
-    Query.ParamByName('descricao_tipo_item').AsString := Edit_descricao_tipo_item.Text;
-
-    Query.ExecSQL;
-
-    Unit_data_module.DataModule3.FDQuery_Tipo_Item.Close;
-    Unit_data_module.DataModule3.FDQuery_Tipo_Item.Open;
-    ShowMessage('Tipo do Item adicionado com sucesso!');
-    ModalResult := mrOk;
-
-  except
-    on E: Exception do
-      ShowMessage('Erro ao adicionar tipo do item: ' + E.Message);
-  end;
-
-  Query.Free;
-end;
-
-procedure TForm_manipular_tipo_item.UpdateTipoItem;
-var
-  SQLUpdate: string;
-  Query: TFDQuery;
-  CodigoTipoItem: Integer;
-begin
-  CodigoTipoItem := Unit_data_module.DataModule3.FDQuery_Tipo_Item.FieldByName('codigo_tipo_item').AsInteger;
-
-  SQLUpdate :=
-    'UPDATE tipoitem ' +
-    'SET descricao_tipo_item = :descricao_tipo_item ' +
-    'WHERE codigo_tipo_item = :codigo_tipo_item';
-
-  Query := TFDQuery.Create(nil);
-  try
-    Query.Connection := Unit_data_module.DataModule3.FD_Connection;
-    Query.SQL.Text := SQLUpdate;
-
-    Query.ParamByName('descricao_tipo_item').AsString := Edit_descricao_tipo_item.Text;
-    Query.ParamByName('codigo_tipo_item').AsInteger := CodigoTipoItem;
-
-    Query.ExecSQL;
-
-    Unit_data_module.DataModule3.FDQuery_Tipo_Item.Close;
-    Unit_data_module.DataModule3.FDQuery_Tipo_Item.Open;
-    ShowMessage('Tipo do Item atualizado com sucesso!');
-    ModalResult := mrOk;
-
-  except
-    on E: Exception do
-      ShowMessage('Erro ao atualizar tipo do item: ' + E.Message);
-  end;
-
-  Query.Free;
 end;
 
 end.

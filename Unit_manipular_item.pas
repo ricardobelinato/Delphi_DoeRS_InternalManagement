@@ -10,25 +10,23 @@ type
   TForm_manipular_item = class(TForm)
     Panel1: TPanel;
     Panel2: TPanel;
-    Btn_salvar: TButton;
-    Label1: TLabel;
-    Edit_descricao_item: TEdit;
-    ComboBox_unidade: TComboBox;
-    Label2: TLabel;
-    Label3: TLabel;
-    MaskEdit_data_validade: TMaskEdit;
-    Label_codigo_item: TLabel;
-    Edit_codigo_item: TEdit;
-    Label_codigo_tipo_item: TLabel;
-    Edit_codigo_tipo_item: TEdit;
-    Label_codigo_usuario: TLabel;
-    Edit_codigo_usuario: TEdit;
-    procedure Btn_salvarClick(Sender: TObject);
+    btnSalvar: TButton;
+    lblNomeItem: TLabel;
+    edtDescricaoItem: TEdit;
+    cmbUnidade: TComboBox;
+    lblUnidade: TLabel;
+    lblDataValidade: TLabel;
+    mskDataValidade: TMaskEdit;
+    lblCodigoItem: TLabel;
+    edtCodigoItem: TEdit;
+    lblCodigoTipoItem: TLabel;
+    edtCodigoTipoItem: TEdit;
+    lblCodigoUsuario: TLabel;
+    edtCodigoUsuario: TEdit;
+    procedure btnSalvarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
     { Private declarations }
-    procedure InsertItem;
-    procedure UpdateItem;
   public
     { Public declarations }
   end;
@@ -39,142 +37,77 @@ var
 implementation
 
 {$R *.dfm}
-uses Unit_data_module, Unit_item;
+uses Unit_data_module, Unit_functions;
 
-procedure TForm_manipular_item.Btn_salvarClick(Sender: TObject);
+//Procedure do evento de clique no botão salvar que executa um insert ou update dependendo do modo selecionado, essa procedure também valida se os campos obrigatórios não estão vazios, caso estejam é barrado de prosseguir
+//Procedure of the click event on the save button that performs an insert or update depending on the selected mode, this procedure also validates that the mandatory fields are not empty, if they are, it is blocked from proceeding
+procedure TForm_manipular_item.btnSalvarClick(Sender: TObject);
+var
+  CodigoItem: Integer;
 begin
-
-  if (Edit_descricao_item.Text='') or (ComboBox_unidade.Text='') or (MaskEdit_data_validade.Text='') then
+  if (edtDescricaoItem.Text='') or (cmbUnidade.Text='') or (mskDataValidade.Text='') then
   begin
     ShowMessage('Ops! Parece que você esqueceu de preencher algum(s) campo(s) obrigatório(s).');
     Exit;
   end;
 
   if Tag = 0 then
-    InsertItem
+    Unit_functions.InsertItem(edtDescricaoItem.Text, cmbUnidade.Text, mskDataValidade.Text)
   else
-    UpdateItem;
+    CodigoItem := StrToInt(edtCodigoItem.Text);
+    Unit_functions.UpdateItem(CodigoItem, edtDescricaoItem.Text, cmbUnidade.Text, mskDataValidade.Text);
 end;
 
+//Procedure que trata de labels e campos edit de acordo com o modo de inserção ou edição, mexendo com a visibilidade de componentes, deixando-os disabled, limpando campos ou dando valores a eles
+//Procedure that deals with labels and edit fields according to the insertion or editing mode, changing the visibility of components, leaving them disabled, clearing fields or giving them values
 procedure TForm_manipular_item.FormShow(Sender: TObject);
 begin
-  Edit_codigo_item.ReadOnly := True;
-  Edit_codigo_tipo_item.ReadOnly := True;
-  Edit_codigo_usuario.ReadOnly := True;
+  edtCodigoItem.ReadOnly := True;
+  edtCodigoTipoItem.ReadOnly := True;
+  edtCodigoUsuario.ReadOnly := True;
 
-  Edit_codigo_item.Enabled := False;
-  Edit_codigo_tipo_item.Enabled := False;
-  Edit_codigo_usuario.Enabled := False;
+  edtCodigoItem.Enabled := False;
+  edtCodigoTipoItem.Enabled := False;
+  edtCodigoUsuario.Enabled := False;
   if Tag = 0 then
   begin
-    // Modo de inserção
-    Edit_codigo_item.Visible := False;
-    Edit_codigo_tipo_item.Visible := False;
-    Edit_codigo_usuario.Visible := False;
+    //Modo de inserção
+    //Insertion mode
+    edtCodigoItem.Visible := False;
+    edtCodigoTipoItem.Visible := False;
+    edtCodigoUsuario.Visible := False;
 
-    Label_codigo_item.Visible := False;
-    Label_codigo_tipo_item.Visible := False;
-    Label_codigo_usuario.Visible := False;
+    lblCodigoItem.Visible := False;
+    lblCodigoTipoItem.Visible := False;
+    lblCodigoUsuario.Visible := False;
 
-    Edit_descricao_item.Text := '';
-    ComboBox_unidade.Text := '';
-    MaskEdit_data_validade.Text := '';
+    edtDescricaoItem.Text := '';
+    cmbUnidade.Text := '';
+    mskDataValidade.Text := '';
   end
   else
   begin
-    // Modo de edição
+    //Modo de edição
+    //Editing mode
     with Unit_data_module.DataModule3.FDQuery_Itens do
     begin
-      Edit_codigo_item.Visible := True;
-      Edit_codigo_tipo_item.Visible := True;
-      Edit_codigo_usuario.Visible := True;
+      edtCodigoItem.Visible := True;
+      edtCodigoTipoItem.Visible := True;
+      edtCodigoUsuario.Visible := True;
 
-      Label_codigo_item.Visible := True;
-      Label_codigo_tipo_item.Visible := True;
-      Label_codigo_usuario.Visible := True;
+      lblCodigoItem.Visible := True;
+      lblCodigoTipoItem.Visible := True;
+      lblCodigoUsuario.Visible := True;
 
-      Edit_descricao_item.Text := FieldByName('descricao_item').AsString;
-      ComboBox_unidade.Text := FieldByName('unidade').AsString;
-      MaskEdit_data_validade.Text := FieldByName('data_validade').AsString;
+      edtDescricaoItem.Text := FieldByName('descricao_item').AsString;
+      cmbUnidade.Text := FieldByName('unidade').AsString;
+      mskDataValidade.Text := FieldByName('data_validade').AsString;
 
-      Edit_codigo_item.Text := FieldByName('codigo_item').AsString;
-      Edit_codigo_tipo_item.Text := FieldByName('codigo_tipo_item').AsString;
-      Edit_codigo_usuario.Text := FieldByName('codigo_usuario').AsString;
+      edtCodigoItem.Text := FieldByName('codigo_item').AsString;
+      edtCodigoTipoItem.Text := FieldByName('codigo_tipo_item').AsString;
+      edtCodigoUsuario.Text := FieldByName('codigo_usuario').AsString;
     end;
   end;
-end;
-
-procedure TForm_manipular_item.InsertItem;
-var
-  SQLInsert: string;
-  Query: TFDQuery;
-begin
-  SQLInsert :=
-    'INSERT INTO item (descricao_item, unidade, data_validade) ' +
-    'VALUES (:descricao_item, :unidade, :data_validade)';
-
-  Query := TFDQuery.Create(nil);
-  try
-    Query.Connection := Unit_data_module.DataModule3.FD_Connection;
-    Query.SQL.Text := SQLInsert;
-
-    Query.ParamByName('descricao_item').AsString := Edit_descricao_item.Text;
-    Query.ParamByName('unidade').AsString := Combobox_unidade.Text;
-    Query.ParamByName('data_validade').AsString := MaskEdit_data_validade.Text;
-
-    Query.ExecSQL;
-
-    Unit_data_module.DataModule3.FDQuery_Itens.Close;
-    Unit_data_module.DataModule3.FDQuery_Itens.Open;
-    ShowMessage('Item adicionado com sucesso!');
-    ModalResult := mrOk;
-
-  except
-    on E: Exception do
-      ShowMessage('Erro ao adicionar item: ' + E.Message);
-  end;
-
-  Query.Free;
-end;
-
-procedure TForm_manipular_item.UpdateItem;
-var
-  SQLUpdate: string;
-  Query: TFDQuery;
-  CodigoItem: Integer;
-begin
-  CodigoItem := Unit_data_module.DataModule3.FDQuery_Itens.FieldByName('codigo_item').AsInteger;
-
-  SQLUpdate :=
-    'UPDATE item ' +
-    'SET descricao_item = :descricao_item, ' +
-    '    unidade = :unidade, ' +
-    '    data_validade = :data_validade ' +
-    'WHERE codigo_item = :codigo_item';
-
-  Query := TFDQuery.Create(nil);
-  try
-    Query.Connection := Unit_data_module.DataModule3.FD_Connection;
-    Query.SQL.Text := SQLUpdate;
-
-    Query.ParamByName('descricao_item').AsString := Edit_descricao_item.Text;
-    Query.ParamByName('unidade').AsString := ComboBox_unidade.Text;
-    Query.ParamByName('data_validade').AsString := MaskEdit_data_validade.Text;
-    Query.ParamByName('codigo_item').AsInteger := CodigoItem;
-
-    Query.ExecSQL;
-
-    Unit_data_module.DataModule3.FDQuery_Itens.Close;
-    Unit_data_module.DataModule3.FDQuery_Itens.Open;
-    ShowMessage('Item atualizado com sucesso!');
-    ModalResult := mrOk;
-
-  except
-    on E: Exception do
-      ShowMessage('Erro ao atualizar item: ' + E.Message);
-  end;
-
-  Query.Free;
 end;
 
 end.

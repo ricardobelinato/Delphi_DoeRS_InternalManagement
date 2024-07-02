@@ -20,14 +20,14 @@ object Form_manipular_item: TForm_manipular_item
     Width = 359
     Height = 41
     TabOrder = 0
-    object Btn_salvar: TButton
+    object btnSalvar: TButton
       Left = 229
       Top = 8
       Width = 105
       Height = 25
       Caption = 'Salvar'
       TabOrder = 0
-      OnClick = Btn_salvarClick
+      OnClick = btnSalvarClick
     end
   end
   object Panel2: TPanel
@@ -36,56 +36,56 @@ object Form_manipular_item: TForm_manipular_item
     Width = 360
     Height = 129
     TabOrder = 1
-    object Label1: TLabel
+    object lblNomeItem: TLabel
       Left = 16
       Top = 16
       Width = 32
       Height = 15
       Caption = 'Item *'
     end
-    object Label2: TLabel
+    object lblUnidade: TLabel
       Left = 143
       Top = 16
       Width = 52
       Height = 15
       Caption = 'Unidade *'
     end
-    object Label3: TLabel
+    object lblDataValidade: TLabel
       Left = 215
       Top = 16
       Width = 95
       Height = 15
       Caption = 'Data de validade *'
     end
-    object Label_codigo_item: TLabel
+    object lblCodigoItem: TLabel
       Left = 16
       Top = 66
       Width = 83
       Height = 15
       Caption = 'C'#243'digo do Item'
     end
-    object Label_codigo_tipo_item: TLabel
+    object lblCodigoTipoItem: TLabel
       Left = 119
       Top = 66
       Width = 90
       Height = 15
       Caption = 'C'#243'digo tipo item'
     end
-    object Label_codigo_usuario: TLabel
+    object lblCodigoUsuario: TLabel
       Left = 231
       Top = 66
       Width = 99
       Height = 15
       Caption = 'C'#243'digo do Usu'#225'rio'
     end
-    object Edit_descricao_item: TEdit
+    object edtDescricaoItem: TEdit
       Left = 16
       Top = 37
       Width = 121
       Height = 23
       TabOrder = 0
     end
-    object ComboBox_unidade: TComboBox
+    object cmbUnidade: TComboBox
       Left = 143
       Top = 37
       Width = 66
@@ -104,7 +104,7 @@ object Form_manipular_item: TForm_manipular_item
         'pe'#231'a'#11
         'm')
     end
-    object MaskEdit_data_validade: TMaskEdit
+    object mskDataValidade: TMaskEdit
       Left = 215
       Top = 37
       Width = 120
@@ -114,21 +114,21 @@ object Form_manipular_item: TForm_manipular_item
       TabOrder = 2
       Text = '  /  /  '
     end
-    object Edit_codigo_item: TEdit
+    object edtCodigoItem: TEdit
       Left = 16
       Top = 87
       Width = 97
       Height = 23
       TabOrder = 3
     end
-    object Edit_codigo_tipo_item: TEdit
+    object edtCodigoTipoItem: TEdit
       Left = 119
       Top = 87
       Width = 106
       Height = 23
       TabOrder = 4
     end
-    object Edit_codigo_usuario: TEdit
+    object edtCodigoUsuario: TEdit
       Left = 231
       Top = 87
       Width = 104
