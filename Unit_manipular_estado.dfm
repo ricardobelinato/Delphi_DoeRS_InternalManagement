@@ -69,8 +69,8 @@ object Form_manipular_estado: TForm_manipular_estado
       Top = 37
       Width = 137
       Height = 23
+      CharCase = ecUpperCase
       TabOrder = 0
-      TextHint = 'Selecione o Estado'
       OnChange = cmbSiglaEstadoChange
       Items.Strings = (
         'AC'

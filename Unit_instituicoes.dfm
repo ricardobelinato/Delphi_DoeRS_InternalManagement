@@ -26,7 +26,7 @@ object Form_instituicao: TForm_instituicao
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = []
   end
-  object Panel1: TPanel
+  object pnl1: TPanel
     Left = 0
     Top = 0
     Width = 625
@@ -34,7 +34,7 @@ object Form_instituicao: TForm_instituicao
     Color = clHotLight
     ParentBackground = False
     TabOrder = 1
-    object Label1: TLabel
+    object lblInstituicoes: TLabel
       Left = 8
       Top = 6
       Width = 109
@@ -48,38 +48,39 @@ object Form_instituicao: TForm_instituicao
       ParentFont = False
     end
   end
-  object Panel2: TPanel
+  object pnl2: TPanel
     Left = 0
     Top = 407
     Width = 625
     Height = 41
     TabOrder = 2
-    object Btn_adicionar: TButton
+    object btnAdicionar: TButton
       Left = 366
       Top = 8
       Width = 75
       Height = 25
       Caption = 'Adicionar'
+      DisabledImageName = 'btnAdicionar'
       TabOrder = 0
-      OnClick = Btn_adicionarClick
+      OnClick = btnAdicionarClick
     end
-    object Btn_editar: TButton
+    object btnEditar: TButton
       Left = 447
       Top = 8
       Width = 75
       Height = 25
       Caption = 'Editar'
       TabOrder = 1
-      OnClick = Btn_editarClick
+      OnClick = btnEditarClick
     end
-    object Btn_excluir: TButton
+    object btnExcluir: TButton
       Left = 528
       Top = 8
       Width = 75
       Height = 25
       Caption = 'Excluir'
       TabOrder = 2
-      OnClick = Btn_excluirClick
+      OnClick = btnExcluirClick
     end
   end
 end

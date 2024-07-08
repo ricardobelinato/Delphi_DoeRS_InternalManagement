@@ -26,7 +26,7 @@ object Form_usuarios: TForm_usuarios
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = []
   end
-  object Panel1: TPanel
+  object pnl1: TPanel
     Left = 0
     Top = 0
     Width = 625
@@ -34,7 +34,7 @@ object Form_usuarios: TForm_usuarios
     Color = clHotLight
     ParentBackground = False
     TabOrder = 1
-    object Label1: TLabel
+    object lblUsuarios: TLabel
       Left = 8
       Top = 6
       Width = 81
@@ -48,7 +48,7 @@ object Form_usuarios: TForm_usuarios
       ParentFont = False
     end
   end
-  object Panel2: TPanel
+  object pnl2: TPanel
     Left = 0
     Top = 392
     Width = 625

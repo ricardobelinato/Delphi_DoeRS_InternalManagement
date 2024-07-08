@@ -126,12 +126,12 @@ object DataModule3: TDataModule3
       'JOIN '
       '    Item it'
       'order by sigla;')
-    Left = 640
-    Top = 24
+    Left = 584
+    Top = 32
   end
   object DataSource_Cadastro: TDataSource
     DataSet = FDQuery_Cadastro
-    Left = 808
-    Top = 24
+    Left = 728
+    Top = 32
   end
 end

@@ -93,15 +93,15 @@ object Form_manipular_item: TForm_manipular_item
       TabOrder = 1
       Items.Strings = (
         'kg'
-        'g'#11
-        't'#11
-        'L'#11
-        'ml'#11
+        'g'
+        't'
+        'L'
+        'ml'
         'unidade'
         'pacote'
         'caixa'
         'par'
-        'pe'#231'a'#11
+        'pe'#231'a'
         'm')
     end
     object mskDataValidade: TMaskEdit

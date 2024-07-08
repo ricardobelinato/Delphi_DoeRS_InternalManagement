@@ -11,11 +11,12 @@ object Form_cadastro: TForm_cadastro
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
-  Menu = MainMenu1
+  Menu = MainMenu_Cadastro
+  Position = poScreenCenter
   WindowState = wsMaximized
   OnActivate = FormActivate
   TextHeight = 15
-  object Panel1: TPanel
+  object pnl1: TPanel
     Left = 0
     Top = 0
     Width = 948
@@ -45,7 +46,7 @@ object Form_cadastro: TForm_cadastro
       ExplicitHeight = 37
     end
   end
-  object Panel2: TPanel
+  object pnl2: TPanel
     Left = 0
     Top = 81
     Width = 475
@@ -56,136 +57,136 @@ object Form_cadastro: TForm_cadastro
     object lblItemDoado: TLabel
       Left = 107
       Top = 88
-      Width = 61
+      Width = 69
       Height = 15
-      Caption = 'Item doado'
+      Caption = 'Item doado *'
     end
     object lblQuantidade: TLabel
       Left = 315
       Top = 87
-      Width = 62
+      Width = 70
       Height = 15
-      Caption = 'Quantidade'
+      Caption = 'Quantidade *'
     end
     object lblValor: TLabel
       Left = 223
       Top = 88
-      Width = 26
+      Width = 34
       Height = 15
-      Caption = 'Valor'
+      Caption = 'Valor *'
     end
     object lblPeso: TLabel
       Left = 107
       Top = 146
-      Width = 25
+      Width = 33
       Height = 15
-      Caption = 'Peso'
+      Caption = 'Peso *'
     end
     object lblDescricao: TLabel
       Left = 315
       Top = 146
-      Width = 51
+      Width = 59
       Height = 15
-      Caption = 'Descri'#231#227'o'
+      Caption = 'Descri'#231#227'o *'
     end
     object lblUnidade: TLabel
       Left = 223
       Top = 146
-      Width = 44
+      Width = 52
       Height = 15
-      Caption = 'Unidade'
+      Caption = 'Unidade *'
     end
     object lblEstado: TLabel
       Left = 107
       Top = 258
-      Width = 35
+      Width = 43
       Height = 15
-      Caption = 'Estado'
+      Caption = 'Estado *'
     end
     object lblNomeEstado: TLabel
       Left = 187
       Top = 258
-      Width = 88
+      Width = 96
       Height = 15
-      Caption = 'Nome do Estado'
+      Caption = 'Nome do Estado *'
     end
     object lblNomeCidade: TLabel
       Left = 302
       Top = 258
-      Width = 37
+      Width = 45
       Height = 15
-      Caption = 'Cidade'
+      Caption = 'Cidade *'
     end
     object lblPopulacao: TLabel
       Left = 107
       Top = 316
-      Width = 56
+      Width = 64
       Height = 15
-      Caption = 'Popula'#231#227'o'
+      Caption = 'Popula'#231#227'o *'
     end
     object lblInstituicao: TLabel
       Left = 200
       Top = 316
-      Width = 55
+      Width = 63
       Height = 15
-      Caption = 'Institui'#231#227'o'
+      Caption = 'Institui'#231#227'o *'
     end
     object lblCnpj: TLabel
       Left = 335
       Top = 316
-      Width = 27
+      Width = 35
       Height = 15
-      Caption = 'CNPJ'
+      Caption = 'CNPJ *'
     end
     object lblDataValidade: TLabel
       Left = 107
       Top = 200
-      Width = 87
+      Width = 95
       Height = 15
-      Caption = 'Data de validade'
+      Caption = 'Data de validade *'
     end
     object lblDataDoacao: TLabel
       Left = 223
       Top = 200
-      Width = 82
+      Width = 90
       Height = 15
-      Caption = 'Data de doa'#231#227'o'
+      Caption = 'Data de doa'#231#227'o *'
     end
     object lblResponsavel: TLabel
-      Left = 315
+      Left = 319
       Top = 200
-      Width = 65
+      Width = 73
       Height = 15
-      Caption = 'Respons'#225'vel'
+      Caption = 'Respons'#225'vel *'
     end
-    object Panel4: TPanel
+    object pnl4: TPanel
       Left = 1
       Top = 421
       Width = 473
       Height = 41
       Align = alBottom
       BevelOuter = bvNone
-      TabOrder = 0
+      TabOrder = 15
       ExplicitTop = 413
     end
-    object Panel6: TPanel
+    object pnl6: TPanel
       Left = 1
       Top = 73
       Width = 100
       Height = 348
       Align = alLeft
       BevelOuter = bvNone
-      TabOrder = 1
+      TabOrder = 16
       ExplicitHeight = 340
     end
-    object Panel8: TPanel
+    object pnl8: TPanel
       Left = 1
       Top = 1
       Width = 473
       Height = 72
       Align = alTop
       BevelOuter = bvNone
-      TabOrder = 2
+      TabOrder = 17
       object lblPreenchaForm1: TLabel
         Left = 104
         Top = 27
@@ -218,64 +219,56 @@ object Form_cadastro: TForm_cadastro
       Top = 279
       Width = 134
       Height = 23
-      TabOrder = 3
-      TextHint = 'Nome da cidade'
+      TabOrder = 11
     end
     object edtPopulacao: TEdit
       Left = 107
       Top = 337
       Width = 87
       Height = 23
-      TabOrder = 4
-      TextHint = 'Popula'#231#227'o'
+      TabOrder = 12
     end
     object edtNomeEstado: TEdit
       Left = 187
       Top = 279
       Width = 109
       Height = 23
-      TabOrder = 5
-      TextHint = 'Nome do Estado'
+      TabOrder = 10
     end
     object edtNomeInstituicao: TEdit
       Left = 200
       Top = 337
       Width = 129
       Height = 23
-      TabOrder = 6
-      TextHint = 'Nome da Institui'#231#227'o'
+      TabOrder = 13
     end
     object edtResponsavel: TEdit
-      Left = 315
+      Left = 319
       Top = 221
-      Width = 121
+      Width = 117
       Height = 23
-      TabOrder = 7
-      TextHint = 'Respons'#225'vel'
+      TabOrder = 8
     end
     object edtDescricaoItem: TEdit
       Left = 107
       Top = 109
       Width = 110
       Height = 23
-      TabOrder = 8
-      TextHint = 'Descri'#231#227'o do Item (tbl item)'
+      TabOrder = 0
     end
     object edtDescricaoTipoItem: TEdit
       Left = 315
       Top = 167
       Width = 142
       Height = 23
-      TabOrder = 9
-      TextHint = 'Descri'#231#227'o do tipo do item (tbl TipoItem)'
+      TabOrder = 5
     end
     object edtPeso: TEdit
       Left = 107
       Top = 167
       Width = 110
       Height = 23
-      TabOrder = 10
-      TextHint = 'Peso (tbl ItemDoacao)'
+      TabOrder = 3
     end
     object edtValor: TEdit
       Left = 223
@@ -283,8 +276,7 @@ object Form_cadastro: TForm_cadastro
       Width = 86
       Height = 23
       NumbersOnly = True
-      TabOrder = 11
-      TextHint = 'Valor (tbl ItemDoacao)'
+      TabOrder = 1
     end
     object btnEnviar: TButton
       Left = 107
@@ -292,7 +284,7 @@ object Form_cadastro: TForm_cadastro
       Width = 110
       Height = 25
       Caption = 'Enviar'
-      TabOrder = 12
+      TabOrder = 18
       OnClick = btnEnviarClick
     end
     object cmbUnidade: TComboBox
@@ -300,26 +292,65 @@ object Form_cadastro: TForm_cadastro
       Top = 167
       Width = 86
       Height = 23
-      TabOrder = 13
-      TextHint = 'Unidade (tbl Item)'
+      TabOrder = 4
+      Items.Strings = (
+        'kg'
+        'g'
+        't'
+        'L'
+        'ml'
+        'unidade'
+        'pacote'
+        'caixa'
+        'par'
+        'pe'#231'a'
+        'm')
     end
     object spnQuantidade: TSpinEdit
       Left = 315
       Top = 108
       Width = 51
       Height = 24
-      MaxValue = 0
-      MinValue = 0
-      TabOrder = 14
-      Value = 0
+      MaxValue = 10000
+      MinValue = 1
+      TabOrder = 2
+      Value = 1
     end
     object cmbSiglaEstado: TComboBox
       Left = 107
       Top = 279
       Width = 74
       Height = 23
-      TabOrder = 15
-      TextHint = 'Sigla do Estado'
+      TabOrder = 9
+      OnChange = cmbSiglaEstadoChange
+      Items.Strings = (
+        'AC'
+        'AL'
+        'AP'
+        'AM'
+        'BA'
+        'CE'
+        'DF'
+        'ES'
+        'GO'
+        'MA'
+        'MT'
+        'MS'
+        'MG'
+        'PA'
+        'PB'
+        'PR'
+        'PE'
+        'PI'
+        'RJ'
+        'RN'
+        'RS'
+        'RO'
+        'RR'
+        'SC'
+        'SP'
+        'SE'
+        'TO')
     end
     object mskDataValidade: TMaskEdit
       Left = 107
@@ -328,17 +359,17 @@ object Form_cadastro: TForm_cadastro
       Height = 23
       EditMask = '!99/99/00;1;_'
       MaxLength = 8
-      TabOrder = 16
+      TabOrder = 6
       Text = '  /  /  '
     end
     object mskDataDoacao: TMaskEdit
       Left = 223
       Top = 221
-      Width = 85
+      Width = 90
       Height = 23
       EditMask = '!99/99/00;1;_'
       MaxLength = 8
-      TabOrder = 17
+      TabOrder = 7
       Text = '  /  /  '
     end
     object mskCnpj: TMaskEdit
@@ -348,21 +379,28 @@ object Form_cadastro: TForm_cadastro
       Height = 23
       EditMask = '00.000.000/0000-00;1;_'
       MaxLength = 18
-      TabOrder = 18
+      TabOrder = 14
       Text = '  .   .   /    -  '
     end
+    object edtCodigoEstado: TEdit
+      Left = 423
+      Top = 108
+      Width = 34
+      Height = 23
+      TabOrder = 19
+    end
   end
-  object Panel3: TPanel
+  object pnl3: TPanel
     Left = 475
     Top = 81
     Width = 473
     Height = 463
     Align = alClient
-    Caption = 'Panel3'
+    Caption = 'pnl3'
     TabOrder = 2
     ExplicitWidth = 471
     ExplicitHeight = 455
-    object Panel5: TPanel
+    object pnl5: TPanel
       Left = 1
       Top = 421
       Width = 471
@@ -373,7 +411,7 @@ object Form_cadastro: TForm_cadastro
       ExplicitTop = 413
       ExplicitWidth = 469
     end
-    object Panel7: TPanel
+    object pnl7: TPanel
       Left = 372
       Top = 73
       Width = 100
@@ -384,7 +422,7 @@ object Form_cadastro: TForm_cadastro
       ExplicitLeft = 370
       ExplicitHeight = 340
     end
-    object Panel9: TPanel
+    object pnl9: TPanel
       Left = 1
       Top = 1
       Width = 471
@@ -407,7 +445,7 @@ object Form_cadastro: TForm_cadastro
         ParentFont = False
       end
     end
-    object Panel10: TPanel
+    object pnl10: TPanel
       Left = 1
       Top = 73
       Width = 20
@@ -433,9 +471,9 @@ object Form_cadastro: TForm_cadastro
       TitleFont.Style = []
     end
   end
-  object MainMenu1: TMainMenu
-    Left = 888
-    Top = 16
+  object MainMenu_Cadastro: TMainMenu
+    Left = 872
+    Top = 24
     object Usurios1: TMenuItem
       Caption = 'Usu'#225'rios'
       OnClick = Usurios1Click

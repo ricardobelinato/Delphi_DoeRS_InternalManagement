@@ -43,7 +43,6 @@ uses Unit_data_module, unit_functions;
 //Procedure that deals with labels and edit fields according to the insertion or editing mode, changing the visibility of components, leaving them disabled, clearing fields or giving them values
 procedure TForm_manipular_usuario.FormShow(Sender: TObject);
 begin
-  edtCodigoUsuario.ReadOnly := True;
   edtCodigoUsuario.Enabled := False;
 
   if Tag = 0 then
@@ -89,9 +88,13 @@ begin
   end;
 
   if Tag = 0 then
-    InsertUser(edtNomeUsuario.Text, edtCpf.Text, edtLogin.Text, chkAdm.Checked, chkAtivo.Checked)
+  begin
+    InsertUser(edtNomeUsuario.Text, edtCpf.Text, edtLogin.Text, chkAdm.Checked, chkAtivo.Checked);
+  end
   else
+  begin
     UpdateUser(StrToInt(edtCodigoUsuario.Text), EdtNomeUsuario.Text, edtCpf.Text, edtLogin.Text, chkAdm.Checked, chkAtivo.Checked);
+  end;
 end;
 
 end.

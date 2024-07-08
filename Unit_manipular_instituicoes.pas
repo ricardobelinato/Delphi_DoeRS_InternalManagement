@@ -52,20 +52,20 @@ begin
   end;
 
   if Tag = 0 then
-    Unit_functions.InsertInstituicao(edtNomeInstituicao.Text, mskCnpj.Text, edtResponsavel.Text)
+  begin
+    Unit_functions.InsertInstituicao(edtNomeInstituicao.Text, mskCnpj.Text, edtResponsavel.Text);
+  end
   else
+  begin
     CodigoInstituicao := StrToInt(edtCodigoInstituicao.Text);
     UpdateInstituicao(CodigoInstituicao, edtNomeInstituicao.Text, mskCnpj.Text, edtResponsavel.Text);
+  end;
 end;
 
 //Procedure que trata de labels e campos edit de acordo com o modo de inserção ou edição, mexendo com a visibilidade de componentes, deixando-os disabled, limpando campos ou dando valores a eles
 //Procedure that deals with labels and edit fields according to the insertion or editing mode, changing the visibility of components, leaving them disabled, clearing fields or giving them values
 procedure TForm_manipular_instituicao.FormShow(Sender: TObject);
 begin
-  edtCodigoInstituicao.ReadOnly := True;
-  edtCodigoCidade.ReadOnly := True;
-  edtCodigoUsuario.ReadOnly := True;
-
   edtCodigoInstituicao.Enabled := False;
   edtCodigoCidade.Enabled := False;
   edtCodigoUsuario.Enabled := False;

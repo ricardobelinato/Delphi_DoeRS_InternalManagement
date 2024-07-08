@@ -21,8 +21,11 @@ type
     lblCodigoUsuario: TLabel;
     edtCodigoEstado: TEdit;
     edtCodigoUsuario: TEdit;
+    cmbSiglaEstado: TComboBox;
+    UF: TLabel;
     procedure FormShow(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
+//    procedure cmbSiglaEstadoChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -51,23 +54,31 @@ begin
   end;
 
   if Tag = 0 then
-    Unit_functions.InsertCidade(edtNomeCidade.Text, edtPopulacao.Text)
+  begin
+    Unit_functions.InsertCidade(edtNomeCidade.Text, edtPopulacao.Text);
+  end
   else
+  begin
     CodigoCidade := StrToInt(edtCodigoCidade.Text);
     Unit_functions.UpdateCidade(CodigoCidade, edtNomeCidade.Text, edtPopulacao.Text);
+  end;
 end;
+
+//Procedure que preenche o campo 'edtCodigoEstado' de acordo com o estado selecionado no campo 'cmbSiglaEstado'
+//Procedure that fills in the 'edtCodigoEstado' field according to the state selected in the 'cmbSiglaEstado' field
+//procedure TForm_manipular_cidade.cmbSiglaEstadoChange(Sender: TObject);
+//begin
+//  SetarCodEstado(cmbSiglaEstado.ItemIndex, edtCodigoEstado);
+//end;
 
 //Procedure que trata de labels e campos edit de acordo com o modo de inserção ou edição, mexendo com a visibilidade de componentes, deixando-os disabled, limpando campos ou dando valores a eles
 //Procedure that deals with labels and edit fields according to the insertion or editing mode, changing the visibility of components, leaving them disabled, clearing fields or giving them values
 procedure TForm_manipular_cidade.FormShow(Sender: TObject);
 begin
-  edtCodigoCidade.ReadOnly := True;
-  edtCodigoEstado.ReadOnly := True;
-  edtCodigoUsuario.ReadOnly := True;
-
   edtCodigoCidade.Enabled := False;
   edtCodigoEstado.Enabled := False;
   edtCodigoUsuario.Enabled := False;
+
   if Tag = 0 then
   begin
     //Modo de inserção

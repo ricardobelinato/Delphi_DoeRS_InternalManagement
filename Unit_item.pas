@@ -10,15 +10,15 @@ uses
 type
   TForm_item = class(TForm)
     DBGrid1: TDBGrid;
-    Panel1: TPanel;
-    Panel2: TPanel;
-    Label1: TLabel;
-    Btn_adicionar: TButton;
-    Btn_editar: TButton;
-    Btn_excluir: TButton;
-    procedure Btn_adicionarClick(Sender: TObject);
-    procedure Btn_editarClick(Sender: TObject);
-    procedure Btn_excluirClick(Sender: TObject);
+    pnl1: TPanel;
+    pnl2: TPanel;
+    lblItens: TLabel;
+    btnAdicionar: TButton;
+    btnEditar: TButton;
+    btnExcluir: TButton;
+    procedure btnAdicionarClick(Sender: TObject);
+    procedure btnEditarClick(Sender: TObject);
+    procedure btnExcluirClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -33,19 +33,25 @@ implementation
 {$R *.dfm}
 uses Unit_data_module, Unit_manipular_item;
 
-procedure TForm_item.Btn_adicionarClick(Sender: TObject);
+//Procedure de evento de clique no botão adicionar que abre o form 'manipular_item' e seta o valor da tag pra zero, para que, na lógica, o form seja aberto e configurado no modo de inserção de dados
+//Click event procedure on the add button that opens the 'manipular_usuario' form and sets the tag value to zero, so that, logically, the form is opened and configured in data insertion mode
+procedure TForm_item.btnAdicionarClick(Sender: TObject);
 begin
-  Form_manipular_item.Tag := 0; // Modo de inserção
+  Form_manipular_item.Tag := 0; //Modo de inserção / Insertion mode
   Form_manipular_item.ShowModal;
 end;
 
-procedure TForm_item.Btn_editarClick(Sender: TObject);
+//Procedure de evento de clique no botão editar que abre o form 'manipular_item' e seta o valor da tag pra um, para que, na lógica, o form seja aberto e configurado no modo de edição de dados
+//Click event procedure on the edit button that opens the 'manipular_usuario' form and sets the tag value to one, so that, logically, the form is opened and configured in data editing mode
+procedure TForm_item.btnEditarClick(Sender: TObject);
 begin
-  Form_manipular_item.Tag := 1; // Modo de edição
+  Form_manipular_item.Tag := 1; //Modo de edição / Editing mode
   Form_manipular_item.ShowModal;
 end;
 
-procedure TForm_item.Btn_excluirClick(Sender: TObject);
+//Procedure de evento de clique no botão excluir, dá um delete no usuário com o mesmo código usuário da query
+//Click event procedure on the delete button, deletes the user with the same user code as the query
+procedure TForm_item.btnExcluirClick(Sender: TObject);
 var
   Query: TFDQuery;
   ItemID: Integer;

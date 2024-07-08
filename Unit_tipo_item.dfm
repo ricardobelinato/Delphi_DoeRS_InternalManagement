@@ -1,4 +1,4 @@
-object Form_tipoitem: TForm_tipoitem
+object Form_tipo_item: TForm_tipo_item
   Left = 0
   Top = 0
   BorderStyle = bsDialog
@@ -13,7 +13,7 @@ object Form_tipoitem: TForm_tipoitem
   Font.Style = []
   Position = poScreenCenter
   TextHeight = 15
-  object Panel1: TPanel
+  object pnl1: TPanel
     Left = 0
     Top = 0
     Width = 632
@@ -21,7 +21,7 @@ object Form_tipoitem: TForm_tipoitem
     Color = clHotLight
     ParentBackground = False
     TabOrder = 0
-    object Label1: TLabel
+    object lblTipoItem: TLabel
       Left = 8
       Top = 6
       Width = 132
@@ -48,38 +48,38 @@ object Form_tipoitem: TForm_tipoitem
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = []
   end
-  object Panel2: TPanel
+  object pnl2: TPanel
     Left = 0
     Top = 400
     Width = 625
     Height = 41
     TabOrder = 2
-    object Btn_adicionar: TButton
+    object btnAdicionar: TButton
       Left = 374
       Top = 7
       Width = 75
       Height = 25
       Caption = 'Adicionar'
       TabOrder = 0
-      OnClick = Btn_adicionarClick
+      OnClick = btnAdicionarClick
     end
-    object Btn_editar: TButton
+    object btnEditar: TButton
       Left = 455
       Top = 7
       Width = 75
       Height = 25
       Caption = 'Editar'
       TabOrder = 1
-      OnClick = Btn_editarClick
+      OnClick = btnEditarClick
     end
-    object Btn_excluir: TButton
+    object btnExcluir: TButton
       Left = 536
       Top = 7
       Width = 75
       Height = 25
       Caption = 'Excluir'
       TabOrder = 2
-      OnClick = Btn_excluirClick
+      OnClick = btnExcluirClick
     end
   end
 end

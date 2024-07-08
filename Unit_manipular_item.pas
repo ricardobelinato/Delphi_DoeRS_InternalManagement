@@ -52,23 +52,24 @@ begin
   end;
 
   if Tag = 0 then
-    Unit_functions.InsertItem(edtDescricaoItem.Text, cmbUnidade.Text, mskDataValidade.Text)
+  begin
+    Unit_functions.InsertItem(edtDescricaoItem.Text, cmbUnidade.Text, mskDataValidade.Text);
+  end
   else
+  begin
     CodigoItem := StrToInt(edtCodigoItem.Text);
     Unit_functions.UpdateItem(CodigoItem, edtDescricaoItem.Text, cmbUnidade.Text, mskDataValidade.Text);
+  end;
 end;
 
 //Procedure que trata de labels e campos edit de acordo com o modo de inserção ou edição, mexendo com a visibilidade de componentes, deixando-os disabled, limpando campos ou dando valores a eles
 //Procedure that deals with labels and edit fields according to the insertion or editing mode, changing the visibility of components, leaving them disabled, clearing fields or giving them values
 procedure TForm_manipular_item.FormShow(Sender: TObject);
 begin
-  edtCodigoItem.ReadOnly := True;
-  edtCodigoTipoItem.ReadOnly := True;
-  edtCodigoUsuario.ReadOnly := True;
-
   edtCodigoItem.Enabled := False;
   edtCodigoTipoItem.Enabled := False;
   edtCodigoUsuario.Enabled := False;
+
   if Tag = 0 then
   begin
     //Modo de inserção

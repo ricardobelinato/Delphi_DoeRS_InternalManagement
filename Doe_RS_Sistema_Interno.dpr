@@ -9,7 +9,7 @@ uses
   Unit_estado in 'Unit_estado.pas' {Form_estado},
   Unit_instituicoes in 'Unit_instituicoes.pas' {Form_instituicao},
   Unit_item in 'Unit_item.pas' {Form_item},
-  Unit_tipo_item in 'Unit_tipo_item.pas' {Form_tipoitem},
+  Unit_tipo_item in 'Unit_tipo_item.pas' {Form_tipo_item},
   Unit_data_module in 'Unit_data_module.pas' {DataModule3: TDataModule},
   Unit_manipular_usuario in 'Unit_manipular_usuario.pas' {Form_manipular_usuario},
   Unit_manipular_cidade in 'Unit_manipular_cidade.pas' {Form_manipular_cidade},
@@ -32,7 +32,7 @@ begin
   Application.CreateForm(TForm_estado, Form_estado);
   Application.CreateForm(TForm_instituicao, Form_instituicao);
   Application.CreateForm(TForm_item, Form_item);
-  Application.CreateForm(TForm_tipoitem, Form_tipoitem);
+  Application.CreateForm(TForm_tipo_item, Form_tipo_item);
   Application.CreateForm(TForm_manipular_usuario, Form_manipular_usuario);
   Application.CreateForm(TForm_manipular_cidade, Form_manipular_cidade);
   Application.CreateForm(TForm_manipular_estado, Form_manipular_estado);

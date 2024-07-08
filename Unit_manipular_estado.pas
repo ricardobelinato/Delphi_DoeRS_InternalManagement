@@ -19,9 +19,10 @@ type
     edtCodigoEstado: TEdit;
     lblCodigoUsuario: TLabel;
     edtCodigoUsuario: TEdit;
-    procedure cmbSiglaEstadoChange(Sender: TObject);
+//    procedure cmbSiglaEstadoChange(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
+    procedure cmbSiglaEstadoChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -49,47 +50,21 @@ begin
   end;
 
   if Tag = 0 then
-    Unit_functions.InsertEstado(edtEstado.Text, cmbSiglaEstado.Text)
+  begin
+    Unit_functions.InsertEstado(edtEstado.Text, cmbSiglaEstado.Text);
+  end
   else
+  begin
     CodigoEstado := StrToInt(edtCodigoEstado.Text);
-    Unit_functions.UpdateEstado(CodigoEstado, cmbSiglaEstado.Text, edtEstado.Text);
+    Unit_functions.UpdateEstado(CodigoEstado, edtEstado, cmbSiglaEstado.Text, edtEstado.Text);
+  end;
 end;
 
-//Procedure que altera o valor do edit 'edtEstado' de acordo com a sigla selecionada no combobox
-//Procedure that changes the value of edit 'edtEstado' according to the acronym selected in the combobox
 procedure TForm_manipular_estado.cmbSiglaEstadoChange(Sender: TObject);
 begin
   if cmbSiglaEstado.ItemIndex <> -1 then
   begin
-    case cmbSiglaEstado.ItemIndex of
-      0: edtEstado.Text := 'Acre';
-      1: edtEstado.Text := 'Alagoas';
-      2: edtEstado.Text := 'Amapá';
-      3: edtEstado.Text := 'Amazonas';
-      4: edtEstado.Text := 'Bahia';
-      5: edtEstado.Text := 'Ceará';
-      6: edtEstado.Text := 'Distrito Federal';
-      7: edtEstado.Text := 'Espírito Santo';
-      8: edtEstado.Text := 'Goiás';
-      9: edtEstado.Text := 'Maranhão';
-      10: edtEstado.Text := 'Mato Grosso';
-      11: edtEstado.Text := 'Mato Grosso do Sul';
-      12: edtEstado.Text := 'Minas Gerais';
-      13: edtEstado.Text := 'Pará';
-      14: edtEstado.Text := 'Paraíba';
-      15: edtEstado.Text := 'Paraná';
-      16: edtEstado.Text := 'Pernambuco';
-      17: edtEstado.Text := 'Piauí';
-      18: edtEstado.Text := 'Rio de Janeiro';
-      19: edtEstado.Text := 'Rio Grande do Norte';
-      20: edtEstado.Text := 'Rio Grande do Sul';
-      21: edtEstado.Text := 'Rondônia';
-      22: edtEstado.Text := 'Roraima';
-      23: edtEstado.Text := 'Santa Catarina';
-      24: edtEstado.Text := 'São Paulo';
-      25: edtEstado.Text := 'Sergipe';
-      26: edtEstado.Text := 'Tocantins';
-    end;
+    SetarEstado(cmbSiglaEstado.ItemIndex, edtEstado);
   end;
 end;
 
@@ -97,11 +72,9 @@ end;
 //Procedure that deals with labels and edit fields according to the insertion or editing mode, changing the visibility of components, leaving them disabled, clearing fields or giving them values
 procedure TForm_manipular_estado.FormShow(Sender: TObject);
 begin
-  edtCodigoEstado.ReadOnly := True;
-  edtCodigoUsuario.ReadOnly := True;
-
   edtCodigoEstado.Enabled := False;
   edtCodigoUsuario.Enabled := False;
+
   if Tag = 0 then
   begin
     //Modo de inserção
