@@ -131,7 +131,31 @@ object DataModule3: TDataModule3
   end
   object DataSource_Cadastro: TDataSource
     DataSet = FDQuery_Cadastro
-    Left = 728
+    Left = 784
     Top = 32
+  end
+  object FDQuery_CmbSiglaEstado: TFDQuery
+    Active = True
+    Connection = FD_Connection
+    SQL.Strings = (
+      'SELECT sigla FROM estado;')
+    Left = 584
+    Top = 120
+  end
+  object FDQuery_CmbNomeCidade: TFDQuery
+    Active = True
+    Connection = FD_Connection
+    SQL.Strings = (
+      'SELECT nome_cidade FROM cidade;')
+    Left = 584
+    Top = 208
+  end
+  object FDQuery_CmbDescricaoTipoItem: TFDQuery
+    Active = True
+    Connection = FD_Connection
+    SQL.Strings = (
+      'SELECT descricao_tipo_item FROM tipoitem;')
+    Left = 584
+    Top = 296
   end
 end

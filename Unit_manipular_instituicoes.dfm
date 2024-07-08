@@ -3,8 +3,8 @@ object Form_manipular_instituicao: TForm_manipular_instituicao
   Top = 0
   BorderStyle = bsDialog
   Caption = 'Cadastro de Institui'#231#227'o'
-  ClientHeight = 156
-  ClientWidth = 368
+  ClientHeight = 159
+  ClientWidth = 486
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -12,16 +12,17 @@ object Form_manipular_instituicao: TForm_manipular_instituicao
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poScreenCenter
+  OnActivate = FormActivate
   OnShow = FormShow
   TextHeight = 15
   object Panel1: TPanel
     Left = 0
     Top = 120
-    Width = 369
+    Width = 489
     Height = 41
     TabOrder = 0
     object btnSalvar: TButton
-      Left = 256
+      Left = 376
       Top = 7
       Width = 105
       Height = 25
@@ -33,7 +34,7 @@ object Form_manipular_instituicao: TForm_manipular_instituicao
   object Panel2: TPanel
     Left = -7
     Top = 0
-    Width = 376
+    Width = 496
     Height = 121
     TabOrder = 1
     object lblNomeInstituicao: TLabel
@@ -77,6 +78,13 @@ object Form_manipular_instituicao: TForm_manipular_instituicao
       Width = 99
       Height = 15
       Caption = 'C'#243'digo do Usu'#225'rio'
+    end
+    object lblNomeCidade: TLabel
+      Left = 374
+      Top = 16
+      Width = 95
+      Height = 15
+      Caption = 'Nome da cidade *'
     end
     object edtNomeInstituicao: TEdit
       Left = 16
@@ -122,6 +130,14 @@ object Form_manipular_instituicao: TForm_manipular_instituicao
       Width = 121
       Height = 23
       TabOrder = 5
+    end
+    object cmbNomeCidade: TComboBox
+      Left = 374
+      Top = 37
+      Width = 114
+      Height = 23
+      TabOrder = 6
+      OnChange = cmbNomeCidadeChange
     end
   end
 end

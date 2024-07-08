@@ -62,7 +62,6 @@ type
     Instituies2: TMenuItem;
     Itens3: TMenuItem;
     iposdeItens1: TMenuItem;
-    edtCodigoEstado: TEdit;
     procedure Usurios1Click(Sender: TObject);
     procedure Cidades1Click(Sender: TObject);
     procedure Estados1Click(Sender: TObject);
@@ -91,8 +90,6 @@ uses Unit_login, Unit_usuario, Unit_cidade, Unit_estado, Unit_instituicoes, Unit
 procedure TForm_cadastro.FormActivate(Sender: TObject);
 begin
   edtNomeEstado.Enabled := False;
-  edtCodigoEstado.Enabled := False;
-  edtCodigoEstado.Visible := False;
 
   if IndicadorAdministrador then
     Menu := MainMenu_Cadastro
@@ -112,10 +109,10 @@ begin
     Exit;
   end;
 
-  InsertCidade(edtNomeCidade.Text, edtPopulacao.Text);
+//  InsertCidade(edtNomeCidade.Text, edtPopulacao.Text);
   InsertEstado(edtNomeEstado.Text, cmbSiglaEstado.Text);
-  InsertInstituicao(edtNomeInstituicao.Text, mskCnpj.Text, edtResponsavel.Text);
-  InsertItem(edtDescricaoItem.Text, cmbUnidade.Text, mskDataValidade.Text);
+//  InsertInstituicao(edtNomeInstituicao.Text, mskCnpj.Text, edtResponsavel.Text);
+//  InsertItem(edtDescricaoItem.Text, cmbUnidade.Text, mskDataValidade.Text);
   InsertTipoItem(edtDescricaoTipoItem.Text);
 
   Unit_data_module.DataModule3.FDQuery_Cadastro.Close;

@@ -13,15 +13,14 @@ function RemoverFormatacaoCPF(const CPF: string): string;
 function ValidarCamposLogin(Form: TForm; LoginEdit, CPFEEdit: TEdit): Boolean;
 procedure InsertUser(const Nome, CPF, Login: string; Adm, Ativo: Boolean);
 procedure UpdateUser(const CodigoUsuario: Integer; const Nome, CPF, Login: string; Adm, Ativo: Boolean);
-procedure InsertCidade(const nomeCidade, populacao: string);
+procedure InsertCidade(const nomeCidade, populacao, edtCodigoEstado: string);
 procedure UpdateCidade(CodigoCidade: Integer; const nomeCidade, populacao: string);
-//procedure SetarCodEstado(Index: Integer; const edtCodigoEstado: TEdit);
 procedure InsertEstado(const NomeEstado, Sigla: String);
 procedure UpdateEstado(CodigoEstado: Integer; edtEstado: TEdit; const NomeEstado, Sigla: String);
 procedure SetarEstado(Index: Integer; const edtEstado: TEdit);
-procedure InsertInstituicao(const NomeInstituicao, Cnpj, Responsavel: String);
+procedure InsertInstituicao(const NomeInstituicao, Cnpj, Responsavel, edtCodigoCidade: String);
 procedure UpdateInstituicao(CodigoInstituicao: Integer; const NomeInstituicao, Cnpj, Responsavel: String);
-procedure InsertItem(const DescricaoItem, Unidade, DataValidade: string);
+procedure InsertItem(const DescricaoItem, Unidade, DataValidade, edtCodigoTipoItem: string);
 procedure UpdateItem(CodigoItem: Integer; const DescricaoItem, Unidade, DataValidade: string);
 procedure InsertTipoItem(const DescricaoTipoItem: String);
 procedure UpdateTipoItem(CodigoTipoItem: Integer; const DescricaoTipoItem: String);
@@ -224,14 +223,14 @@ end;
 {Unit_manipular_cidade}
 //Procedure para inserir cidades no banco de dados
 //Procedure to insert cities into the database
-procedure InsertCidade(const nomeCidade, populacao: string);
+procedure InsertCidade(const nomeCidade, populacao, edtCodigoEstado: string);
 var
   SQLInsert: string;
   Query: TFDQuery;
 begin
   SQLInsert :=
-    'INSERT INTO cidade (nome_cidade, populacao, codigo_usuario) ' +
-    'VALUES (:nome_cidade, :populacao, :CodigoUsuario)';
+    'INSERT INTO cidade (nome_cidade, populacao, codigo_estado, codigo_usuario) ' +
+    'VALUES (:nome_cidade, :populacao, :CodigoEstado, :CodigoUsuario)';
 
   Query := TFDQuery.Create(nil);
   try
@@ -240,6 +239,7 @@ begin
 
     Query.ParamByName('nome_cidade').AsString := nomeCidade;
     Query.ParamByName('populacao').AsString := populacao;
+    Query.ParamByName('CodigoEstado').AsString := edtCodigoEstado;
     Query.ParamByName('CodigoUsuario').AsString := IntToStr(CodigoUsuario);
 
     Query.ExecSQL;
@@ -297,44 +297,6 @@ begin
   Query.Free;
 end;
 
-{Unit_manipular_cidade}
-//Procedure criada pra passar o codestado pra cidade
-//procedure SetarCodEstado(Index: Integer; const edtCodigoEstado: TEdit);
-//begin
-//  if Index <> -1 then
-//  begin
-//    case Index of
-//      0: edtCodigoEstado.Text := '1';       //Acre
-//      1: edtCodigoEstado.Text := '2';       //Alagoas
-//      2: edtCodigoEstado.Text := '3';       //Amapá
-//      3: edtCodigoEstado.Text := '4';       //Amazonas
-//      4: edtCodigoEstado.Text := '5';       //Bahia
-//      5: edtCodigoEstado.Text := '6';       //Ceará
-//      6: edtCodigoEstado.Text := '7';       //Distrito Federal
-//      7: edtCodigoEstado.Text := '8';       //Espírito Santo
-//      8: edtCodigoEstado.Text := '9';       //Goiás
-//      9: edtCodigoEstado.Text := '10';      //Maranhão
-//      10: edtCodigoEstado.Text := '11';     //Mato Grosso
-//      11: edtCodigoEstado.Text := '12';     //Mato Grosso do Sul
-//      12: edtCodigoEstado.Text := '13';     //Minas Gerais
-//      13: edtCodigoEstado.Text := '14';     //Pará
-//      14: edtCodigoEstado.Text := '15';     //Paraíba
-//      15: edtCodigoEstado.Text := '16';     //Paraná
-//      16: edtCodigoEstado.Text := '17';     //Pernambuco
-//      17: edtCodigoEstado.Text := '18';     //Piauí
-//      18: edtCodigoEstado.Text := '19';     //Rio de Janeiro
-//      19: edtCodigoEstado.Text := '20';     //Rio Grande do Norte
-//      20: edtCodigoEstado.Text := '21';     //Rio Grande do Sul
-//      21: edtCodigoEstado.Text := '22';     //Rondônia
-//      22: edtCodigoEstado.Text := '23';     //Roraima
-//      23: edtCodigoEstado.Text := '24';     //Santa Catarina
-//      24: edtCodigoEstado.Text := '25';     //São Paulo
-//      25: edtCodigoEstado.Text := '26';     //Sergipe
-//      26: edtCodigoEstado.Text := '27';     //Tocantins
-//    end;
-//  end;
-//end;
-
 {Unit_manipular_estado}
 //Procedure para inserir estados no banco de dados
 //Procedure to insert states into the database
@@ -374,10 +336,6 @@ end;
 {Unit_manipular_estado}
 //Procedure para editar estados no banco de dados
 //Procedure to edit states in the database
-
-
-
-//procedure UpdateEstado(CodigoEstado: Integer; const NomeEstado, Sigla: String);
 procedure UpdateEstado(CodigoEstado: Integer; edtEstado: TEdit; const NomeEstado, Sigla: String);
 var
   SQLUpdate: string;
@@ -457,14 +415,14 @@ end;
 {Unit_manipular_instituicoes}
 //Procedure para inserir instituições no banco de dados
 //Procedure to insert institutions into the database
-procedure InsertInstituicao(const NomeInstituicao, Cnpj, Responsavel: String);
+procedure InsertInstituicao(const NomeInstituicao, Cnpj, Responsavel, edtCodigoCidade: String);
 var
   SQLInsert: string;
   Query: TFDQuery;
 begin
   SQLInsert :=
-    'INSERT INTO instituicao (nome_instituicao, cnpj, responsavel, codigo_usuario) ' +
-    'VALUES (:nome_instituicao, :cnpj, :responsavel, :CodigoUsuario)';
+    'INSERT INTO instituicao (nome_instituicao, cnpj, responsavel, codigo_cidade, codigo_usuario) ' +
+    'VALUES (:nome_instituicao, :cnpj, :responsavel, :CodigoCidade, :CodigoUsuario)';
 
   Query := TFDQuery.Create(nil);
   try
@@ -474,6 +432,7 @@ begin
     Query.ParamByName('nome_instituicao').AsString := NomeInstituicao;
     Query.ParamByName('cnpj').AsString := Cnpj;
     Query.ParamByName('responsavel').AsString := Responsavel;
+    Query.ParamByName('CodigoCidade').AsString := edtCodigoCidade;
     Query.ParamByName('CodigoUsuario').AsString := IntToStr(CodigoUsuario);
 
     Query.ExecSQL;
@@ -536,14 +495,14 @@ end;
 {Unit_manipular_item}
 //Procedure para inserir itens no banco de dados
 //Procedure to insert items into the database
-procedure InsertItem(const DescricaoItem, Unidade, DataValidade: string);
+procedure InsertItem(const DescricaoItem, Unidade, DataValidade, edtCodigoTipoItem: string);
 var
   SQLInsert: string;
   Query: TFDQuery;
 begin
   SQLInsert :=
-    'INSERT INTO item (descricao_item, unidade, data_validade, codigo_usuario) ' +
-    'VALUES (:descricao_item, :unidade, :data_validade, :CodigoUsuario)';
+    'INSERT INTO item (descricao_item, unidade, data_validade, codigo_tipo_item, codigo_usuario) ' +
+    'VALUES (:descricao_item, :unidade, :data_validade, :CodigoDescricaoTipoItem, :CodigoUsuario)';
 
   Query := TFDQuery.Create(nil);
   try
@@ -553,6 +512,7 @@ begin
     Query.ParamByName('descricao_item').AsString := DescricaoItem;
     Query.ParamByName('unidade').AsString := Unidade;
     Query.ParamByName('data_validade').AsString := DataValidade;
+    Query.ParamByName('CodigoDescricaoTipoItem').AsString := edtCodigoTipoItem;
     Query.ParamByName('CodigoUsuario').AsString := IntToStr(CodigoUsuario);
 
     Query.ExecSQL;

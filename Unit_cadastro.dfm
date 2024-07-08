@@ -30,8 +30,8 @@ object Form_cadastro: TForm_cadastro
     object lblSejaBemVindo: TLabel
       Left = 0
       Top = 0
-      Width = 948
-      Height = 81
+      Width = 206
+      Height = 37
       Align = alClient
       Alignment = taCenter
       Caption = 'Seja bem vindo!'
@@ -42,8 +42,6 @@ object Form_cadastro: TForm_cadastro
       Font.Style = [fsBold]
       ParentFont = False
       Layout = tlCenter
-      ExplicitWidth = 206
-      ExplicitHeight = 37
     end
   end
   object pnl2: TPanel
@@ -381,13 +379,6 @@ object Form_cadastro: TForm_cadastro
       MaxLength = 18
       TabOrder = 14
       Text = '  .   .   /    -  '
-    end
-    object edtCodigoEstado: TEdit
-      Left = 423
-      Top = 108
-      Width = 34
-      Height = 23
-      TabOrder = 19
     end
   end
   object pnl3: TPanel

@@ -28,6 +28,9 @@ type
     FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink;
     FDQuery_Cadastro: TFDQuery;
     DataSource_Cadastro: TDataSource;
+    FDQuery_CmbSiglaEstado: TFDQuery;
+    FDQuery_CmbNomeCidade: TFDQuery;
+    FDQuery_CmbDescricaoTipoItem: TFDQuery;
   private
     { Private declarations }
   public

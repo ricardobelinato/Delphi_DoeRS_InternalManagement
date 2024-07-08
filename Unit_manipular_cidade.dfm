@@ -12,6 +12,7 @@ object Form_manipular_cidade: TForm_manipular_cidade
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poScreenCenter
+  OnActivate = FormActivate
   OnShow = FormShow
   TextHeight = 15
   object Panel1: TPanel
@@ -121,34 +122,7 @@ object Form_manipular_cidade: TForm_manipular_cidade
       Width = 95
       Height = 23
       TabOrder = 5
-      Items.Strings = (
-        'AC'
-        'AL'
-        'AP'
-        'AM'
-        'BA'
-        'CE'
-        'DF'
-        'ES'
-        'GO'
-        'MA'
-        'MT'
-        'MS'
-        'MG'
-        'PA'
-        'PB'
-        'PR'
-        'PE'
-        'PI'
-        'RJ'
-        'RN'
-        'RS'
-        'RO'
-        'RR'
-        'SC'
-        'SP'
-        'SE'
-        'TO')
+      OnChange = cmbSiglaEstadoChange
     end
   end
 end

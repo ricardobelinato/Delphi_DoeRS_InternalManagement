@@ -4,7 +4,7 @@ object Form_manipular_item: TForm_manipular_item
   BorderStyle = bsDialog
   Caption = 'Cadastro de Item'
   ClientHeight = 167
-  ClientWidth = 337
+  ClientWidth = 490
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -12,16 +12,17 @@ object Form_manipular_item: TForm_manipular_item
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poScreenCenter
+  OnActivate = FormActivate
   OnShow = FormShow
   TextHeight = 15
   object Panel1: TPanel
     Left = -1
     Top = 127
-    Width = 359
+    Width = 498
     Height = 41
     TabOrder = 0
     object btnSalvar: TButton
-      Left = 229
+      Left = 380
       Top = 8
       Width = 105
       Height = 25
@@ -33,7 +34,7 @@ object Form_manipular_item: TForm_manipular_item
   object Panel2: TPanel
     Left = -2
     Top = 0
-    Width = 360
+    Width = 499
     Height = 129
     TabOrder = 1
     object lblNomeItem: TLabel
@@ -77,6 +78,13 @@ object Form_manipular_item: TForm_manipular_item
       Width = 99
       Height = 15
       Caption = 'C'#243'digo do Usu'#225'rio'
+    end
+    object lblDescricaoTipoItem: TLabel
+      Left = 341
+      Top = 16
+      Width = 144
+      Height = 15
+      Caption = 'Descri'#231#227'o do tipo do item *'
     end
     object edtDescricaoItem: TEdit
       Left = 16
@@ -134,6 +142,14 @@ object Form_manipular_item: TForm_manipular_item
       Width = 104
       Height = 23
       TabOrder = 5
+    end
+    object cmbDescricaoTipoItem: TComboBox
+      Left = 341
+      Top = 37
+      Width = 145
+      Height = 23
+      TabOrder = 6
+      OnChange = cmbDescricaoTipoItemChange
     end
   end
 end
