@@ -24,6 +24,8 @@ procedure InsertItem(const DescricaoItem, Unidade, DataValidade, edtCodigoTipoIt
 procedure UpdateItem(CodigoItem: Integer; const DescricaoItem, Unidade, DataValidade: string);
 procedure InsertTipoItem(const DescricaoTipoItem: String);
 procedure UpdateTipoItem(CodigoTipoItem: Integer; const DescricaoTipoItem: String);
+procedure InsertDoacao(const DataDoacao, CodigoInstituicao: string);
+procedure InsertItemDoacao(const spnQuantidade, edtPeso, edtValor: string);
 
 var
   CodigoUsuario: Integer;
@@ -240,7 +242,7 @@ begin
     Query.ParamByName('nome_cidade').AsString := nomeCidade;
     Query.ParamByName('populacao').AsString := populacao;
     Query.ParamByName('CodigoEstado').AsString := edtCodigoEstado;
-    Query.ParamByName('CodigoUsuario').AsString := IntToStr(CodigoUsuario);
+    Query.ParamByName('CodigoUsuario').AsInteger := CodigoUsuario;
 
     Query.ExecSQL;
 
@@ -279,7 +281,7 @@ begin
 
     Query.ParamByName('nome_cidade').AsString := nomeCidade;
     Query.ParamByName('populacao').AsString := populacao;
-    Query.ParamByName('CodigoUsuario').AsString := IntToStr(CodigoUsuario);
+    Query.ParamByName('CodigoUsuario').AsInteger := CodigoUsuario;
     Query.ParamByName('codigo_cidade').AsInteger := CodigoCidade;
 
     Query.ExecSQL;
@@ -316,7 +318,7 @@ begin
 
     Query.ParamByName('nome_estado').AsString := NomeEstado;
     Query.ParamByName('sigla').AsString := Sigla;
-    Query.ParamByName('CodigoUsuario').AsString := IntToStr(CodigoUsuario);
+    Query.ParamByName('CodigoUsuario').AsInteger := CodigoUsuario;
 
     Query.ExecSQL;
 
@@ -355,7 +357,7 @@ begin
 
     Query.ParamByName('nome_estado').AsString := edtEstado.Text;
     Query.ParamByName('sigla').AsString := Sigla;
-    Query.ParamByName('CodigoUsuario').AsString := IntToStr(CodigoUsuario);
+    Query.ParamByName('CodigoUsuario').AsInteger := CodigoUsuario;
     Query.ParamByName('codigo_estado').AsInteger := CodigoEstado;
 
     Query.ExecSQL;
@@ -433,7 +435,7 @@ begin
     Query.ParamByName('cnpj').AsString := Cnpj;
     Query.ParamByName('responsavel').AsString := Responsavel;
     Query.ParamByName('CodigoCidade').AsString := edtCodigoCidade;
-    Query.ParamByName('CodigoUsuario').AsString := IntToStr(CodigoUsuario);
+    Query.ParamByName('CodigoUsuario').AsInteger := CodigoUsuario;
 
     Query.ExecSQL;
 
@@ -474,7 +476,7 @@ begin
     Query.ParamByName('nome_instituicao').AsString := NomeInstituicao;
     Query.ParamByName('cnpj').AsString := Cnpj;
     Query.ParamByName('responsavel').AsString := Responsavel;
-    Query.ParamByName('CodigoUsuario').AsString := IntToStr(CodigoUsuario);
+    Query.ParamByName('CodigoUsuario').AsInteger := CodigoUsuario;
     Query.ParamByName('codigo_instituicao').AsInteger := CodigoInstituicao;
 
     Query.ExecSQL;
@@ -513,7 +515,7 @@ begin
     Query.ParamByName('unidade').AsString := Unidade;
     Query.ParamByName('data_validade').AsString := DataValidade;
     Query.ParamByName('CodigoDescricaoTipoItem').AsString := edtCodigoTipoItem;
-    Query.ParamByName('CodigoUsuario').AsString := IntToStr(CodigoUsuario);
+    Query.ParamByName('CodigoUsuario').AsInteger := CodigoUsuario;
 
     Query.ExecSQL;
 
@@ -554,7 +556,7 @@ begin
     Query.ParamByName('descricao_item').AsString := DescricaoItem;
     Query.ParamByName('unidade').AsString := Unidade;
     Query.ParamByName('data_validade').AsString := DataValidade;
-    Query.ParamByName('CodigoUsuario').AsString := IntToStr(CodigoUsuario);
+    Query.ParamByName('CodigoUsuario').AsInteger := CodigoUsuario;
     Query.ParamByName('codigo_item').AsInteger := CodigoItem;
 
     Query.ExecSQL;
@@ -590,7 +592,7 @@ begin
     Query.SQL.Text := SQLInsert;
 
     Query.ParamByName('descricao_tipo_item').AsString := DescricaoTipoItem;
-    Query.ParamByName('CodigoUsuario').AsString := IntToStr(CodigoUsuario);
+    Query.ParamByName('CodigoUsuario').AsInteger := CodigoUsuario;
 
     Query.ExecSQL;
 
@@ -627,7 +629,7 @@ begin
     Query.SQL.Text := SQLUpdate;
 
     Query.ParamByName('descricao_tipo_item').AsString := DescricaoTipoItem;
-    Query.ParamByName('CodigoUsuario').AsString := IntToStr(CodigoUsuario);
+    Query.ParamByName('CodigoUsuario').AsInteger := CodigoUsuario;
     Query.ParamByName('codigo_tipo_item').AsInteger := CodigoTipoItem;
 
     Query.ExecSQL;
@@ -640,6 +642,72 @@ begin
   except
     on E: Exception do
       ShowMessage('Erro ao atualizar tipo do item: ' + E.Message);
+  end;
+
+  Query.Free;
+end;
+
+//Procedure para inserir doações no banco de dados
+//Procedure to insert donations into the database
+procedure InsertDoacao(const DataDoacao, CodigoInstituicao: string);
+var
+  SQLInsert: string;
+  Query: TFDQuery;
+begin
+  SQLInsert :=
+    'INSERT INTO doacao (data, codigo_instituicao, codigo_usuario) ' +
+    'VALUES (:DataDoacao, :CodigoInstituicao, :CodigoUsuario)';
+
+  Query := TFDQuery.Create(nil);
+  try
+    Query.Connection := Unit_data_module.DataModule3.FD_Connection;
+    Query.SQL.Text := SQLInsert;
+
+    Query.ParamByName('DataDoacao').AsString := DataDoacao;
+    Query.ParamByName('CodigoInstituicao').AsString := CodigoInstituicao;
+    Query.ParamByName('CodigoUsuario').AsInteger := CodigoUsuario;
+
+    Query.ExecSQL;
+
+    ShowMessage('Doação adicionada com sucesso!');
+
+  except
+    on E: Exception do
+      ShowMessage('Erro ao adicionar doação: ' + E.Message);
+  end;
+
+  Query.Free;
+end;
+
+////Procedure para inserir itemdoacao no banco de dados
+////Procedure to insert itemdoacao into the database
+procedure InsertItemDoacao(const spnQuantidade, edtPeso, edtValor: string);
+var
+  SQLInsert: string;
+  Query: TFDQuery;
+begin
+  SQLInsert :=
+    'INSERT INTO itemdoacao (codigo_doacao, codigo_item, quantidade, peso, valor) ' +
+    'VALUES (:CodigoDoacao, :CodigoItem, :spnQuantidade, :edtPeso, :edtValor)';
+
+  Query := TFDQuery.Create(nil);
+  try
+    Query.Connection := Unit_data_module.DataModule3.FD_Connection;
+    Query.SQL.Text := SQLInsert;
+
+    Query.ParamByName('CodigoDoacao').AsInteger := 0;
+    Query.ParamByName('CodigoItem').AsInteger := 0;
+    Query.ParamByName('spnQuantidade').AsString := spnQuantidade;
+    Query.ParamByName('edtPeso').AsString := edtPeso;
+    Query.ParamByName('edtValor').AsString := edtValor;
+
+    Query.ExecSQL;
+
+    ShowMessage('Item doação adicionada com sucesso!');
+
+  except
+    on E: Exception do
+      ShowMessage('Erro ao adicionar item doação: ' + E.Message);
   end;
 
   Query.Free;

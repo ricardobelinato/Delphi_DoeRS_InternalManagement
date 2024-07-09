@@ -31,6 +31,7 @@ type
     FDQuery_CmbSiglaEstado: TFDQuery;
     FDQuery_CmbNomeCidade: TFDQuery;
     FDQuery_CmbDescricaoTipoItem: TFDQuery;
+    FDQuery_CmbNomeInstituicao: TFDQuery;
   private
     { Private declarations }
   public

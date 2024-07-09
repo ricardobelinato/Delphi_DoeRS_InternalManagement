@@ -26,7 +26,6 @@ type
     lblPreenchaForm2: TLabel;
     edtPopulacao: TEdit;
     edtNomeEstado: TEdit;
-    edtNomeInstituicao: TEdit;
     edtResponsavel: TEdit;
     edtDescricaoItem: TEdit;
     edtPeso: TEdit;
@@ -68,6 +67,11 @@ type
     edtCodigoTipoItem: TEdit;
     lblCodigoEstado: TLabel;
     edtCodigoEstado: TEdit;
+    cmbNomeInstituicao: TComboBox;
+    edtCodigoInstituicao: TEdit;
+    lblCodigoInstituicao: TLabel;
+    lblCodigoItem: TLabel;
+    edtCodigoItem: TEdit;
     procedure Usurios1Click(Sender: TObject);
     procedure Cidades1Click(Sender: TObject);
     procedure Estados1Click(Sender: TObject);
@@ -79,6 +83,7 @@ type
     procedure cmbSiglaEstadoChange(Sender: TObject);
     procedure cmbDescricaoTipoItemChange(Sender: TObject);
     procedure cmbNomeCidadeChange(Sender: TObject);
+    procedure cmbNomeInstituicaoChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -133,6 +138,29 @@ begin
   end;
 end;
 
+//Procedure de evento OnChange que verifica quando o combobox 'cmbNomeInstituicaoChange' muda e preenche todos os campos relacionados a Instituição
+//OnChange event procedure that checks when the combobox 'cmbNomeInstituicaoChange' changes and fills in all fields related to the Institution
+procedure TForm_cadastro.cmbNomeInstituicaoChange(Sender: TObject);
+var
+  Query: TFDQuery;
+begin
+  Query := TFDQuery.Create(nil);
+  try
+    Query.Connection := DataModule3.FD_Connection;
+    Query.SQL.Text := 'SELECT codigo_instituicao, cnpj, responsavel ' +
+                      'FROM instituicao ' +
+                      'WHERE nome_instituicao = :NomeInstituicao';
+    Query.Params.ParamByName('NomeInstituicao').AsString := cmbNomeInstituicao.Text;
+    Query.Open;
+
+    finally
+      edtCodigoInstituicao.Text := Query.FieldByName('codigo_instituicao').AsString;
+      mskCnpj.Text := Query.FieldByName('cnpj').AsString;
+      edtResponsavel.Text := Query.FieldByName('responsavel').AsString;
+  end;
+end;
+
+
 //Procedure evento que inicia quando o form abre na tela, nela temos o sistema de permissão, responsável por exibir o menu apenas para usuários com código de administrador 1/true, também temos outra parte do código dedicada a puxar o select de algumas colunas no banco e povoar alguns combobox e oculta alguns labels e campos da tela
 //Procedure event that starts when the form opens on the screen, in it we have the permission system, responsible for displaying the menu only for users with administrator code 1/true, we also have another part of the code dedicated to pulling the select from some columns in the database and populate some comboboxes and hide some labels and fields from the screen
 procedure TForm_cadastro.FormActivate(Sender: TObject);
@@ -181,22 +209,36 @@ begin
 
   Unit_data_module.DataModule3.FDQuery_CmbDescricaoTipoItem.Close;
 
+  //Dá valores pra combobox 'cmbNomeInstituicao' através de select da 'FDQuery_CmbNomeInstituicao' no data module / Gives values to the 'cmbNomeInstituicao' combobox through select from 'FDQuery_CmbNomeInstituicao' in the data module
+  Unit_data_module.DataModule3.FDQuery_CmbNomeInstituicao.Open;
+  cmbNomeInstituicao.Items.Clear;
+
+  while not Unit_data_module.DataModule3.FDQuery_CmbNomeInstituicao.Eof do
+  begin
+    cmbNomeInstituicao.Items.Add(Unit_data_module.DataModule3.FDQuery_CmbNomeInstituicao.FieldByName('nome_instituicao').AsString);
+    Unit_data_module.DataModule3.FDQuery_CmbNomeInstituicao.Next;
+  end;
+
+  Unit_data_module.DataModule3.FDQuery_CmbNomeInstituicao.Close;
+
   //Oculta alguns labels e campos na tela, usados somente para extrair valores para o insert / Hides some labels and fields on the screen, used only to extract values for the insert
   lblCodigoEstado.Visible := False;
   lblCodigoCidade.Visible := False;
   lblCodigoTipoItem.Visible := False;
+  lblCodigoInstituicao.Visible := False;
+  lblCodigoItem.Visible := False;
 
   edtCodigoEstado.Visible := False;
   edtCodigoCidade.Visible := False;
   edtCodigoTipoItem.Visible := False;
-
-  lblCodigoEstado.Enabled := False;
-  lblCodigoCidade.Enabled := False;
-  lblCodigoTipoItem.Enabled := False;
+  edtCodigoInstituicao.Visible := False;
+  edtCodigoItem.Visible := False;
 
   edtCodigoEstado.Enabled := False;
   edtCodigoCidade.Enabled := False;
   edtCodigoTipoItem.Enabled := False;
+  edtCodigoInstituicao.Enabled := False;
+  edtCodigoItem.Enabled := False;
 end;
 
 //Procedure do evento de clique no botão, responsável por dar o insert em todas as tabelas
@@ -204,16 +246,16 @@ end;
 procedure TForm_cadastro.btnEnviarClick(Sender: TObject);
 begin
   if (cmbNomeCidade.Text='') or (edtPopulacao.Text='') or (edtNomeEstado.Text='') or (cmbSiglaEstado.Text='')
-  or (edtNomeInstituicao.Text='') or (mskCnpj.Text='') or (edtResponsavel.Text='') or (edtDescricaoItem.Text='')
+  or (cmbNomeInstituicao.Text='') or (mskCnpj.Text='') or (edtResponsavel.Text='') or (edtDescricaoItem.Text='')
   or (cmbUnidade.Text='') or (mskDataValidade.Text='') or (cmbDescricaoTipoItem.Text='') then
   begin
     ShowMessage('Ops! Parece que você esqueceu de preencher algum(s) campo(s) obrigatório(s).');
     Exit;
   end;
 
-//  InsertInstituicao(edtNomeInstituicao.Text, mskCnpj.Text, edtResponsavel.Text);
-//  InsertItem(edtDescricaoItem.Text, cmbUnidade.Text, mskDataValidade.Text);
-//  InsertTipoItem(cmbDescricaoTipoItem.Text);
+  Unit_functions.InsertItem(edtDescricaoItem.Text, cmbUnidade.Text, mskDataValidade.Text, edtCodigoTipoItem.Text);
+  Unit_functions.InsertDoacao(mskDataDoacao.Text, edtCodigoInstituicao.Text);
+//  Unit_functions.InsertItemDoacao(spnQuantidade.Text, edtPeso.Text, edtValor.Text);
 
   Unit_data_module.DataModule3.FDQuery_Cadastro.Close;
   Unit_data_module.DataModule3.FDQuery_Cadastro.Open;

@@ -53,7 +53,8 @@ object Form_cadastro: TForm_cadastro
     Height = 463
     Align = alLeft
     TabOrder = 1
-    ExplicitHeight = 455
+    ExplicitLeft = -6
+    ExplicitTop = 87
     object lblItemDoado: TLabel
       Left = 107
       Top = 88
@@ -97,42 +98,42 @@ object Form_cadastro: TForm_cadastro
       Caption = 'Unidade *'
     end
     object lblEstado: TLabel
-      Left = 107
-      Top = 258
+      Left = 319
+      Top = 200
       Width = 43
       Height = 15
       Caption = 'Estado *'
     end
     object lblNomeEstado: TLabel
-      Left = 187
+      Left = 107
       Top = 258
       Width = 96
       Height = 15
       Caption = 'Nome do Estado *'
     end
     object lblNomeCidade: TLabel
-      Left = 302
+      Left = 222
       Top = 258
       Width = 45
       Height = 15
       Caption = 'Cidade *'
     end
     object lblPopulacao: TLabel
-      Left = 107
-      Top = 316
+      Left = 319
+      Top = 258
       Width = 64
       Height = 15
       Caption = 'Popula'#231#227'o *'
     end
     object lblInstituicao: TLabel
-      Left = 200
+      Left = 107
       Top = 316
       Width = 63
       Height = 15
       Caption = 'Institui'#231#227'o *'
     end
     object lblCnpj: TLabel
-      Left = 335
+      Left = 231
       Top = 316
       Width = 35
       Height = 15
@@ -153,48 +154,61 @@ object Form_cadastro: TForm_cadastro
       Caption = 'Data de doa'#231#227'o *'
     end
     object lblResponsavel: TLabel
-      Left = 319
-      Top = 200
+      Left = 335
+      Top = 316
       Width = 73
       Height = 15
       Caption = 'Respons'#225'vel *'
     end
     object lblCodigoCidade: TLabel
-      Left = 297
-      Top = 366
-      Width = 60
+      Left = 170
+      Top = 396
+      Width = 59
       Height = 15
-      Caption = 'Cod cidade'
+      Caption = 'CodCidade'
     end
     object lblCodigoTipoItem: TLabel
-      Left = 363
-      Top = 366
-      Width = 73
+      Left = 235
+      Top = 396
+      Width = 69
       Height = 15
-      Caption = 'Cod tipo item'
+      Caption = 'CodTipoItem'
     end
     object lblCodigoEstado: TLabel
-      Left = 231
-      Top = 366
-      Width = 60
+      Left = 107
+      Top = 396
+      Width = 57
       Height = 15
-      Caption = 'Cod estado'
+      Caption = 'CodEstado'
+    end
+    object lblCodigoInstituicao: TLabel
+      Left = 310
+      Top = 396
+      Width = 77
+      Height = 15
+      Caption = 'CodInstitui'#231#227'o'
+    end
+    object lblCodigoItem: TLabel
+      Left = 393
+      Top = 396
+      Width = 46
+      Height = 15
+      Caption = 'CodItem'
     end
     object pnl4: TPanel
       Left = 1
-      Top = 421
+      Top = 452
       Width = 473
-      Height = 41
+      Height = 10
       Align = alBottom
       BevelOuter = bvNone
       TabOrder = 19
-      ExplicitTop = 413
     end
     object pnl6: TPanel
       Left = 1
       Top = 73
       Width = 100
-      Height = 348
+      Height = 379
       Align = alLeft
       BevelOuter = bvNone
       TabOrder = 20
@@ -236,32 +250,27 @@ object Form_cadastro: TForm_cadastro
       end
     end
     object edtPopulacao: TEdit
-      Left = 107
-      Top = 337
-      Width = 87
+      Left = 319
+      Top = 279
+      Width = 117
       Height = 23
-      TabOrder = 12
+      NumbersOnly = True
+      TabOrder = 11
     end
     object edtNomeEstado: TEdit
-      Left = 187
+      Left = 107
       Top = 279
       Width = 109
       Height = 23
-      TabOrder = 10
-    end
-    object edtNomeInstituicao: TEdit
-      Left = 200
-      Top = 337
-      Width = 129
-      Height = 23
-      TabOrder = 13
+      TabOrder = 9
     end
     object edtResponsavel: TEdit
-      Left = 319
-      Top = 221
-      Width = 117
+      Left = 335
+      Top = 337
+      Width = 101
       Height = 23
-      TabOrder = 8
+      Enabled = False
+      TabOrder = 14
     end
     object edtDescricaoItem: TEdit
       Left = 107
@@ -287,8 +296,8 @@ object Form_cadastro: TForm_cadastro
     end
     object btnEnviar: TButton
       Left = 107
-      Top = 378
-      Width = 110
+      Top = 374
+      Width = 95
       Height = 25
       Caption = 'Enviar'
       TabOrder = 15
@@ -324,11 +333,11 @@ object Form_cadastro: TForm_cadastro
       Value = 1
     end
     object cmbSiglaEstado: TComboBox
-      Left = 107
-      Top = 279
-      Width = 74
+      Left = 319
+      Top = 221
+      Width = 117
       Height = 23
-      TabOrder = 9
+      TabOrder = 8
       OnChange = cmbSiglaEstadoChange
     end
     object mskDataValidade: TMaskEdit
@@ -352,21 +361,22 @@ object Form_cadastro: TForm_cadastro
       Text = '  /  /  '
     end
     object mskCnpj: TMaskEdit
-      Left = 335
+      Left = 231
       Top = 337
-      Width = 101
+      Width = 98
       Height = 23
+      Enabled = False
       EditMask = '00.000.000/0000-00;1;_'
       MaxLength = 18
-      TabOrder = 14
+      TabOrder = 13
       Text = '  .   .   /    -  '
     end
     object cmbNomeCidade: TComboBox
-      Left = 302
+      Left = 222
       Top = 279
-      Width = 134
+      Width = 91
       Height = 23
-      TabOrder = 11
+      TabOrder = 10
       OnChange = cmbNomeCidadeChange
     end
     object cmbDescricaoTipoItem: TComboBox
@@ -378,25 +388,47 @@ object Form_cadastro: TForm_cadastro
       OnChange = cmbDescricaoTipoItemChange
     end
     object edtCodigoCidade: TEdit
-      Left = 297
-      Top = 387
-      Width = 60
+      Left = 170
+      Top = 417
+      Width = 59
       Height = 23
       TabOrder = 17
     end
     object edtCodigoTipoItem: TEdit
-      Left = 363
-      Top = 387
-      Width = 73
+      Left = 235
+      Top = 417
+      Width = 69
       Height = 23
       TabOrder = 18
     end
     object edtCodigoEstado: TEdit
-      Left = 231
-      Top = 387
-      Width = 60
+      Left = 107
+      Top = 417
+      Width = 57
       Height = 23
       TabOrder = 16
+    end
+    object cmbNomeInstituicao: TComboBox
+      Left = 107
+      Top = 337
+      Width = 118
+      Height = 23
+      TabOrder = 12
+      OnChange = cmbNomeInstituicaoChange
+    end
+    object edtCodigoInstituicao: TEdit
+      Left = 310
+      Top = 417
+      Width = 77
+      Height = 23
+      TabOrder = 22
+    end
+    object edtCodigoItem: TEdit
+      Left = 393
+      Top = 417
+      Width = 55
+      Height = 23
+      TabOrder = 23
     end
   end
   object pnl3: TPanel

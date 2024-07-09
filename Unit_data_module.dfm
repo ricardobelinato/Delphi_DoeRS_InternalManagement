@@ -158,4 +158,12 @@ object DataModule3: TDataModule3
     Left = 584
     Top = 296
   end
+  object FDQuery_CmbNomeInstituicao: TFDQuery
+    Active = True
+    Connection = FD_Connection
+    SQL.Strings = (
+      'SELECT nome_instituicao FROM instituicao;')
+    Left = 584
+    Top = 384
+  end
 end
