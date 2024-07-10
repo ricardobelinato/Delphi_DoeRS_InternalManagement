@@ -222,23 +222,23 @@ begin
   Unit_data_module.DataModule3.FDQuery_CmbNomeInstituicao.Close;
 
   //Oculta alguns labels e campos na tela, usados somente para extrair valores para o insert / Hides some labels and fields on the screen, used only to extract values for the insert
-  lblCodigoEstado.Visible := False;
-  lblCodigoCidade.Visible := False;
-  lblCodigoTipoItem.Visible := False;
-  lblCodigoInstituicao.Visible := False;
-  lblCodigoItem.Visible := False;
+  lblCodigoEstado.Visible := True;
+  lblCodigoCidade.Visible := True;
+  lblCodigoTipoItem.Visible := True;
+  lblCodigoInstituicao.Visible := True;
+  lblCodigoItem.Visible := True;
 
-  edtCodigoEstado.Visible := False;
-  edtCodigoCidade.Visible := False;
-  edtCodigoTipoItem.Visible := False;
-  edtCodigoInstituicao.Visible := False;
-  edtCodigoItem.Visible := False;
+  edtCodigoEstado.Visible := True;
+  edtCodigoCidade.Visible := True;
+  edtCodigoTipoItem.Visible := True;
+  edtCodigoInstituicao.Visible := True;
+  edtCodigoItem.Visible := True;
 
-  edtCodigoEstado.Enabled := False;
-  edtCodigoCidade.Enabled := False;
-  edtCodigoTipoItem.Enabled := False;
-  edtCodigoInstituicao.Enabled := False;
-  edtCodigoItem.Enabled := False;
+  edtCodigoEstado.Enabled := True;
+  edtCodigoCidade.Enabled := True;
+  edtCodigoTipoItem.Enabled := True;
+  edtCodigoInstituicao.Enabled := True;
+  edtCodigoItem.Enabled := True;
 end;
 
 //Procedure do evento de clique no botão, responsável por dar o insert em todas as tabelas

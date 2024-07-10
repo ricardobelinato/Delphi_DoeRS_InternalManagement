@@ -53,8 +53,7 @@ object Form_cadastro: TForm_cadastro
     Height = 463
     Align = alLeft
     TabOrder = 1
-    ExplicitLeft = -6
-    ExplicitTop = 87
+    ExplicitHeight = 455
     object lblItemDoado: TLabel
       Left = 107
       Top = 88
@@ -203,6 +202,7 @@ object Form_cadastro: TForm_cadastro
       Align = alBottom
       BevelOuter = bvNone
       TabOrder = 19
+      ExplicitTop = 444
     end
     object pnl6: TPanel
       Left = 1
@@ -212,7 +212,7 @@ object Form_cadastro: TForm_cadastro
       Align = alLeft
       BevelOuter = bvNone
       TabOrder = 20
-      ExplicitHeight = 340
+      ExplicitHeight = 371
     end
     object pnl8: TPanel
       Left = 1

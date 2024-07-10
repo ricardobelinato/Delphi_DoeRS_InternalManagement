@@ -9,6 +9,7 @@ object DataModule3: TDataModule3
       'Server=127.0.0.1'
       'DriverID=MySQL')
     Connected = True
+    LoginPrompt = False
     Left = 104
     Top = 32
   end
